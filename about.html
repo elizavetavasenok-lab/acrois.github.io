@@ -328,7 +328,27 @@
             margin-bottom: 20px;
             display: block;
         }
-        
+        .status-title {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    line-height: 1.1;
+    font-weight: 400;
+    color: var(--color-white);
+    margin-bottom: 5px;
+}
+
+.status-gold {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    line-height: 1.2;
+    font-weight: 500;
+    color: var(--color-gold);
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    margin-top: 5px;
+}
         .about-hero h1 {
             font-family: var(--font-heading);
             font-size: clamp(3rem, 8vw, 6rem);
@@ -827,13 +847,11 @@
             </div>
 
             <!-- Информационная секция 1 -->
-          <div class="info-section">
+         <div class="info-section">
     <div class="info-left">
         <span class="label">Статус</span>
-        <h2 class="elegant-title">
-            <span class="title-line">Генеральный подрядчик</span>
-            <span class="title-line gold">3-го класса сложности</span>
-        </h2>
+        <h2 class="status-title">Генеральный подрядчик</h2>
+        <div class="status-gold">3-го класса сложности</div>
     </div>
     <div class="info-right">
         <p>Мы работаем в сегменте промышленного и гражданского строительства с <b>2013 года</b>. Компания имеет аттестат соответствия <b>3-го класса сложности</b>, специализируясь на возведении производственных зданий, складов и административных объектов.</p>
