@@ -150,22 +150,24 @@
             display: flex;
             align-items: center;
         }
+
         .elegant-title {
-    font-family: var(--font-heading);
-    font-size: 2.8rem;
-    line-height: 1.2;
-    font-weight: 400;
-}
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            line-height: 1.2;
+            font-weight: 400;
+        }
 
-.elegant-title .title-line {
-    display: block;
-}
+        .elegant-title .title-line {
+            display: block;
+        }
 
-.elegant-title .title-line.gold {
-    color: var(--color-gold);
-    font-weight: 500;
-    margin-top: 5px;
-}
+        .elegant-title .title-line.gold {
+            color: var(--color-gold);
+            font-weight: 500;
+            margin-top: 5px;
+        }
+        
         .logo-image {
             width: 100%;
             height: 100%;
@@ -329,26 +331,27 @@
             display: block;
         }
         .status-title {
-    font-family: var(--font-heading);
-    font-size: 2.8rem;
-    line-height: 1.1;
-    font-weight: 400;
-    color: var(--color-white);
-    margin-bottom: 5px;
-}
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            line-height: 1.1;
+            font-weight: 400;
+            color: var(--color-white);
+            margin-bottom: 5px;
+        }
 
-.status-gold {
-    font-family: var(--font-heading);
-    font-size: 2.4rem;
-    line-height: 1.2;
-    font-weight: 500;
-    color: var(--color-gold);
-    background: var(--gradient-text);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    margin-top: 5px;
-}
+        .status-gold {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            line-height: 1.2;
+            font-weight: 500;
+            color: var(--color-gold);
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        
         .about-hero h1 {
             font-family: var(--font-heading);
             font-size: clamp(3rem, 8vw, 6rem);
@@ -810,14 +813,15 @@
                 <i class="fas fa-bars"></i>
             </button>
             
-           <ul class="menu-primary">
-    <li class="menu-item"><a href="about.html" class="menu-link" style="color: var(--color-gold);">О компании</a></li>
-    <li class="menu-item"><a href="services.html" class="menu-link">Услуги</a></li>
-    <li class="menu-item"><a href="projects.html" class="menu-link">Проекты</a></li>
-    <li class="menu-item"><a href="rent.html" class="menu-link">Аренда техники</a></li>
-    <li class="menu-item"><a href="career.html" class="menu-link">Карьера</a></li>
-    <li class="menu-item"><a href="contact.html" class="menu-link">Контакты</a></li>
-</ul>
+            <div class="main-navigation" id="mainNavigation">
+                <ul class="menu-primary">
+                    <li class="menu-item"><a href="about.html" class="menu-link" style="color: var(--color-gold);">О компании</a></li>
+                    <li class="menu-item"><a href="services.html" class="menu-link">Услуги</a></li>
+                    <li class="menu-item"><a href="projects.html" class="menu-link">Проекты</a></li>
+                    <li class="menu-item"><a href="rent.html" class="menu-link">Аренда техники</a></li>
+                    <li class="menu-item"><a href="career.html" class="menu-link">Карьера</a></li>
+                    <li class="menu-item"><a href="contact.html" class="menu-link">Контакты</a></li>
+                </ul>
                 
                 <div class="header-contact-info">
                     <a href="tel:+375293459345" class="contact-phone">
@@ -847,17 +851,17 @@
             </div>
 
             <!-- Информационная секция 1 -->
-         <div class="info-section">
-    <div class="info-left">
-        <span class="label">Статус</span>
-        <h2 class="status-title">Генеральный подрядчик</h2>
-        <div class="status-gold">3-го класса сложности</div>
-    </div>
-    <div class="info-right">
-        <p>Мы работаем в сегменте промышленного и гражданского строительства с <b>2013 года</b>. Компания имеет аттестат соответствия <b>3-го класса сложности</b>, специализируясь на возведении производственных зданий, складов и административных объектов.</p>
-        <p>Территория деятельности — Минск и Минская область. Мы обеспечиваем полный цикл работ: от монолитного каркаса до сдачи объекта в эксплуатацию.</p>
-    </div>
-</div>
+            <div class="info-section">
+                <div class="info-left">
+                    <span class="label">Статус</span>
+                    <h2 class="status-title">Генеральный подрядчик</h2>
+                    <div class="status-gold">3-го класса сложности</div>
+                </div>
+                <div class="info-right">
+                    <p>Мы работаем в сегменте промышленного и гражданского строительства с <b>2013 года</b>. Компания имеет аттестат соответствия <b>3-го класса сложности</b>, специализируясь на возведении производственных зданий, складов и административных объектов.</p>
+                    <p>Территория деятельности — Минск и Минская область. Мы обеспечиваем полный цикл работ: от монолитного каркаса до сдачи объекта в эксплуатацию.</p>
+                </div>
+            </div>
 
             <!-- Информационная секция 2 -->
             <div class="info-section">
@@ -886,115 +890,113 @@
                     </div>
                 </div>
                 
-               <div class="slider-wrapper" id="slider">
-    <!-- Отзыв 1 -->
-    <div class="doc-card">
-        <img src="images/letter1.png" class="doc-img">
-        <div class="doc-footer">
-            <span class="label">Благодарственное письмо</span>
-            <h4>Отзыв</h4>
-        </div>
-    </div>
-    
-    <!-- Отзыв 2 -->
-    <div class="doc-card">
-        <img src="images/letter2.png" class="doc-img">
-        <div class="doc-footer">
-            <span class="label">Благодарственное письмо</span>
-            <h4>Отзыв</h4>
-        </div>
-    </div>
-    
-    <!-- Отзыв 3 -->
-    <div class="doc-card">
-        <img src="images/letter3.png" class="doc-img">
-        <div class="doc-footer">
-            <span class="label">Благодарственное письмо</span>
-            <h4>Отзыв</h4>
-        </div>
-    </div>
-    
-    <!-- Отзыв 4 -->
-    <div class="doc-card">
-        <img src="images/letter4.png" class="doc-img">
-        <div class="doc-footer">
-            <span class="label">Благодарственное письмо</span>
-            <h4>Отзыв</h4>
-        </div>
-    </div>
-    
-    <!-- Отзыв 5 -->
-    <div class="doc-card">
-        <img src="images/letter5.png" class="doc-img">
-        <div class="doc-footer">
-            <span class="label">Благодарственное письмо</span>
-            <h4>Отзыв</h4>
-        </div>
-    </div>
-    
-    <!-- Отзыв 6 -->
-    <div class="doc-card">
-        <img src="images/letter6.png" class="doc-img">
-        <div class="doc-footer">
-            <span class="label">Благодарственное письмо</span>
-            <h4>Отзыв</h4>
-        </div>
-    </div>
-    
-    <!-- Отзыв 7 -->
-    <div class="doc-card">
-        <img src="images/letter7.png" class="doc-img">
-        <div class="doc-footer">
-            <span class="label">Благодарственное письмо</span>
-            <h4>Отзыв</h4>
-        </div>
-    </div>
-    
-    <!-- Отзыв 8 -->
-    <div class="doc-card">
-        <img src="images/letter8.png" class="doc-img">
-        <div class="doc-footer">
-            <span class="label">Благодарственное письмо</span>
-            <h4>Отзыв</h4>
-        </div>
-    </div>
-    
-    <!-- Отзыв 9 -->
-    <div class="doc-card">
-        <img src="images/letter9.png" class="doc-img">
-        <div class="doc-footer">
-            <span class="label">Благодарственное письмо</span>
-            <h4>Отзыв</h4>
-        </div>
-    </div>
-    
-    <!-- Отзыв 10 -->
-    <div class="doc-card">
-        <img src="images/letter10.png" class="doc-img">
-        <div class="doc-footer">
-            <span class="label">Благодарственное письмо</span>
-            <h4>Отзыв</h4>
-        </div>
-    </div>
-    
-    <!-- Отзыв 11 -->
-    <div class="doc-card">
-        <img src="images/letter11.png" class="doc-img">
-        <div class="doc-footer">
-            <span class="label">Благодарственное письмо</span>
-            <h4>Отзыв</h4>
-        </div>
-    </div>
-    
-    <!-- Отзыв 12 -->
-    <div class="doc-card">
-        <img src="images/letter12.png" class="doc-img">
-        <div class="doc-footer">
-            <span class="label">Благодарственное письмо</span>
-            <h4>Отзыв</h4>
-        </div>
-    </div>
-</div>
+                <div class="slider-wrapper" id="slider">
+                    <!-- Отзыв 1 -->
+                    <div class="doc-card">
+                        <img src="images/letter1.png" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Благодарственное письмо</span>
+                            <h4>Отзыв 1</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Отзыв 2 -->
+                    <div class="doc-card">
+                        <img src="images/letter2.png" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Благодарственное письмо</span>
+                            <h4>Отзыв 2</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Отзыв 3 -->
+                    <div class="doc-card">
+                        <img src="images/letter3.png" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Благодарственное письмо</span>
+                            <h4>Отзыв 3</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Отзыв 4 -->
+                    <div class="doc-card">
+                        <img src="images/letter4.png" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Благодарственное письмо</span>
+                            <h4>Отзыв 4</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Отзыв 5 -->
+                    <div class="doc-card">
+                        <img src="images/letter5.png" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Благодарственное письмо</span>
+                            <h4>Отзыв 5</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Отзыв 6 -->
+                    <div class="doc-card">
+                        <img src="images/letter6.png" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Благодарственное письмо</span>
+                            <h4>Отзыв 6</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Отзыв 7 -->
+                    <div class="doc-card">
+                        <img src="images/letter7.png" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Благодарственное письмо</span>
+                            <h4>Отзыв 7</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Отзыв 8 -->
+                    <div class="doc-card">
+                        <img src="images/letter8.png" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Благодарственное письмо</span>
+                            <h4>Отзыв 8</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Отзыв 9 -->
+                    <div class="doc-card">
+                        <img src="images/letter9.png" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Благодарственное письмо</span>
+                            <h4>Отзыв 9</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Отзыв 10 -->
+                    <div class="doc-card">
+                        <img src="images/letter10.png" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Благодарственное письмо</span>
+                            <h4>Отзыв 10</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Отзыв 11 -->
+                    <div class="doc-card">
+                        <img src="images/letter11.png" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Благодарственное письмо</span>
+                            <h4>Отзыв 11</h4>
+                        </div>
+                    </div>
+                    
+                    <!-- Отзыв 12 -->
+                    <div class="doc-card">
+                        <img src="images/letter12.png" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Благодарственное письмо</span>
+                            <h4>Отзыв 12</h4>
+                        </div>
                     </div>
                 </div>
             </div>
