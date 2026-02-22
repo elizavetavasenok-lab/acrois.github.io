@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О компании | ООО "Акроис"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-black: #050505;
+            --color-gold: #C9A96E;
+            --color-white: #F5F5F5;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Manrope', sans-serif;
+            --transition: all 0.4s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--color-black);
+            color: var(--color-white);
+            font-family: var(--font-body);
+            font-size: 20px;
+            line-height: 1.6;
+            letter-spacing: -0.01em;
+        }
+
+        /* ХЕДЕР */
+        .acrois-header {
+            position: fixed; top: 0; left: 0; width: 100%; height: 80px; z-index: 1000;
+            background: rgba(5, 5, 5, 0.98);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+        }
+        .header-container {
+            display: flex; align-items: center; justify-content: space-between;
+            max-width: 1600px; margin: 0 auto; padding: 0 40px; height: 100%;
+        }
+        .menu-link {
+            color: var(--color-white); text-decoration: none; font-size: 14px;
+            letter-spacing: 2px; font-weight: 500;
+        }
+
+        /* ОСНОВНОЙ БЛОК */
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+
+        .hero-title {
+            padding-top: 180px;
+            padding-bottom: 100px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            line-height: 1;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        /* СЕТКА КОНТЕНТА */
+        .info-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            padding: 100px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            line-height: 1.1;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .content-text p {
+            margin-bottom: 30px;
+            opacity: 0.7;
+            font-weight: 300;
+        }
+
+        .content-text b {
+            color: var(--color-white);
+            font-weight: 500;
+        }
+
+        /* БЛОК ОТЗЫВОВ */
+        .docs-section {
+            padding: 120px 0;
+            background: #080808;
+        }
+
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding-bottom: 30px;
+        }
+        .slider-wrapper::-webkit-scrollbar { display: none; }
+
+        .doc-card {
+            flex: 0 0 420px;
+            height: 580px;
+            background: #111;
+            position: relative;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+        }
+
+        .doc-card:hover {
+            border-color: var(--color-gold);
+            transform: translateY(-10px);
+        }
+
+        .doc-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            transition: var(--transition);
+        }
+
+        .doc-card:hover .doc-img { opacity: 0.8; }
+
+        .doc-footer {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+        }
+
+        .doc-footer h4 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 400;
+        }
+
+        .nav-controls { display: flex; gap: 10px; }
+        .btn-nav {
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: none;
+            color: var(--color-white);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn-nav:hover { border-color: var(--color-gold); color: var(--color-gold); }
+
+        footer {
+            padding: 60px 0;
+            opacity: 0.3;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        @media (max-width: 968px) {
+            .info-section { grid-template-columns: 1fr; gap: 50px; }
+            .doc-card { flex: 0 0 300px; height: 420px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="acrois-header">
+        <div class="header-container">
+            <div style="font-family: var(--font-heading); font-size: 1.8rem; letter-spacing: 1px;">АКРОИС</div>
+            <nav>
+                <a href="#" class="menu-link" style="margin-right: 30px;">ГЛАВНАЯ</a>
+                <a href="#" class="menu-link" style="color: var(--color-gold);">О КОМПАНИИ</a>
+                <a href="#" class="menu-link" style="margin-left: 30px;">ПРОЕКТЫ</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero-title">
+            <span class="label">О компании</span>
+            <h1>ООО «АКРОИС»</h1>
+        </div>
+
+        <section class="info-section">
+            <div>
+                <span class="label">Статус</span>
+                <h2>Генеральный подрядчик</h2>
+            </div>
+            <div class="content-text">
+                <p>Мы работаем в сегменте промышленного и гражданского строительства с <b>2013 года</b>. Компания имеет аттестат соответствия <b>3-го класса сложности</b>, специализируясь на возведении производственных зданий, складов и административных объектов.</p>
+                <p>Территория деятельности — Минск и Минская область. Мы обеспечиваем полный цикл работ: от монолитного каркаса до сдачи объекта в эксплуатацию.</p>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div>
+                <span class="label">Ресурсы</span>
+                <h2>Инженерный потенциал</h2>
+            </div>
+            <div class="content-text">
+                <p>Основу компании составляют более <b>40 штатных специалистов</b>. Стабильность ИТР и рабочих бригад позволяет нам гарантировать соблюдение технологических регламентов и графиков производства работ.</p>
+                <p>Наша цель — качественное выполнение обязательств, результатом которого становится долгосрочное партнерство с каждым заказчиком.</p>
+            </div>
+        </section>
+    </div>
+
+    <section class="docs-section">
+        <div class="container">
+            <div class="slider-header">
+                <div>
+                    <span class="label">Репутация</span>
+                    <h2>Благодарственные письма</h2>
+                </div>
+                <div class="nav-controls">
+                    <button class="btn-nav" onclick="document.getElementById('s').scrollLeft -= 440"><i class="fas fa-chevron-left"></i></button>
+                    <button class="btn-nav" onclick="document.getElementById('s').scrollLeft += 440"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="slider-wrapper" id="s">
+                <div class="doc-card">
+                    <img src="doc1.jpg" class="doc-img">
+                    <div class="doc-footer">
+                        <span class="label">Заказчик</span>
+                        <h4>Luxvisage</h4>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <img src="doc2.jpg" class="doc-img">
+                    <div class="doc-footer">
+                        <span class="label">Заказчик</span>
+                        <h4>Jenty</h4>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <img src="doc3.jpg" class="doc-img">
+                    <div class="doc-footer">
+                        <span class="label">Заказчик</span>
+                        <h4>Радио Юнистар</h4>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <img src="doc4.jpg" class="doc-img">
+                    <div class="doc-footer">
+                        <span class="label">Заказчик</span>
+                        <h4>ProLiV</h4>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <img src="doc5.jpg" class="doc-img">
+                    <div class="doc-footer">
+                        <span class="label">Заказчик</span>
+                        <h4>Авторанчо</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 ООО «АКРОИС». ВСЕ ПРАВА ЗАЩИЩЕНЫ.</p>
+    </footer>
+
+</body>
+</html>
