@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О компании | ООО "Акроис"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-black: #050505;
+            --color-dark: #0F0F0F;
+            --color-dark-gray: #1A1A1A;
+            --color-gray: #2D2D2D;
+            --color-light-gray: #3A3A3A;
+            --color-gold: #C9A96E;
+            --color-gold-light: #E6D4B1;
+            --color-gold-dark: #A6894B;
+            --color-white: #F5F5F5;
+            --color-cream: #F8F4E9;
+            
+            --gradient-gold: linear-gradient(135deg, #C9A96E 0%, #E6D4B1 50%, #A6894B 100%);
+            --gradient-dark: linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 100%);
+            --gradient-overlay: linear-gradient(to bottom, rgba(5,5,5,0.95) 0%, rgba(15,15,15,0.7) 50%, rgba(5,5,5,0.9) 100%);
+            --gradient-text: linear-gradient(90deg, #C9A96E 0%, #E6D4B1 100%);
+            
+            --shadow-gold: 0 10px 40px rgba(201, 169, 110, 0.3);
+            --shadow-gold-heavy: 0 20px 60px rgba(201, 169, 110, 0.5);
+            --shadow-dark: 0 20px 60px rgba(0, 0, 0, 0.5);
+            --shadow-premium: 0 30px 80px rgba(201, 169, 110, 0.3), 0 0 100px rgba(201, 169, 110, 0.1);
+            
+            --border-radius-sm: 2px;
+            --border-radius: 4px;
+            --border-radius-lg: 8px;
+            --border-radius-xl: 12px;
+            
+            --transition-slow: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+            --transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Manrope', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            font-weight: 300;
+            background-color: var(--color-black);
+            color: var(--color-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* ========== HEADER SECTION ========== */
+        .acrois-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+            box-shadow: var(--shadow-dark);
+            transition: var(--transition);
+            padding: 0;
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 100%;
+        }
+        
+        .main-navigation {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            height: 100%;
+            flex: 1;
+            justify-content: flex-end;
+        }
+        
+        .menu-primary {
+            display: flex;
+            list-style: none;
+            gap: 12px;
+            height: 100%;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .menu-item {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .menu-link {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 15px;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 12px;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        
+        .menu-link::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+            transition: var(--transition);
+        }
+        
+        .menu-link:hover {
+            color: var(--color-gold);
+        }
+        
+        .menu-link:hover::before {
+            width: 100%;
+        }
+        
+        .logo-image-container {
+            width: 200px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .header-contact-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 10px;
+            padding-left: 10px;
+            border-left: 1px solid rgba(201, 169, 110, 0.2);
+            height: 30px;
+            flex-shrink: 0;
+        }
+        
+        .contact-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        
+        .phone-icon {
+            width: 30px;
+            height: 30px;
+            background: rgba(201, 169, 110, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+            font-size: 13px;
+            transition: var(--transition);
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .phone-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 169, 110, 0.3);
+            animation: pulse-ring 2s infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+        
+        .phone-number {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--color-gold);
+            transition: var(--transition);
+        }
+        
+        .contact-phone:hover .phone-icon {
+            background: var(--gradient-gold);
+            color: var(--color-black);
+            transform: scale(1.15);
+        }
+        
+        .header-cta-button {
+            margin-left: 10px;
+            flex-shrink: 0;
+        }
+        
+        .btn-acrois, .btn-hero {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            gap: 8px;
+            transform: translateY(0);
+            min-height: 40px;
+            line-height: 1;
+            background: var(--gradient-gold);
+            color: var(--color-black);
+            box-shadow: var(--shadow-gold);
+        }
+        
+        .btn-acrois:hover, .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-premium);
+            color: var(--color-black);
+            background: var(--gradient-gold);
+            filter: brightness(1.1);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--color-gold);
+            font-size: 22px;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+        
+        .mobile-menu-toggle:hover {
+            border-color: var(--color-gold);
+            background: rgba(201, 169, 110, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* ========== ABOUT PAGE ========== */
+        .page-about {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            min-height: 100vh;
+            position: relative;
+            background: linear-gradient(135deg, rgba(5,5,5,0.97) 0%, rgba(15,15,15,0.95) 100%);
+        }
+        
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero секция */
+        .about-hero {
+            padding: 60px 0 80px;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+        }
+        
+        .about-hero .label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .about-hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+        
+        .about-hero h1 .gold-gradient {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        /* Информационные секции */
+        .info-section {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+        }
+        
+        .info-section:last-of-type {
+            border-bottom: none;
+        }
+        
+        .info-left .label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .info-left h2 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            line-height: 1.1;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        
+        .info-left h2 .gold-text {
+            color: var(--color-gold);
+        }
+        
+        .info-right p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        
+        .info-right b {
+            color: var(--color-gold-light);
+            font-weight: 500;
+        }
+        
+        /* Блок с благодарственными письмами */
+        .docs-section {
+            padding: 100px 0;
+            background: rgba(5, 5, 5, 0.5);
+            border-top: 1px solid rgba(201, 169, 110, 0.15);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+            margin-top: 40px;
+        }
+        
+        .docs-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+        }
+        
+        .docs-header .label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .docs-header h2 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 400;
+        }
+        
+        .slider-wrapper {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding-bottom: 20px;
+        }
+        
+        .slider-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .doc-card {
+            flex: 0 0 380px;
+            height: 520px;
+            background: rgba(15, 15, 15, 0.9);
+            border: 1px solid rgba(201, 169, 110, 0.15);
+            border-radius: var(--border-radius-xl);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+        }
+        
+        .doc-card:hover {
+            border-color: rgba(201, 169, 110, 0.4);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-premium);
+            background: rgba(20, 20, 20, 0.95);
+        }
+        
+        .doc-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            transition: var(--transition);
+            filter: grayscale(30%);
+        }
+        
+        .doc-card:hover .doc-img {
+            opacity: 0.9;
+            filter: grayscale(0%);
+        }
+        
+        .doc-footer {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            background: rgba(5, 5, 5, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 20px 25px;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+        }
+        
+        .doc-footer .label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            color: var(--color-gold-light);
+        }
+        
+        .doc-footer h4 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--color-white);
+        }
+        
+        .nav-controls {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-nav {
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            background: rgba(5, 5, 5, 0.5);
+            color: var(--color-gold);
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: 50%;
+            font-size: 20px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .btn-nav:hover {
+            border-color: var(--color-gold);
+            background: rgba(201, 169, 110, 0.1);
+            transform: scale(1.1);
+        }
+        
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(5, 5, 5, 0.9);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: var(--gradient-dark);
+            padding: 45px;
+            border-radius: var(--border-radius-xl);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: var(--shadow-premium);
+            animation: slideUp 0.4s ease;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--color-gold);
+            font-size: 24px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .modal-close:hover {
+            transform: rotate(90deg);
+            color: var(--color-gold-light);
+        }
+        
+        .modal-content input,
+        .modal-content textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(201, 169, 110, 0.1);
+            border: 1px solid rgba(201, 169, 110, 0.3);
+            border-radius: 4px;
+            color: var(--color-white);
+            font-size: 1rem;
+            font-family: var(--font-body);
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 1200px) {
+            .info-section {
+                grid-template-columns: 1fr 1.2fr;
+                gap: 60px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .info-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about-hero h1 {
+                font-size: 4rem;
+            }
+            
+            .info-left h2 {
+                font-size: 2.4rem;
+            }
+            
+            .docs-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 30px;
+            }
+            
+            .doc-card {
+                flex: 0 0 320px;
+                height: 440px;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .main-navigation {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(5, 5, 5, 0.98);
+                backdrop-filter: blur(30px);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 30px 20px;
+                transition: var(--transition-slow);
+                overflow-y: auto;
+                gap: 0;
+            }
+            
+            .main-navigation.active {
+                left: 0;
+            }
+            
+            .menu-primary {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+            }
+            
+            .menu-item {
+                height: auto;
+                width: 100%;
+            }
+            
+            .menu-link {
+                display: block;
+                padding: 18px 0;
+                font-size: 16px;
+                border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+                width: 100%;
+            }
+            
+            .header-contact-info {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                margin: 25px 0;
+                padding: 20px 0;
+                border-left: none;
+                border-top: 1px solid rgba(201, 169, 110, 0.1);
+                width: 100%;
+                height: auto;
+            }
+            
+            .header-cta-button {
+                margin: 0;
+                width: 100%;
+            }
+            
+            .btn-acrois {
+                width: 100%;
+                justify-content: center;
+                min-height: 48px;
+                font-size: 14px;
+                padding: 14px 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-about {
+                padding-top: 100px;
+            }
+            
+            .about-hero {
+                padding: 40px 0 60px;
+            }
+            
+            .about-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .info-section {
+                padding: 60px 0;
+            }
+            
+            .info-left h2 {
+                font-size: 2rem;
+            }
+            
+            .info-right p {
+                font-size: 1.1rem;
+            }
+            
+            .docs-section {
+                padding: 70px 0;
+            }
+            
+            .docs-header h2 {
+                font-size: 2.4rem;
+            }
+            
+            .doc-card {
+                flex: 0 0 280px;
+                height: 380px;
+            }
+            
+            .doc-footer {
+                left: 20px;
+                right: 20px;
+                padding: 15px 20px;
+            }
+            
+            .doc-footer h4 {
+                font-size: 1.4rem;
+            }
+            
+            .btn-nav {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .info-left h2 {
+                font-size: 1.8rem;
+            }
+            
+            .info-right p {
+                font-size: 1rem;
+            }
+            
+            .docs-header h2 {
+                font-size: 2rem;
+            }
+            
+            .doc-card {
+                flex: 0 0 240px;
+                height: 340px;
+            }
+            
+            .doc-footer h4 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== HEADER ========== -->
+    <header class="acrois-header" id="acroisHeader">
+        <div class="header-container">
+            <a href="index.html" class="logo-acrois">
+                <div class="logo-image-container">
+                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/Aкроис-logo-final.pdf-e1769983083185.png" alt="АКРОИС" class="logo-image">
+                </div>
+            </a>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="main-navigation" id="mainNavigation">
+                <ul class="menu-primary">
+                    <li class="menu-item"><a href="index.html" class="menu-link">Главная</a></li>
+                    <li class="menu-item"><a href="about.html" class="menu-link" style="color: var(--color-gold);">О компании</a></li>
+                    <li class="menu-item"><a href="services.html" class="menu-link">Услуги</a></li>
+                    <li class="menu-item"><a href="projects.html" class="menu-link">Проекты</a></li>
+                    <li class="menu-item"><a href="rent.html" class="menu-link">Аренда техники</a></li>
+                    <li class="menu-item"><a href="career.html" class="menu-link">Карьера</a></li>
+                    <li class="menu-item"><a href="contact.html" class="menu-link">Контакты</a></li>
+                </ul>
+                
+                <div class="header-contact-info">
+                    <a href="tel:+375293459345" class="contact-phone">
+                        <div class="phone-icon"><i class="fas fa-phone"></i></div>
+                        <div class="phone-number">+375 (29) 345-93-45</div>
+                    </a>
+                </div>
+                
+                <div class="header-cta-button">
+                    <a href="#" class="btn-acrois" id="openModal">
+                        <i class="fas fa-paper-plane"></i> Оставить заявку
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== ABOUT PAGE ========== -->
+    <section class="page-about">
+        <div class="about-container">
+            <!-- Hero секция -->
+            <div class="about-hero">
+                <span class="label">О компании</span>
+                <h1>
+                    <span class="gold-gradient">ООО «АКРОИС»</span>
+                </h1>
+            </div>
+
+            <!-- Информационная секция 1 -->
+            <div class="info-section">
+                <div class="info-left">
+                    <span class="label">Статус</span>
+                    <h2>Генеральный подрядчик <span class="gold-text">3-го класса сложности</span></h2>
+                </div>
+                <div class="info-right">
+                    <p>Мы работаем в сегменте промышленного и гражданского строительства с <b>2013 года</b>. Компания имеет аттестат соответствия <b>3-го класса сложности</b>, специализируясь на возведении производственных зданий, складов и административных объектов.</p>
+                    <p>Территория деятельности — Минск и Минская область. Мы обеспечиваем полный цикл работ: от монолитного каркаса до сдачи объекта в эксплуатацию.</p>
+                </div>
+            </div>
+
+            <!-- Информационная секция 2 -->
+            <div class="info-section">
+                <div class="info-left">
+                    <span class="label">Ресурсы</span>
+                    <h2>Инженерный <span class="gold-text">потенциал</span></h2>
+                </div>
+                <div class="info-right">
+                    <p>Основу компании составляют более <b>40 штатных специалистов</b>. Стабильность ИТР и рабочих бригад позволяет нам гарантировать соблюдение технологических регламентов и графиков производства работ.</p>
+                    <p>Наша цель — качественное выполнение обязательств, результатом которого становится долгосрочное партнерство с каждым заказчиком.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок с благодарственными письмами -->
+        <div class="docs-section">
+            <div class="about-container">
+                <div class="docs-header">
+                    <div>
+                        <span class="label">Репутация</span>
+                        <h2>Благодарственные письма</h2>
+                    </div>
+                    <div class="nav-controls">
+                        <button class="btn-nav" onclick="document.getElementById('slider').scrollLeft -= 410"><i class="fas fa-chevron-left"></i></button>
+                        <button class="btn-nav" onclick="document.getElementById('slider').scrollLeft += 410"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                
+                <div class="slider-wrapper" id="slider">
+                    <div class="doc-card">
+                        <img src="https://via.placeholder.com/800x600/1A1A1A/C9A96E?text=Благодарственное+письмо+1" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Заказчик</span>
+                            <h4>Luxvisage</h4>
+                        </div>
+                    </div>
+                    <div class="doc-card">
+                        <img src="https://via.placeholder.com/800x600/1A1A1A/C9A96E?text=Благодарственное+письмо+2" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Заказчик</span>
+                            <h4>Jenty</h4>
+                        </div>
+                    </div>
+                    <div class="doc-card">
+                        <img src="https://via.placeholder.com/800x600/1A1A1A/C9A96E?text=Благодарственное+письмо+3" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Заказчик</span>
+                            <h4>Радио Юнистар</h4>
+                        </div>
+                    </div>
+                    <div class="doc-card">
+                        <img src="https://via.placeholder.com/800x600/1A1A1A/C9A96E?text=Благодарственное+письмо+4" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Заказчик</span>
+                            <h4>ProLiV</h4>
+                        </div>
+                    </div>
+                    <div class="doc-card">
+                        <img src="https://via.placeholder.com/800x600/1A1A1A/C9A96E?text=Благодарственное+письмо+5" class="doc-img">
+                        <div class="doc-footer">
+                            <span class="label">Заказчик</span>
+                            <h4>Авторанчо</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="requestModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
+            <h2 style="margin-bottom: 25px; font-family: var(--font-heading); font-size: 2rem;">Оставить заявку</h2>
+            <form id="requestForm">
+                <div style="margin-bottom: 15px;">
+                    <input type="text" placeholder="Ваше имя" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="email" placeholder="Ваш email" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <input type="tel" placeholder="Ваш телефон" required>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <textarea placeholder="Описание проекта" style="min-height: 100px; resize: vertical;"></textarea>
+                </div>
+                <button type="submit" class="btn-acrois" style="width: 100%;">
+                    <i class="fas fa-send"></i> Отправить заявку
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            'use strict';
+            
+            // Header scroll effect
+            const acroisHeader = document.getElementById('acroisHeader');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    acroisHeader.classList.add('scrolled');
+                } else {
+                    acroisHeader.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mainNavigation = document.getElementById('mainNavigation');
+            
+            mobileMenuToggle.addEventListener('click', function() {
+                mainNavigation.classList.toggle('active');
+                mobileMenuToggle.innerHTML = mainNavigation.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = mainNavigation.classList.contains('active') ? 'hidden' : '';
+            });
+
+            // Close menu on link click
+            document.querySelectorAll('.menu-link').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    mainNavigation.classList.remove('active');
+                    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Modal
+            const requestModal = document.getElementById('requestModal');
+            const openModalBtn = document.getElementById('openModal');
+            const closeModalBtn = document.getElementById('closeModal');
+            const requestForm = document.getElementById('requestForm');
+
+            function openModal() {
+                requestModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                requestModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            if (openModalBtn) {
+                openModalBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openModal();
+                });
+            }
+
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('click', closeModal);
+            }
+            
+            requestModal.addEventListener('click', function(e) {
+                if (e.target === requestModal) closeModal();
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeModal();
+            });
+
+            if (requestForm) {
+                requestForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Благодарим за заявку! Мы свяжемся с вами в ближайшее время.');
+                    closeModal();
+                    requestForm.reset();
+                });
+            }
+
+            // Анимация появления при скролле
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll('.info-section, .docs-header, .doc-card').forEach(el => {
+                observer.observe(el);
+            });
+        })();
+    </script>
+</body>
+</html>
