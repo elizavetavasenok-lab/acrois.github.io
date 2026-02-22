@@ -150,7 +150,22 @@
             display: flex;
             align-items: center;
         }
-        
+        .elegant-title {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.elegant-title .title-line {
+    display: block;
+}
+
+.elegant-title .title-line.gold {
+    color: var(--color-gold);
+    font-weight: 500;
+    margin-top: 5px;
+}
         .logo-image {
             width: 100%;
             height: 100%;
@@ -812,16 +827,19 @@
             </div>
 
             <!-- Информационная секция 1 -->
-            <div class="info-section">
-                <div class="info-left">
-                    <span class="label">Статус</span>
-                    <h2>Генеральный подрядчик <span class="gold-text">3-го класса сложности</span></h2>
-                </div>
-                <div class="info-right">
-                    <p>Мы работаем в сегменте промышленного и гражданского строительства с <b>2013 года</b>. Компания имеет аттестат соответствия <b>3-го класса сложности</b>, специализируясь на возведении производственных зданий, складов и административных объектов.</p>
-                    <p>Территория деятельности — Минск и Минская область. Мы обеспечиваем полный цикл работ: от монолитного каркаса до сдачи объекта в эксплуатацию.</p>
-                </div>
-            </div>
+          <div class="info-section">
+    <div class="info-left">
+        <span class="label">Статус</span>
+        <h2 class="elegant-title">
+            <span class="title-line">Генеральный подрядчик</span>
+            <span class="title-line gold">3-го класса сложности</span>
+        </h2>
+    </div>
+    <div class="info-right">
+        <p>Мы работаем в сегменте промышленного и гражданского строительства с <b>2013 года</b>. Компания имеет аттестат соответствия <b>3-го класса сложности</b>, специализируясь на возведении производственных зданий, складов и административных объектов.</p>
+        <p>Территория деятельности — Минск и Минская область. Мы обеспечиваем полный цикл работ: от монолитного каркаса до сдачи объекта в эксплуатацию.</p>
+    </div>
+</div>
 
             <!-- Информационная секция 2 -->
             <div class="info-section">
