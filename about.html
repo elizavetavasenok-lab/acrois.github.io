@@ -39,6 +39,15 @@
             
             --font-heading: 'Cormorant Garamond', serif;
             --font-body: 'Manrope', sans-serif;
+            
+            /* Единые размеры шрифтов */
+            --fs-h1: 4rem;
+            --fs-h1-gold: 4.5rem;
+            --fs-h2: 2.4rem;
+            --fs-h3: 1.8rem;
+            --fs-body: 1rem;
+            --fs-body-large: 1.2rem;
+            --fs-small: 0.85rem;
         }
         
         * {
@@ -57,8 +66,9 @@
             font-weight: 300;
             background-color: var(--color-black);
             color: var(--color-white);
-            line-height: 1.7;
+            line-height: 1.6;
             overflow-x: hidden;
+            font-size: var(--fs-body);
         }
         
         /* ========== HEADER SECTION ========== */
@@ -117,11 +127,11 @@
             color: var(--color-white);
             text-decoration: none;
             font-weight: 400;
-            font-size: 15px;
+            font-size: 14px;
             transition: var(--transition);
             position: relative;
-            padding: 5px 12px;
-            letter-spacing: 0.5px;
+            padding: 5px 10px;
+            letter-spacing: 0.4px;
             white-space: nowrap;
         }
         
@@ -149,23 +159,6 @@
             height: 45px;
             display: flex;
             align-items: center;
-        }
-
-        .elegant-title {
-            font-family: var(--font-heading);
-            font-size: 2.8rem;
-            line-height: 1.2;
-            font-weight: 400;
-        }
-
-        .elegant-title .title-line {
-            display: block;
-        }
-
-        .elegant-title .title-line.gold {
-            color: var(--color-gold);
-            font-weight: 500;
-            margin-top: 5px;
         }
         
         .logo-image {
@@ -227,7 +220,7 @@
         }
         
         .phone-number {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             color: var(--color-gold);
             transition: var(--transition);
@@ -248,12 +241,12 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 20px;
-            font-size: 13px;
+            padding: 10px 18px;
+            font-size: 12px;
             font-weight: 600;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             border-radius: var(--border-radius-sm);
             transition: var(--transition);
             cursor: pointer;
@@ -263,7 +256,7 @@
             white-space: nowrap;
             gap: 8px;
             transform: translateY(0);
-            min-height: 40px;
+            min-height: 38px;
             line-height: 1;
             background: var(--gradient-gold);
             color: var(--color-black);
@@ -276,6 +269,20 @@
             color: var(--color-black);
             background: var(--gradient-gold);
             filter: brightness(1.1);
+        }
+        
+        .btn-hero-secondary {
+            background: transparent;
+            color: var(--color-gold);
+            border: 2px solid var(--color-gold);
+        }
+        
+        .btn-hero-secondary:hover {
+            background: var(--gradient-gold);
+            color: var(--color-black);
+            border-color: var(--color-gold);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-premium);
         }
         
         .mobile-menu-toggle {
@@ -330,31 +337,10 @@
             margin-bottom: 20px;
             display: block;
         }
-        .status-title {
-            font-family: var(--font-heading);
-            font-size: 2.8rem;
-            line-height: 1.1;
-            font-weight: 400;
-            color: var(--color-white);
-            margin-bottom: 5px;
-        }
-
-        .status-gold {
-            font-family: var(--font-heading);
-            font-size: 2.4rem;
-            line-height: 1.2;
-            font-weight: 500;
-            color: var(--color-gold);
-            background: var(--gradient-text);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-            margin-top: 5px;
-        }
         
         .about-hero h1 {
             font-family: var(--font-heading);
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: var(--fs-h1);
             line-height: 1;
             font-weight: 400;
             text-transform: uppercase;
@@ -391,9 +377,31 @@
             display: block;
         }
         
+        .status-title {
+            font-family: var(--font-heading);
+            font-size: var(--fs-h2);
+            line-height: 1.1;
+            font-weight: 400;
+            color: var(--color-white);
+            margin-bottom: 5px;
+        }
+
+        .status-gold {
+            font-family: var(--font-heading);
+            font-size: calc(var(--fs-h2) * 0.85);
+            line-height: 1.2;
+            font-weight: 500;
+            color: var(--color-gold);
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        
         .info-left h2 {
             font-family: var(--font-heading);
-            font-size: 2.8rem;
+            font-size: var(--fs-h2);
             line-height: 1.1;
             font-weight: 400;
             margin-bottom: 30px;
@@ -404,7 +412,7 @@
         }
         
         .info-right p {
-            font-size: 1.2rem;
+            font-size: var(--fs-body-large);
             margin-bottom: 30px;
             opacity: 0.8;
             font-weight: 300;
@@ -416,7 +424,106 @@
             font-weight: 500;
         }
         
-        /* Блок с благодарственными письмами - ПОЛНОСТЬЮ ПЕРЕДЕЛАНО */
+        /* ========== БЛОК ПАРТНЕРОВ ========== */
+        .partners-section {
+            padding: 80px 0;
+            background: rgba(5, 5, 5, 0.3);
+            border-top: 1px solid rgba(201, 169, 110, 0.15);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+            margin: 40px 0;
+        }
+        
+        .partners-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .partners-header .label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .partners-header h2 {
+            font-family: var(--font-heading);
+            font-size: var(--fs-h2);
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        
+        .partners-header .title-gold {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .partner-card {
+            background: rgba(26, 26, 26, 0.5);
+            border: 1px solid rgba(201, 169, 110, 0.15);
+            border-radius: var(--border-radius-lg);
+            padding: 30px 20px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .partner-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(201, 169, 110, 0.4);
+            box-shadow: var(--shadow-premium);
+            background: rgba(26, 26, 26, 0.8);
+        }
+        
+        .partner-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition-slow);
+        }
+        
+        .partner-card:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .partner-logo {
+            max-width: 100%;
+            max-height: 60px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(201, 169, 110, 0.2));
+            transition: var(--transition);
+            opacity: 0.9;
+        }
+        
+        .partner-card:hover .partner-logo {
+            filter: none;
+            transform: scale(1.1);
+            opacity: 1;
+        }
+        
+        /* Блок с благодарственными письмами */
         .docs-section {
             padding: 100px 0;
             background: rgba(5, 5, 5, 0.5);
@@ -443,7 +550,7 @@
         
         .docs-header h2 {
             font-family: var(--font-heading);
-            font-size: 3rem;
+            font-size: var(--fs-h2);
             font-weight: 400;
         }
         
@@ -480,17 +587,15 @@
         .doc-img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Изменено с cover на contain */
+            object-fit: contain;
             object-position: center;
-            background-color: #0a0a0a; /* фон для пустых мест */
+            background-color: #0a0a0a;
             transition: var(--transition);
         }
         
         .doc-card:hover .doc-img {
             transform: scale(1.02);
         }
-        
-        /* Полностью убраны все подписи */
         
         .nav-controls {
             display: flex;
@@ -516,7 +621,7 @@
             transform: scale(1.1);
         }
         
-        /* Модальное окно */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -543,7 +648,7 @@
         
         .modal-content {
             background: var(--gradient-dark);
-            padding: 45px;
+            padding: 40px;
             border-radius: var(--border-radius-xl);
             border: 1px solid rgba(201, 169, 110, 0.2);
             max-width: 500px;
@@ -583,15 +688,25 @@
             border: 1px solid rgba(201, 169, 110, 0.3);
             border-radius: 4px;
             color: var(--color-white);
-            font-size: 1rem;
+            font-size: var(--fs-body);
             font-family: var(--font-body);
         }
         
         /* Адаптивность */
         @media (max-width: 1200px) {
+            :root {
+                --fs-h1: 3.5rem;
+                --fs-h2: 2.2rem;
+                --fs-h3: 1.7rem;
+            }
+            
             .info-section {
                 grid-template-columns: 1fr 1.2fr;
                 gap: 60px;
+            }
+            
+            .partners-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
         
@@ -602,11 +717,12 @@
             }
             
             .about-hero h1 {
-                font-size: 4rem;
+                font-size: 3rem;
             }
             
-            .info-left h2 {
-                font-size: 2.4rem;
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
             }
             
             .docs-header {
@@ -657,7 +773,7 @@
             
             .menu-link {
                 display: block;
-                padding: 18px 0;
+                padding: 15px 0;
                 font-size: 16px;
                 border-bottom: 1px solid rgba(201, 169, 110, 0.1);
                 width: 100%;
@@ -668,7 +784,7 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 15px;
-                margin: 25px 0;
+                margin: 20px 0;
                 padding: 20px 0;
                 border-left: none;
                 border-top: 1px solid rgba(201, 169, 110, 0.1);
@@ -686,11 +802,17 @@
                 justify-content: center;
                 min-height: 48px;
                 font-size: 14px;
-                padding: 14px 20px;
+                padding: 12px 20px;
             }
         }
         
         @media (max-width: 768px) {
+            :root {
+                --fs-h1: 2.8rem;
+                --fs-h2: 2rem;
+                --fs-h3: 1.6rem;
+            }
+            
             .page-about {
                 padding-top: 100px;
             }
@@ -699,28 +821,24 @@
                 padding: 40px 0 60px;
             }
             
-            .about-hero h1 {
-                font-size: 3rem;
-            }
-            
             .info-section {
                 padding: 60px 0;
             }
             
-            .info-left h2 {
-                font-size: 2rem;
+            .info-right p {
+                font-size: 1rem;
             }
             
-            .info-right p {
-                font-size: 1.1rem;
+            .partners-section {
+                padding: 60px 0;
+            }
+            
+            .partners-header {
+                margin-bottom: 40px;
             }
             
             .docs-section {
                 padding: 70px 0;
-            }
-            
-            .docs-header h2 {
-                font-size: 2.4rem;
             }
             
             .doc-card {
@@ -732,23 +850,30 @@
                 width: 50px;
                 height: 50px;
             }
+            
+            .partner-card {
+                height: 100px;
+                padding: 20px;
+            }
+            
+            .partner-logo {
+                max-height: 50px;
+            }
         }
         
         @media (max-width: 576px) {
-            .about-hero h1 {
-                font-size: 2.5rem;
+            :root {
+                --fs-h1: 2.5rem;
+                --fs-h2: 1.8rem;
+                --fs-h3: 1.5rem;
             }
             
-            .info-left h2 {
-                font-size: 1.8rem;
+            .partners-grid {
+                grid-template-columns: 1fr;
             }
             
-            .info-right p {
-                font-size: 1rem;
-            }
-            
-            .docs-header h2 {
-                font-size: 2rem;
+            .partner-card {
+                height: 90px;
             }
             
             .doc-card {
@@ -777,7 +902,7 @@
                     <li class="menu-item"><a href="about.html" class="menu-link" style="color: var(--color-gold);">О компании</a></li>
                     <li class="menu-item"><a href="services.html" class="menu-link">Услуги</a></li>
                     <li class="menu-item"><a href="projects.html" class="menu-link">Проекты</a></li>
-                    <li class="menu-item"><a href="rent.html" class="menu-link">Аренда техники</a></li>
+                    <li class="menu-item"><a href="quick-buildings.html" class="menu-link">Быстровозводимые здания</a></li>
                     <li class="menu-item"><a href="career.html" class="menu-link">Вакансии</a></li>
                     <li class="menu-item"><a href="contact.html" class="menu-link">Контакты</a></li>
                 </ul>
@@ -785,7 +910,7 @@
                 <div class="header-contact-info">
                     <a href="tel:+375293459345" class="contact-phone">
                         <div class="phone-icon"><i class="fas fa-phone"></i></div>
-                        <div class="phone-number">+375 (29) 345-9-345</div>
+                        <div class="phone-number">+375 (29) 345-93-45</div>
                     </a>
                 </div>
                 
@@ -835,7 +960,69 @@
             </div>
         </div>
 
-        <!-- Блок с благодарственными письмами - ТОЛЬКО ФОТО, БЕЗ ТЕКСТА -->
+        <!-- Блок с партнерами -->
+        <div class="partners-section">
+            <div class="about-container">
+                <div class="partners-header">
+                    <span class="label">Нам доверяют</span>
+                    <h2><span class="title-gold">Ключевые партнеры</span></h2>
+                </div>
+                
+                <div class="partners-grid">
+                    <!-- Логотип 1 -->
+                    <div class="partner-card">
+                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/7-e1770489571776.png" alt="БЕЛТРАНСХОЛОД" class="partner-logo">
+                    </div>
+                    
+                    <!-- Логотип 2 -->
+                    <div class="partner-card">
+                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/6-e1770489536836.png" alt="PROliv" class="partner-logo">
+                    </div>
+                    
+                    <!-- Логотип 3 -->
+                    <div class="partner-card">
+                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/5-e1770489498805.png" alt="Передовые агротехнологии" class="partner-logo">
+                    </div>
+                    
+                    <!-- Логотип 4 -->
+                    <div class="partner-card">
+                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/4-e1770489444939.png" alt="Марис Авто" class="partner-logo">
+                    </div>
+                    
+                    <!-- Логотип 5 -->
+                    <div class="partner-card">
+                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/3-1-e1770489405180.png" alt="Unistar" class="partner-logo">
+                    </div>
+                    
+                    <!-- Логотип 6 -->
+                    <div class="partner-card">
+                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/2-1-e1770489365946.png" alt="LUXVISAGE" class="partner-logo">
+                    </div>
+                    
+                    <!-- Логотип 7 -->
+                    <div class="partner-card">
+                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/1-1-e1770489318484.png" alt="JENTY" class="partner-logo">
+                    </div>
+                    
+                    <!-- Логотип 8 -->
+                    <div class="partner-card">
+                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/3-e1770489282321.png" alt="ЯНТАК" class="partner-logo">
+                    </div>
+                    
+                    <!-- Логотип 9 -->
+                    <div class="partner-card">
+                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/2-e1770489250650.png" alt="БЕЛТЯЖМАШ" class="partner-logo">
+                    </div>
+                    
+                    <!-- Логотип 10 -->
+                    <div class="partner-card">
+                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/1-e1770489179405.png" alt="ЭпиоХаус" class="partner-logo">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок с благодарственными письмами -->
         <div class="docs-section">
             <div class="about-container">
                 <div class="docs-header">
@@ -918,7 +1105,7 @@
     <div class="modal" id="requestModal">
         <div class="modal-content">
             <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
-            <h2 style="margin-bottom: 25px; font-family: var(--font-heading); font-size: 2rem;">Оставить заявку</h2>
+            <h2 style="margin-bottom: 25px; font-family: var(--font-heading); font-size: var(--fs-h3);">Оставить заявку</h2>
             <form id="requestForm">
                 <div style="margin-bottom: 15px;">
                     <input type="text" placeholder="Ваше имя" required>
@@ -1027,7 +1214,7 @@
                 });
             }, { threshold: 0.2 });
 
-            document.querySelectorAll('.info-section, .docs-header, .doc-card').forEach(el => {
+            document.querySelectorAll('.info-section, .docs-header, .doc-card, .partner-card').forEach(el => {
                 observer.observe(el);
             });
         })();
