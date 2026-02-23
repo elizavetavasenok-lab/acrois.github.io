@@ -1601,7 +1601,7 @@
         <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/Aкроис-logo-final.pdf-e1769983083185.png" alt="АКРОИС" class="logo-image">
     </div>
 </a>
-            
+        
             <!-- Кнопка мобильного меню -->
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
                 <i class="fas fa-bars"></i>
@@ -1651,7 +1651,13 @@
             </div>
         </div>
     </header>
-
+/* ЖЕСТКАЯ ЗАЩИТА ЛОГОТИПА */
+.acrois-header img {
+    filter: none !important;
+    -webkit-filter: none !important;
+    filter: brightness(1) invert(0) !important;
+    opacity: 1 !important;
+}
     <!-- Секция 2: Hero с видео -->
     <section class="hero-acrois" id="heroSection">
         <!-- Фоновое видео -->
