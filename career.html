@@ -39,6 +39,15 @@
             
             --font-heading: 'Cormorant Garamond', serif;
             --font-body: 'Manrope', sans-serif;
+            
+            /* Единые размеры шрифтов */
+            --fs-h1: 4rem;
+            --fs-h1-gold: 4.5rem;
+            --fs-h2: 2.4rem;
+            --fs-h3: 1.8rem;
+            --fs-body: 1rem;
+            --fs-body-large: 1.2rem;
+            --fs-small: 0.85rem;
         }
         
         * {
@@ -57,8 +66,9 @@
             font-weight: 300;
             background-color: var(--color-black);
             color: var(--color-white);
-            line-height: 1.7;
+            line-height: 1.6;
             overflow-x: hidden;
+            font-size: var(--fs-body);
         }
         
         /* ========== HEADER SECTION ========== */
@@ -117,11 +127,11 @@
             color: var(--color-white);
             text-decoration: none;
             font-weight: 400;
-            font-size: 15px;
+            font-size: 14px;
             transition: var(--transition);
             position: relative;
-            padding: 5px 12px;
-            letter-spacing: 0.5px;
+            padding: 5px 10px;
+            letter-spacing: 0.4px;
             white-space: nowrap;
         }
         
@@ -210,7 +220,7 @@
         }
         
         .phone-number {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             color: var(--color-gold);
             transition: var(--transition);
@@ -231,12 +241,12 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 24px;
-            font-size: 14px;
+            padding: 10px 18px;
+            font-size: 12px;
             font-weight: 600;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             border-radius: var(--border-radius-sm);
             transition: var(--transition);
             cursor: pointer;
@@ -246,7 +256,7 @@
             white-space: nowrap;
             gap: 8px;
             transform: translateY(0);
-            min-height: 44px;
+            min-height: 38px;
             line-height: 1;
             background: var(--gradient-gold);
             color: var(--color-black);
@@ -313,7 +323,7 @@
             padding: 0 20px;
         }
         
-        /* Заголовок - УВЕЛИЧЕНЫ ШРИФТЫ */
+        /* Заголовок - единый стиль */
         .vacancy-header {
             margin-bottom: 60px;
             text-align: left;
@@ -329,7 +339,7 @@
         
         .vacancy-header h1 {
             font-family: var(--font-heading);
-            font-size: 3.8rem;
+            font-size: var(--fs-h1);
             font-weight: 400;
             line-height: 1.2;
             margin-bottom: 25px;
@@ -346,13 +356,13 @@
         .vacancy-header h1 .light-text {
             font-weight: 300;
             color: var(--color-white);
-            font-size: 2.8rem;
+            font-size: var(--fs-h2);
             display: block;
             margin-top: 8px;
         }
         
         .vacancy-header .subtitle {
-            font-size: 1.5rem;
+            font-size: var(--fs-body-large);
             color: var(--color-gold-light);
             max-width: 700px;
             line-height: 1.6;
@@ -415,7 +425,7 @@
         
         .vacancy-title {
             font-family: var(--font-heading);
-            font-size: 2.2rem;
+            font-size: var(--fs-h3);
             margin-bottom: 20px;
             font-weight: 600;
             color: var(--color-gold);
@@ -424,14 +434,14 @@
         }
         
         .vacancy-salary {
-            font-size: 1.8rem;
+            font-size: var(--fs-h3);
             font-weight: 600;
             color: var(--color-gold-light);
             margin-bottom: 8px;
         }
         
         .vacancy-salary small {
-            font-size: 1.1rem;
+            font-size: var(--fs-body);
             font-weight: 300;
             color: var(--color-white);
             opacity: 0.8;
@@ -439,7 +449,7 @@
         }
         
         .vacancy-payment {
-            font-size: 1.1rem;
+            font-size: var(--fs-body);
             color: var(--color-gold-light);
             opacity: 0.9;
             margin-bottom: 25px;
@@ -450,7 +460,7 @@
         
         .vacancy-payment i {
             color: var(--color-gold);
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         
         .vacancy-details {
@@ -465,7 +475,7 @@
             border: 1px solid rgba(201, 169, 110, 0.2);
             border-radius: 20px;
             padding: 6px 14px;
-            font-size: 0.95rem;
+            font-size: var(--fs-small);
             color: var(--color-gold-light);
         }
         
@@ -474,7 +484,7 @@
         }
         
         .vacancy-section h3 {
-            font-size: 1.2rem;
+            font-size: var(--fs-body);
             font-weight: 600;
             color: var(--color-gold);
             margin-bottom: 12px;
@@ -487,7 +497,7 @@
         }
         
         .vacancy-section li {
-            font-size: 1.05rem;
+            font-size: var(--fs-body);
             color: var(--color-white);
             opacity: 0.9;
             margin-bottom: 8px;
@@ -502,19 +512,19 @@
             position: absolute;
             left: 0;
             opacity: 0.9;
-            font-size: 1.1rem;
+            font-size: var(--fs-body);
         }
         
         .vacancy-requirements li::before {
             content: '▹';
-            font-size: 1.2rem;
+            font-size: var(--fs-body);
         }
         
         .vacancy-footer {
             margin-top: 30px;
             padding-top: 18px;
             border-top: 1px solid rgba(201, 169, 110, 0.15);
-            font-size: 1rem;
+            font-size: var(--fs-body);
             color: var(--color-gold-light);
             display: flex;
             flex-wrap: wrap;
@@ -529,7 +539,7 @@
         
         .footer-item i {
             color: var(--color-gold);
-            font-size: 1.1rem;
+            font-size: var(--fs-body);
             width: 20px;
         }
         
@@ -551,8 +561,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 18px 45px;
-            font-size: 1.2rem;
+            padding: 16px 40px;
+            font-size: var(--fs-body);
             font-weight: 600;
             text-decoration: none;
             text-transform: uppercase;
@@ -565,7 +575,7 @@
             background: transparent;
             color: var(--color-gold);
             border: 2px solid var(--color-gold);
-            min-width: 320px;
+            min-width: 280px;
         }
         
         .btn-vacancy:hover {
@@ -577,12 +587,12 @@
         }
         
         .btn-vacancy i {
-            font-size: 1.3rem;
+            font-size: var(--fs-body-large);
         }
         
         .rabota-note {
             margin-top: 20px;
-            font-size: 1rem;
+            font-size: var(--fs-small);
             color: var(--color-gold-light);
             opacity: 0.7;
         }
@@ -625,7 +635,7 @@
         
         .modal-content {
             background: var(--gradient-dark);
-            padding: 45px;
+            padding: 40px;
             border-radius: var(--border-radius-xl);
             border: 1px solid rgba(201, 169, 110, 0.2);
             max-width: 500px;
@@ -657,12 +667,13 @@
             color: var(--color-gold-light);
         }
         
-        /* Адаптивность с увеличенными шрифтами */
+        /* Адаптивность */
         @media (max-width: 1200px) {
-            .vacancy-header h1 { font-size: 3.5rem; }
-            .vacancy-header h1 .light-text { font-size: 2.5rem; }
-            .vacancy-header .subtitle { font-size: 1.4rem; }
-            .vacancy-title { font-size: 2rem; }
+            :root {
+                --fs-h1: 3.5rem;
+                --fs-h2: 2.2rem;
+                --fs-h3: 1.7rem;
+            }
         }
         
         @media (max-width: 992px) {
@@ -690,7 +701,7 @@
             .menu-item { height: auto; width: 100%; }
             .menu-link {
                 display: block;
-                padding: 18px 0;
+                padding: 15px 0;
                 font-size: 16px;
                 border-bottom: 1px solid rgba(201, 169, 110, 0.1);
                 width: 100%;
@@ -700,7 +711,7 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 15px;
-                margin: 25px 0;
+                margin: 20px 0;
                 padding: 20px 0;
                 border-left: none;
                 border-top: 1px solid rgba(201, 169, 110, 0.1);
@@ -713,34 +724,38 @@
                 justify-content: center;
                 min-height: 48px;
                 font-size: 14px;
-                padding: 14px 20px;
+                padding: 12px 20px;
             }
             .mobile-menu-toggle { display: flex; }
+            
+            .vacancy-header h1 .light-text { font-size: 2rem; }
+            .vacancy-header .subtitle { font-size: 1.1rem; }
         }
         
         @media (max-width: 768px) {
+            :root {
+                --fs-h1: 3rem;
+                --fs-h2: 2rem;
+                --fs-h3: 1.6rem;
+            }
+            
             .page-vacancy { padding-top: 100px; }
-            .vacancy-header h1 { font-size: 3rem; }
-            .vacancy-header h1 .light-text { font-size: 2.2rem; }
-            .vacancy-header .subtitle { font-size: 1.3rem; }
             .vacancy-grid { grid-template-columns: 1fr; }
-            .vacancy-card { padding: 30px; }
-            .vacancy-title { font-size: 1.9rem; }
-            .vacancy-salary { font-size: 1.6rem; }
-            .vacancy-section li { font-size: 1rem; }
-            .btn-vacancy { padding: 16px 35px; font-size: 1.1rem; min-width: 280px; }
+            .vacancy-card { padding: 25px; }
+            .btn-vacancy { padding: 14px 30px; min-width: 240px; }
         }
         
         @media (max-width: 576px) {
-            .vacancy-header h1 { font-size: 2.5rem; }
-            .vacancy-header h1 .light-text { font-size: 1.9rem; }
-            .vacancy-header .subtitle { font-size: 1.2rem; }
-            .vacancy-card { padding: 25px; }
-            .vacancy-title { font-size: 1.7rem; }
-            .vacancy-salary { font-size: 1.4rem; }
+            :root {
+                --fs-h1: 2.5rem;
+                --fs-h2: 1.8rem;
+                --fs-h3: 1.5rem;
+            }
+            
+            .vacancy-card { padding: 20px; }
             .vacancy-details { gap: 8px; }
-            .detail-tag { font-size: 0.85rem; padding: 4px 10px; }
-            .btn-vacancy { padding: 14px 25px; font-size: 1rem; min-width: 240px; }
+            .detail-tag { padding: 4px 10px; }
+            .btn-vacancy { padding: 12px 25px; min-width: 200px; }
         }
     </style>
 </head>
@@ -763,7 +778,7 @@
                     <li class="menu-item"><a href="about.html" class="menu-link">О компании</a></li>
                     <li class="menu-item"><a href="services.html" class="menu-link">Услуги</a></li>
                     <li class="menu-item"><a href="projects.html" class="menu-link">Проекты</a></li>
-                    <li class="menu-item"><a href="rent.html" class="menu-link">Аренда техники</a></li>
+                    <li class="menu-item"><a href="quick-buildings.html" class="menu-link">Быстровозводимые здания</a></li>
                     <li class="menu-item"><a href="career.html" class="menu-link">Вакансии</a></li>
                     <li class="menu-item"><a href="contact.html" class="menu-link">Контакты</a></li>
                 </ul>
@@ -771,7 +786,7 @@
                 <div class="header-contact-info">
                     <a href="tel:+375293459345" class="contact-phone">
                         <div class="phone-icon"><i class="fas fa-phone"></i></div>
-                        <div class="phone-number">+375 (29) 345-9-345</div>
+                        <div class="phone-number">+375 (29) 345-93-45</div>
                     </a>
                 </div>
                 
@@ -983,19 +998,19 @@
     <div class="modal" id="requestModal">
         <div class="modal-content">
             <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
-            <h2 style="margin-bottom: 25px; font-family: var(--font-heading); font-size: 2rem;">Оставить заявку</h2>
+            <h2 style="margin-bottom: 25px; font-family: var(--font-heading); font-size: var(--fs-h3);">Оставить заявку</h2>
             <form id="requestForm">
                 <div style="margin-bottom: 15px;">
-                    <input type="text" placeholder="Ваше имя" style="width: 100%; padding: 12px 15px; background: rgba(201, 169, 110, 0.1); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 4px; color: var(--color-white); font-size: 1rem;" required>
+                    <input type="text" placeholder="Ваше имя" style="width: 100%; padding: 12px 15px; background: rgba(201, 169, 110, 0.1); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 4px; color: var(--color-white); font-size: var(--fs-body);" required>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <input type="email" placeholder="Ваш email" style="width: 100%; padding: 12px 15px; background: rgba(201, 169, 110, 0.1); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 4px; color: var(--color-white); font-size: 1rem;" required>
+                    <input type="email" placeholder="Ваш email" style="width: 100%; padding: 12px 15px; background: rgba(201, 169, 110, 0.1); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 4px; color: var(--color-white); font-size: var(--fs-body);" required>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <input type="tel" placeholder="Ваш телефон" style="width: 100%; padding: 12px 15px; background: rgba(201, 169, 110, 0.1); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 4px; color: var(--color-white); font-size: 1rem;" required>
+                    <input type="tel" placeholder="Ваш телефон" style="width: 100%; padding: 12px 15px; background: rgba(201, 169, 110, 0.1); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 4px; color: var(--color-white); font-size: var(--fs-body);" required>
                 </div>
                 <div style="margin-bottom: 15px;">
-                    <textarea placeholder="Описание проекта" style="width: 100%; padding: 12px 15px; background: rgba(201, 169, 110, 0.1); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 4px; color: var(--color-white); font-size: 1rem; min-height: 100px; resize: vertical;"></textarea>
+                    <textarea placeholder="Описание проекта" style="width: 100%; padding: 12px 15px; background: rgba(201, 169, 110, 0.1); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 4px; color: var(--color-white); font-size: var(--fs-body); min-height: 100px; resize: vertical;"></textarea>
                 </div>
                 <button type="submit" class="btn-acrois" style="width: 100%;">
                     <i class="fas fa-send"></i> Отправить заявку
