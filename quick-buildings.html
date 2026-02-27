@@ -33,6 +33,7 @@
             --border-radius: 4px;
             --border-radius-lg: 8px;
             --border-radius-xl: 12px;
+            --border-radius-2xl: 20px;
             
             --transition-slow: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
             --transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -364,7 +365,7 @@
             margin-top: 20px;
         }
         
-        /* Преимущества - новый стиль */
+        /* Преимущества */
         .benefits-section {
             padding: 80px 0;
             border-bottom: 1px solid rgba(201, 169, 110, 0.1);
@@ -656,164 +657,242 @@
             border-top: 1px solid rgba(201, 169, 110, 0.1);
         }
         
-        /* Партнеры с описанием */
-        .partners-section {
+        /* ========== ПАРТНЕРЫ ========== */
+.partners-section {
+    padding: 80px 0;
+    border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+    background: rgba(5, 5, 5, 0.3);
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.partner-card {
+    background: rgba(15, 15, 15, 0.6);
+    border: 1px solid rgba(201, 169, 110, 0.2);
+    border-radius: var(--border-radius-2xl);
+    padding: 40px 30px;
+    transition: var(--transition-slow);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.partner-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.partner-card:nth-child(1) { transition-delay: 0.1s; }
+.partner-card:nth-child(2) { transition-delay: 0.2s; }
+.partner-card:nth-child(3) { transition-delay: 0.3s; }
+.partner-card:nth-child(4) { transition-delay: 0.4s; }
+.partner-card:nth-child(5) { transition-delay: 0.5s; }
+
+.partner-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-gold);
+    box-shadow: 0 20px 40px rgba(201, 169, 110, 0.3);
+    background: rgba(20, 20, 20, 0.8);
+}
+
+.partner-logo-wrapper {
+    width: 200px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-xl);
+    border: 1px solid rgba(201, 169, 110, 0.2);
+    transition: var(--transition);
+    backdrop-filter: blur(5px);
+}
+
+.partner-card:hover .partner-logo-wrapper {
+    border-color: var(--color-gold);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 30px rgba(201, 169, 110, 0.2);
+}
+
+.partner-logo {
+    max-width: 160px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    /* Инверсия для темных логотипов на светлом фоне */
+    filter: brightness(0) invert(1);
+    transition: var(--transition);
+    opacity: 0.9;
+}
+
+.partner-card:hover .partner-logo {
+    transform: scale(1.1);
+    filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(201, 169, 110, 0.5));
+}
+
+.partner-info h3 {
+    font-family: var(--font-heading);
+    font-size: var(--fs-h3);
+    color: var(--color-gold);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.partner-info p {
+    font-size: var(--fs-body);
+    color: var(--color-gold-light);
+    opacity: 0.9;
+    line-height: 1.6;
+}
+        /* ========== ГАЛЕРЕЯ ========== */
+        .gallery-section {
             padding: 80px 0;
             border-bottom: 1px solid rgba(201, 169, 110, 0.1);
         }
         
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin-top: 40px;
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 30px;
         }
         
-        .partner-card {
-            background: rgba(26, 26, 26, 0.5);
-            border: 1px solid rgba(201, 169, 110, 0.15);
-            border-radius: var(--border-radius-xl);
-            padding: 30px;
-            transition: var(--transition);
-            backdrop-filter: blur(5px);
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-        
-        .partner-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .partner-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(201, 169, 110, 0.4);
-            box-shadow: var(--shadow-premium);
-            background: rgba(26, 26, 26, 0.8);
-        }
-        
-        .partner-logo-wrapper {
-            flex: 0 0 120px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(5, 5, 5, 0.3);
-            border-radius: var(--border-radius-lg);
-            padding: 15px;
-        }
-        
-        .partner-logo {
-            max-width: 100%;
-            max-height: 50px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(201, 169, 110, 0.2));
-            transition: var(--transition);
-        }
-        
-        .partner-card:hover .partner-logo {
-            filter: none;
-        }
-        
-        .partner-info {
-            flex: 1;
-        }
-        
-        .partner-info h3 {
-            font-family: var(--font-heading);
-            font-size: var(--fs-h3);
+        .gallery-header .label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
             color: var(--color-gold);
-            margin-bottom: 8px;
+            margin-bottom: 20px;
+            display: block;
         }
         
-        .partner-info p {
-            font-size: var(--fs-body);
+        .gallery-header h2 {
+            font-family: var(--font-heading);
+            font-size: var(--fs-h2);
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+        
+        .gallery-header h2 span {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .gallery-subtitle {
+            font-size: var(--fs-body-large);
             color: var(--color-gold-light);
             opacity: 0.8;
-            line-height: 1.5;
+            margin-bottom: 40px;
         }
         
-        /* Портфолио */
-        .portfolio-section {
-            padding: 80px 0;
-            border-bottom: 1px solid rgba(201, 169, 110, 0.1);
-        }
-        
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .portfolio-card {
-            background: rgba(26, 26, 26, 0.5);
-            border: 1px solid rgba(201, 169, 110, 0.15);
-            border-radius: var(--border-radius-xl);
-            overflow: hidden;
-            transition: var(--transition);
-            backdrop-filter: blur(5px);
-            height: 300px;
+        .gallery-container {
             position: relative;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
-        .portfolio-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .gallery-main {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            border-radius: var(--border-radius-2xl);
+            overflow: hidden;
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            margin-bottom: 20px;
         }
         
-        .portfolio-card:nth-child(1) { transition-delay: 0.1s; }
-        .portfolio-card:nth-child(2) { transition-delay: 0.3s; }
-        .portfolio-card:nth-child(3) { transition-delay: 0.5s; }
-        
-        .portfolio-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(201, 169, 110, 0.4);
-            box-shadow: var(--shadow-premium);
-        }
-        
-        .portfolio-card img {
+        .gallery-main img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
-            opacity: 0.8;
         }
         
-        .portfolio-card:hover img {
+        .gallery-thumbnails {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .gallery-thumbnails::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .gallery-thumb {
+            flex: 0 0 100px;
+            height: 70px;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            opacity: 0.7;
+        }
+        
+        .gallery-thumb:hover {
             opacity: 1;
-            transform: scale(1.05);
+            transform: translateY(-2px);
         }
         
-        .portfolio-overlay {
+        .gallery-thumb.active {
+            border-color: var(--color-gold);
+            opacity: 1;
+            box-shadow: var(--shadow-gold);
+        }
+        
+        .gallery-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .gallery-nav {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 20px;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: var(--color-white);
-        }
-        
-        .portfolio-overlay h4 {
-            font-family: var(--font-heading);
-            font-size: var(--fs-h3);
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(5, 5, 5, 0.7);
+            border: 1px solid rgba(201, 169, 110, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--color-gold);
-            margin-bottom: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+            backdrop-filter: blur(5px);
         }
         
-        .portfolio-overlay p {
-            font-size: var(--fs-small);
-            opacity: 0.8;
+        .gallery-nav:hover {
+            background: var(--gradient-gold);
+            color: var(--color-black);
+            border-color: transparent;
+        }
+        
+        .gallery-nav.prev {
+            left: 20px;
+        }
+        
+        .gallery-nav.next {
+            right: 20px;
         }
         
         /* CTA секция */
@@ -824,7 +903,7 @@
         .cta-wrapper {
             background: linear-gradient(135deg, rgba(26,26,26,0.9) 0%, rgba(15,15,15,0.9) 100%);
             border: 1px solid rgba(201, 169, 110, 0.2);
-            border-radius: var(--border-radius-xl);
+            border-radius: var(--border-radius-2xl);
             padding: 60px;
             backdrop-filter: blur(10px);
         }
@@ -910,6 +989,87 @@
         
         .file-label i {
             color: var(--color-gold);
+        }
+        
+        /* ========== FOOTER ========== */
+        .footer {
+            background: #0a0a0a;
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(201, 169, 110, 0.15);
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-family: var(--font-heading);
+            font-size: var(--fs-h3);
+            color: var(--color-gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--color-gold-light);
+            font-size: var(--fs-body);
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--color-gold);
+            transform: translateX(5px);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(201, 169, 110, 0.1);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+            font-size: 18px;
+            transition: var(--transition);
+            margin-bottom: 0;
+        }
+
+        .footer-social a:hover {
+            background: var(--gradient-gold);
+            color: var(--color-black);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(201, 169, 110, 0.1);
+            color: var(--color-gold-light);
+            font-size: var(--fs-small);
+            opacity: 0.7;
         }
         
         /* Modal */
@@ -1005,11 +1165,15 @@
             }
             
             .partners-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            .portfolio-grid {
+            .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .gallery-main {
+                height: 450px;
             }
         }
         
@@ -1083,8 +1247,12 @@
                 padding: 12px 20px;
             }
             
-            .portfolio-grid {
+            .partners-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .gallery-main {
+                height: 350px;
             }
         }
         
@@ -1115,14 +1283,28 @@
                 font-size: 2.8rem;
             }
             
-            .partner-card {
-                flex-direction: column;
-                text-align: center;
+            .partner-logo-wrapper {
+                width: 160px;
+                height: 100px;
             }
             
-            .partner-logo-wrapper {
-                flex: 0 0 auto;
-                width: 100%;
+            .partner-logo {
+                max-width: 130px;
+                max-height: 70px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .gallery-main {
+                height: 300px;
+            }
+            
+            .gallery-nav {
+                width: 40px;
+                height: 40px;
             }
         }
         
@@ -1140,6 +1322,15 @@
             
             .benefit-card {
                 padding: 30px;
+            }
+            
+            .gallery-main {
+                height: 250px;
+            }
+            
+            .gallery-thumb {
+                flex: 0 0 70px;
+                height: 50px;
             }
         }
     </style>
@@ -1198,7 +1389,7 @@
                 </p>
             </div>
 
-            <!-- Преимущества с анимацией при скролле -->
+            <!-- Преимущества -->
             <div class="benefits-section">
                 <div class="benefits-grid">
                     <!-- Преимущество 1 -->
@@ -1316,7 +1507,7 @@
                 </div>
             </div>
 
-            <!-- Партнеры с описанием -->
+            <!-- Партнеры с логотипами -->
             <div class="partners-section">
                 <div class="section-header">
                     <span class="label">Партнеры</span>
@@ -1327,90 +1518,95 @@
                     <!-- Рекламика Строй -->
                     <div class="partner-card" id="partner1">
                         <div class="partner-logo-wrapper">
-                            <img src="https://via.placeholder.com/200x80/1A1A1A/C9A96E?text=Рекламика+Строй" alt="Рекламика Строй" class="partner-logo">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/27-e1772214141975.png" alt="Рекламика Строй" class="partner-logo">
                         </div>
                         <div class="partner-info">
-                            <h3>Рекламика Строй</h3>
-                            <p>Производитель металлоконструкций — основа надежности и низкой цены</p>
+                            <h3>РЕКЛАМИКА СТРОЙ</h3>
+                            <p>Производитель металлоконструкций — надежность и качество в каждом проекте</p>
                         </div>
                     </div>
                     
-                    <!-- Эко-пром-панель -->
+                    <!-- ЭкоПромПанель -->
                     <div class="partner-card" id="partner2">
                         <div class="partner-logo-wrapper">
-                            <img src="https://via.placeholder.com/200x80/1A1A1A/C9A96E?text=Эко-пром-панель" alt="Эко-пром-панель" class="partner-logo">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/9-e1772213691916.png" alt="ЭкоПромПанель" class="partner-logo">
                         </div>
                         <div class="partner-info">
-                            <h3>Эко-пром-панель</h3>
-                            <p>Белорусские сэндвич-панели высокого качества по доступным ценам</p>
+                            <h3>ЭКОПРОМПАНЕЛЬ</h3>
+                            <p>Белорусские сэндвич-панели — оптимальное решение для быстровозводимых зданий</p>
                         </div>
                     </div>
                     
-                    <!-- Виста Техно -->
+                    <!-- VINSERA -->
                     <div class="partner-card" id="partner3">
                         <div class="partner-logo-wrapper">
-                            <img src="https://via.placeholder.com/200x80/1A1A1A/C9A96E?text=Виста+Техно" alt="Виста Техно" class="partner-logo">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/11-e1772213745332.png" alt="VINSERA" class="partner-logo">
                         </div>
                         <div class="partner-info">
-                            <h3>Виста Техно</h3>
+                            <h3>VINSERA</h3>
+                            <p>Ворота и комплектующие для современных промышленных объектов</p>
+                        </div>
+                    </div>
+                    
+                    <!-- VistaТехно -->
+                    <div class="partner-card" id="partner4">
+                        <div class="partner-logo-wrapper">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/24-e1772214062443.png" alt="VistaТехно" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <h3>VISTAТЕХНО</h3>
                             <p>Надежный поставщик бетона для фундаментов любой сложности</p>
                         </div>
                     </div>
                     
-                    <!-- Армет -->
-                    <div class="partner-card" id="partner4">
-                        <div class="partner-logo-wrapper">
-                            <img src="https://via.placeholder.com/200x80/1A1A1A/C9A96E?text=Армет" alt="Армет" class="partner-logo">
-                        </div>
-                        <div class="partner-info">
-                            <h3>Армет</h3>
-                            <p>Поставка металла и арматуры с дилерскими скидками</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Винсера -->
+                    <!-- АРМЕТ -->
                     <div class="partner-card" id="partner5">
                         <div class="partner-logo-wrapper">
-                            <img src="https://via.placeholder.com/200x80/1A1A1A/C9A96E?text=Винсера" alt="Винсера" class="partner-logo">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/20-e1772213960165.png" alt="АРМЕТ" class="partner-logo">
                         </div>
                         <div class="partner-info">
-                            <h3>Винсера</h3>
-                            <p>Ворота и комплектующие для быстровозводимых зданий</p>
+                            <h3>АРМЕТ</h3>
+                            <p>Поставка металла и арматуры с гарантией качества</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Портфолио -->
-            <div class="portfolio-section">
-                <div class="section-header">
+            <!-- ГАЛЕРЕЯ -->
+            <div class="gallery-section">
+                <div class="gallery-header">
                     <span class="label">Портфолио</span>
-                    <h2><span>Типовые решения</span></h2>
+                    <h2><span>ГАЛЕРЕЯ</span></h2>
+                    <p class="gallery-subtitle">Типовые решения и реализованные проекты</p>
                 </div>
                 
-                <div class="portfolio-grid">
-                    <div class="portfolio-card" id="portfolio1">
-                        <img src="https://images.unsplash.com/photo-1487956382158-bb926046304a?auto=format&fit=crop&w=800&q=80" alt="Складской комплекс">
-                        <div class="portfolio-overlay">
-                            <h4>Складской комплекс</h4>
-                            <p>1 500 м² | 3 месяца</p>
-                        </div>
+                <div class="gallery-container">
+                    <div class="gallery-nav prev" id="galleryPrev">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="gallery-nav next" id="galleryNext">
+                        <i class="fas fa-chevron-right"></i>
                     </div>
                     
-                    <div class="portfolio-card" id="portfolio2">
-                        <img src="https://images.unsplash.com/photo-1503387769-00c5f6d1fc0d?auto=format&fit=crop&w=800&q=80" alt="Производственный цех">
-                        <div class="portfolio-overlay">
-                            <h4>Производственный цех</h4>
-                            <p>2 800 м² | 4 месяца</p>
-                        </div>
+                    <div class="gallery-main" id="galleryMain">
+                        <img src="images/quick1.jpg" alt="Галерея" id="galleryMainImg">
                     </div>
                     
-                    <div class="portfolio-card" id="portfolio3">
-                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80" alt="Ангар">
-                        <div class="portfolio-overlay">
-                            <h4>Ангар</h4>
-                            <p>800 м² | 2 месяца</p>
-                        </div>
+                    <div class="gallery-thumbnails" id="galleryThumbnails">
+                        <div class="gallery-thumb active" data-index="0"><img src="images/quick1.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="1"><img src="images/quick2.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="2"><img src="images/quick3.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="3"><img src="images/quick4.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="4"><img src="images/quick5.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="5"><img src="images/quick6.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="6"><img src="images/quick7.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="7"><img src="images/quick8.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="8"><img src="images/quick9.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="9"><img src="images/quick10.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="10"><img src="images/quick11.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="11"><img src="images/quick12.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="12"><img src="images/quick13.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="13"><img src="images/quick14.jpg" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -1443,6 +1639,48 @@
             </div>
         </div>
     </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>ООО «Акроис»</h3>
+                    <p>Генеральный подрядчик 3-го класса сложности</p>
+                    <p>Собственная база техники и более 13 лет безупречной репутации</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Контакты</h3>
+                    <a href="tel:+375293459345"><i class="fas fa-phone" style="margin-right: 8px;"></i> +375 (29) 345-9-345</a>
+                    <a href="tel:+375447873053"><i class="fas fa-phone" style="margin-right: 8px;"></i> +375 (44) 787-30-53</a>
+                    <a href="mailto:acrois21@mail.ru"><i class="fas fa-envelope" style="margin-right: 8px;"></i> acrois21@mail.ru</a>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> г. Минск, ул. Монтажников 9, оф. 23</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Режим работы</h3>
+                    <p>Пн-Пт: 8:00 - 17:00</p>
+                    <p>Сб-Вс: выходной</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Мы в соцсетях</h3>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/acrois.by/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61587841702161" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://t.me/+375447291846" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://wa.me/375447291846" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="viber://chat?number=%2B375447291846" target="_blank"><i class="fab fa-viber"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 ООО «Акроис». Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Modal -->
     <div class="modal" id="requestModal">
@@ -1540,7 +1778,7 @@
                 });
             }
 
-            // Калькулятор с улучшенной логикой
+            // Калькулятор
             function calculatePrice() {
                 const length = parseFloat(document.getElementById('length').value) || 1;
                 const width = parseFloat(document.getElementById('width').value) || 1;
@@ -1550,15 +1788,13 @@
                 
                 const area = length * width;
                 const perimeter = 2 * (length + width);
-                const wallArea = perimeter * height;
                 
                 document.getElementById('estimatedArea').textContent = `Площадь: ${area.toFixed(0)} м²`;
                 document.getElementById('foundationFactor').textContent = foundation.toFixed(1);
                 
-                // Базовая цена за м² в зависимости от площади (анализ рынка РБ)
                 let basePricePerM2 = 0;
                 if (area < 500) {
-                    basePricePerM2 = 650; // малые объекты
+                    basePricePerM2 = 650;
                 } else if (area < 1000) {
                     basePricePerM2 = 550;
                 } else if (area < 2000) {
@@ -1571,7 +1807,6 @@
                     basePricePerM2 = 300;
                 }
                 
-                // Коэффициент высоты (чем выше, тем дороже металлоконструкции)
                 let heightFactor = 1.0;
                 if (height > 10) {
                     heightFactor = 1.4;
@@ -1584,45 +1819,78 @@
                 }
                 document.getElementById('heightFactor').textContent = heightFactor.toFixed(2);
                 
-                // Коэффициент толщины панелей
                 const thicknessFactor = thickness / 100;
-                
-                // Корректировка на сложность (периметр/площадь)
                 const complexityFactor = 1 + (perimeter / area) * 0.1;
                 
-                // Итоговая цена
                 const totalPrice = area * basePricePerM2 * heightFactor * thicknessFactor * foundation * complexityFactor;
-                
-                // Округляем до тысяч
                 const roundedPrice = Math.round(totalPrice / 1000) * 1000;
                 
                 document.getElementById('estimatedPrice').textContent = roundedPrice.toLocaleString('ru-RU');
                 document.getElementById('pricePerM2').textContent = `$ ${Math.round(basePricePerM2).toLocaleString('ru-RU')}`;
             }
             
-            // Обновление при изменении полей
             document.getElementById('length').addEventListener('input', calculatePrice);
             document.getElementById('width').addEventListener('input', calculatePrice);
             document.getElementById('height').addEventListener('input', calculatePrice);
             document.getElementById('thickness').addEventListener('change', calculatePrice);
             document.getElementById('foundation').addEventListener('change', calculatePrice);
             
-            // Первоначальный расчет
             calculatePrice();
             
-            // Кнопка "Получить точный расчет"
             document.getElementById('getCalculation').addEventListener('click', function() {
                 openModal();
             });
             
-            // Обработка формы CTA
             document.getElementById('ctaForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
                 this.reset();
             });
 
-            // Анимация появления при скролле для всех элементов
+            // Галерея
+            const galleryMainImg = document.getElementById('galleryMainImg');
+            const galleryThumbs = document.querySelectorAll('.gallery-thumb');
+            const galleryPrev = document.getElementById('galleryPrev');
+            const galleryNext = document.getElementById('galleryNext');
+            let currentIndex = 0;
+            
+            function updateGallery(index) {
+                if (index < 0) index = galleryThumbs.length - 1;
+                if (index >= galleryThumbs.length) index = 0;
+                
+                const imgSrc = galleryThumbs[index].querySelector('img').src;
+                galleryMainImg.src = imgSrc;
+                
+                galleryThumbs.forEach((thumb, i) => {
+                    if (i === index) {
+                        thumb.classList.add('active');
+                    } else {
+                        thumb.classList.remove('active');
+                    }
+                });
+                
+                currentIndex = index;
+            }
+            
+            galleryThumbs.forEach((thumb, index) => {
+                thumb.addEventListener('click', () => {
+                    updateGallery(index);
+                });
+            });
+            
+            if (galleryPrev) {
+                galleryPrev.addEventListener('click', () => {
+                    updateGallery(currentIndex - 1);
+                });
+            }
+            
+            if (galleryNext) {
+                galleryNext.addEventListener('click', () => {
+                    updateGallery(currentIndex + 1);
+                });
+            }
+
+            // Анимация появления при скролле
             const observerOptions = {
                 threshold: 0.2,
                 rootMargin: '0px 0px -50px 0px'
@@ -1636,18 +1904,7 @@
                 });
             }, observerOptions);
 
-            // Наблюдаем за преимуществами
-            document.querySelectorAll('.benefit-item').forEach(el => {
-                observer.observe(el);
-            });
-            
-            // Наблюдаем за партнерами
-            document.querySelectorAll('.partner-card').forEach(el => {
-                observer.observe(el);
-            });
-            
-            // Наблюдаем за портфолио
-            document.querySelectorAll('.portfolio-card').forEach(el => {
+            document.querySelectorAll('.benefit-item, .partner-card').forEach(el => {
                 observer.observe(el);
             });
         })();
