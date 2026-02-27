@@ -33,6 +33,7 @@
             --border-radius: 4px;
             --border-radius-lg: 8px;
             --border-radius-xl: 12px;
+            --border-radius-2xl: 20px;
             
             --transition-slow: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
             --transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -355,6 +356,49 @@
             display: inline-block;
         }
         
+        /* Видео секция - ТОЛЬКО В БЛОКЕ О КОМПАНИИ */
+        .hero-video-wrapper {
+            margin-top: 40px;
+            width: 100%;
+        }
+        
+        .hero-video-container {
+            width: 100%;
+            height: 500px;
+            border-radius: var(--border-radius-2xl);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(201, 169, 110, 0.2);
+        }
+        
+        .hero-video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+            transition: var(--transition);
+        }
+        
+        .hero-video-container:hover video {
+            opacity: 1;
+            transform: scale(1.02);
+        }
+        
+        .hero-video-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+        
+        .hero-video-overlay p {
+            font-size: var(--fs-body-large);
+            color: var(--color-gold-light);
+            max-width: 600px;
+        }
+        
         /* Информационные секции */
         .info-section {
             display: grid;
@@ -424,18 +468,17 @@
             font-weight: 500;
         }
         
-        /* ========== БЛОК ПАРТНЕРОВ (плавное появление) ========== */
+        /* ========== БЕГУЩАЯ ЛЕНТА С ЛОГОТИПАМИ ========== */
         .partners-section {
-            padding: 80px 0;
+            padding: 60px 0;
             background: rgba(5, 5, 5, 0.3);
             margin: 40px 0;
             overflow: hidden;
-            position: relative;
         }
         
         .partners-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
         
         .partners-header .label {
@@ -459,78 +502,116 @@
             -webkit-text-fill-color: transparent;
         }
         
-        .partners-grid-fade {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 25px;
-            opacity: 0;
-            animation: fadeInGrid 1.5s ease forwards;
+        .partners-marquee-wrapper {
+            position: relative;
+            margin: 0;
+            padding: 20px 0;
+            overflow: hidden;
+            border-top: 2px solid rgba(201, 169, 110, 0.15);
+            border-bottom: 2px solid rgba(201, 169, 110, 0.15);
+            width: 100%;
         }
         
-        @keyframes fadeInGrid {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
+        .partners-marquee-track {
+            display: flex;
+            animation: marqueeScroll 40s linear infinite;
+            width: max-content;
+            padding: 0 25px;
         }
         
-        .partner-card-fade {
-            background: rgba(26, 26, 26, 0.5);
-            border: 1px solid rgba(201, 169, 110, 0.15);
-            border-radius: var(--border-radius-lg);
-            padding: 25px 15px;
-            text-align: center;
-            transition: var(--transition);
-            height: 100px;
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .partners-marquee-wrapper:hover .partners-marquee-track {
+            animation-play-state: paused;
+        }
+        
+        .marquee-item {
+            flex: 0 0 auto;
+            padding: 0 25px;
+            height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: cardAppear 0.6s ease forwards;
-            opacity: 0;
-            transform: scale(0.9);
         }
         
-        .partner-card-fade:nth-child(1) { animation-delay: 0.1s; }
-        .partner-card-fade:nth-child(2) { animation-delay: 0.2s; }
-        .partner-card-fade:nth-child(3) { animation-delay: 0.3s; }
-        .partner-card-fade:nth-child(4) { animation-delay: 0.4s; }
-        .partner-card-fade:nth-child(5) { animation-delay: 0.5s; }
-        .partner-card-fade:nth-child(6) { animation-delay: 0.6s; }
-        .partner-card-fade:nth-child(7) { animation-delay: 0.7s; }
-        .partner-card-fade:nth-child(8) { animation-delay: 0.8s; }
-        .partner-card-fade:nth-child(9) { animation-delay: 0.9s; }
-        .partner-card-fade:nth-child(10) { animation-delay: 1.0s; }
-        
-        @keyframes cardAppear {
-            0% { opacity: 0; transform: scale(0.9); }
-            100% { opacity: 1; transform: scale(1); }
+        .marquee-logo-frame {
+            position: relative;
+            padding: 0;
+            background: transparent;
+            border: none;
+            border-radius: 12px;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            cursor: pointer;
+            min-width: 200px;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .partner-card-fade:hover {
-            transform: translateY(-5px) scale(1.05);
+        .marquee-logo-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            border-radius: 6px;
+            padding: 15px;
+            background: rgba(15, 15, 15, 0.7);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            transition: all 0.4s ease;
+        }
+        
+        .marquee-logo-wrapper:hover {
+            background: rgba(26, 26, 26, 0.9);
             border-color: rgba(201, 169, 110, 0.4);
-            box-shadow: var(--shadow-premium);
-            background: rgba(26, 26, 26, 0.8);
-            z-index: 10;
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.15);
         }
         
-        .partner-card-fade:hover .partner-logo {
-            filter: none;
-            transform: scale(1.1);
-        }
-        
-        .partner-logo {
-            max-width: 100%;
-            max-height: 50px;
+        .marquee-logo {
+            max-width: 90%;
+            max-height: 60px;
             width: auto;
             height: auto;
             object-fit: contain;
             filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(201, 169, 110, 0.2));
-            transition: var(--transition);
+            transition: all 0.4s ease;
             opacity: 0.9;
+        }
+        
+        .marquee-logo-wrapper:hover .marquee-logo {
+            filter: none;
+            transform: scale(1.1);
+        }
+        
+        .marquee-overlay {
+            position: absolute;
+            top: 0;
+            width: 200px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .marquee-overlay.left {
+            left: 0;
+            background: linear-gradient(90deg, #0F0F0F 0%, transparent 100%);
+        }
+        
+        .marquee-overlay.right {
+            right: 0;
+            background: linear-gradient(90deg, transparent 0%, #0F0F0F 100%);
         }
         
         /* Блок с благодарственными письмами */
         .docs-section {
-            padding: 80px 0 100px;
+            padding: 80px 0 60px;
             background: rgba(5, 5, 5, 0.5);
             margin-top: 20px;
         }
@@ -624,6 +705,13 @@
             transform: scale(1.1);
         }
         
+        /* Кнопка на главную */
+        .back-home-btn {
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 40px;
+        }
+        
         /* Modal */
         .modal {
             display: none;
@@ -695,6 +783,87 @@
             font-family: var(--font-body);
         }
         
+        /* ========== FOOTER ========== */
+        .footer {
+            background: #0a0a0a;
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(201, 169, 110, 0.15);
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-family: var(--font-heading);
+            font-size: var(--fs-h3);
+            color: var(--color-gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--color-gold-light);
+            font-size: var(--fs-body);
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--color-gold);
+            transform: translateX(5px);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(201, 169, 110, 0.1);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+            font-size: 18px;
+            transition: var(--transition);
+            margin-bottom: 0;
+        }
+
+        .footer-social a:hover {
+            background: var(--gradient-gold);
+            color: var(--color-black);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(201, 169, 110, 0.1);
+            color: var(--color-gold-light);
+            font-size: var(--fs-small);
+            opacity: 0.7;
+        }
+        
         /* Адаптивность */
         @media (max-width: 1200px) {
             :root {
@@ -708,8 +877,12 @@
                 gap: 60px;
             }
             
-            .partners-grid-fade {
-                grid-template-columns: repeat(4, 1fr);
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-video-container {
+                height: 400px;
             }
         }
         
@@ -721,10 +894,6 @@
             
             .about-hero h1 {
                 font-size: 3rem;
-            }
-            
-            .partners-grid-fade {
-                grid-template-columns: repeat(3, 1fr);
             }
             
             .docs-header {
@@ -806,6 +975,10 @@
                 font-size: 14px;
                 padding: 12px 20px;
             }
+            
+            .hero-video-container {
+                height: 350px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -831,19 +1004,6 @@
                 font-size: 1rem;
             }
             
-            .partners-section {
-                padding: 60px 0;
-            }
-            
-            .partners-header {
-                margin-bottom: 40px;
-            }
-            
-            .partners-grid-fade {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-            
             .docs-section {
                 padding: 60px 0 80px;
             }
@@ -858,12 +1018,25 @@
                 height: 50px;
             }
             
-            .partner-card-fade {
-                height: 90px;
-                padding: 20px;
+            .hero-video-container {
+                height: 300px;
             }
             
-            .partner-logo {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .partners-marquee-track {
+                animation-duration: 30s;
+            }
+            
+            .marquee-logo-frame {
+                min-width: 160px;
+                height: 70px;
+            }
+            
+            .marquee-logo {
                 max-height: 45px;
             }
         }
@@ -875,17 +1048,26 @@
                 --fs-h3: 1.5rem;
             }
             
-            .partners-grid-fade {
-                grid-template-columns: 1fr;
-            }
-            
-            .partner-card-fade {
-                height: 80px;
-            }
-            
             .doc-card {
                 flex: 0 0 240px;
                 height: 340px;
+            }
+            
+            .hero-video-container {
+                height: 250px;
+            }
+            
+            .marquee-overlay {
+                width: 80px;
+            }
+            
+            .marquee-logo-frame {
+                min-width: 140px;
+                height: 60px;
+            }
+            
+            .marquee-logo {
+                max-height: 40px;
             }
         }
     </style>
@@ -933,12 +1115,24 @@
     <!-- ========== ABOUT PAGE ========== -->
     <section class="page-about">
         <div class="about-container">
-            <!-- Hero секция -->
+            <!-- Hero секция с видео прямо в блоке О КОМПАНИИ -->
             <div class="about-hero">
                 <span class="label">О компании</span>
                 <h1>
                     <span class="gold-gradient">ООО «АКРОИС»</span>
                 </h1>
+                
+                <!-- ВИДЕО ТОЛЬКО ЗДЕСЬ -->
+                <div class="hero-video-wrapper">
+                    <div class="hero-video-container">
+                        <video autoplay muted loop playsinline>
+                            <source src="videos/video3.mp4" type="video/mp4">
+                        </video>
+                        <div class="hero-video-overlay">
+                            <p>Наши объекты и процессы</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Информационная секция 1 -->
@@ -967,65 +1161,375 @@
             </div>
         </div>
 
-        <!-- Блок с партнерами (плавное появление) -->
+        <!-- Блок с партнерами (бегущая лента из 22 новых логотипов) -->
         <div class="partners-section">
             <div class="about-container">
                 <div class="partners-header">
                     <span class="label">Партнеры</span>
-                    <h2><span>Ключевые партнеры</span></h2>
+                    <h2><span>Наши партнеры</span></h2>
+                </div>
+            </div>
+            
+            <div class="partners-marquee-wrapper">
+                <div class="partners-marquee-track">
+                    <!-- Первый набор логотипов (22 штуки) -->
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/27.png" alt="Партнер 27" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/9.png" alt="Партнер 9" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/10.png" alt="Партнер 10" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/11.png" alt="Партнер 11" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/12.png" alt="Партнер 12" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/13.png" alt="Партнер 13" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/14.png" alt="Партнер 14" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/15.png" alt="Партнер 15" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/16.png" alt="Партнер 16" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/17.png" alt="Партнер 17" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/19.png" alt="Партнер 19" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/20.png" alt="Партнер 20" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/21.png" alt="Партнер 21" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/22.png" alt="Партнер 22" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/23.png" alt="Партнер 23" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/24.png" alt="Партнер 24" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/25.png" alt="Партнер 25" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/26.png" alt="Партнер 26" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/28.png" alt="Партнер 28" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/29.png" alt="Партнер 29" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/30.png" alt="Партнер 30" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/ры.png" alt="Партнер ры" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Дубликаты для бесконечной анимации -->
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/27.png" alt="Партнер 27" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/9.png" alt="Партнер 9" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/10.png" alt="Партнер 10" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/11.png" alt="Партнер 11" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/12.png" alt="Партнер 12" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/13.png" alt="Партнер 13" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/14.png" alt="Партнер 14" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/15.png" alt="Партнер 15" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/16.png" alt="Партнер 16" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/17.png" alt="Партнер 17" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/19.png" alt="Партнер 19" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/20.png" alt="Партнер 20" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/21.png" alt="Партнер 21" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/22.png" alt="Партнер 22" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/23.png" alt="Партнер 23" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/24.png" alt="Партнер 24" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/25.png" alt="Партнер 25" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/26.png" alt="Партнер 26" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/28.png" alt="Партнер 28" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/29.png" alt="Партнер 29" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/30.png" alt="Партнер 30" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="marquee-item">
+                        <div class="marquee-logo-frame">
+                            <div class="marquee-logo-wrapper">
+                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/ры.png" alt="Партнер ры" class="marquee-logo">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="partners-grid-fade">
-                    <!-- Логотип 1 -->
-                    <div class="partner-card-fade">
-                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/7-e1770489571776.png" alt="БЕЛТРАНСХОЛОД" class="partner-logo">
-                    </div>
-                    
-                    <!-- Логотип 2 -->
-                    <div class="partner-card-fade">
-                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/6-e1770489536836.png" alt="PROliv" class="partner-logo">
-                    </div>
-                    
-                    <!-- Логотип 3 -->
-                    <div class="partner-card-fade">
-                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/5-e1770489498805.png" alt="Передовые агротехнологии" class="partner-logo">
-                    </div>
-                    
-                    <!-- Логотип 4 -->
-                    <div class="partner-card-fade">
-                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/4-e1770489444939.png" alt="Марис Авто" class="partner-logo">
-                    </div>
-                    
-                    <!-- Логотип 5 -->
-                    <div class="partner-card-fade">
-                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/3-1-e1770489405180.png" alt="Unistar" class="partner-logo">
-                    </div>
-                    
-                    <!-- Логотип 6 -->
-                    <div class="partner-card-fade">
-                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/2-1-e1770489365946.png" alt="LUXVISAGE" class="partner-logo">
-                    </div>
-                    
-                    <!-- Логотип 7 -->
-                    <div class="partner-card-fade">
-                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/1-1-e1770489318484.png" alt="JENTY" class="partner-logo">
-                    </div>
-                    
-                    <!-- Логотип 8 -->
-                    <div class="partner-card-fade">
-                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/3-e1770489282321.png" alt="ЯНТАК" class="partner-logo">
-                    </div>
-                    
-                    <!-- Логотип 9 -->
-                    <div class="partner-card-fade">
-                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/2-e1770489250650.png" alt="БЕЛТЯЖМАШ" class="partner-logo">
-                    </div>
-                    
-                    <!-- Логотип 10 -->
-                    <div class="partner-card-fade">
-                        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/1-e1770489179405.png" alt="ЭпиоХаус" class="partner-logo">
-                    </div>
-                </div>
+                <!-- Градиентные накладки по бокам -->
+                <div class="marquee-overlay left"></div>
+                <div class="marquee-overlay right"></div>
             </div>
         </div>
 
@@ -1106,7 +1610,57 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Кнопка на главную -->
+        <div class="back-home-btn">
+            <a href="index.html" class="btn-hero" style="padding: 15px 40px; font-size: 14px;">
+                <i class="fas fa-home" style="margin-right: 10px;"></i>
+                На главную
+            </a>
+        </div>
     </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>ООО «Акроис»</h3>
+                    <p>Генеральный подрядчик 3-го класса сложности</p>
+                    <p>Собственная база техники и более 13 лет безупречной репутации</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Контакты</h3>
+                    <a href="tel:+375293459345"><i class="fas fa-phone" style="margin-right: 8px;"></i> +375 (29) 345-9-345</a>
+                    <a href="tel:+375447873053"><i class="fas fa-phone" style="margin-right: 8px;"></i> +375 (44) 787-30-53</a>
+                    <a href="mailto:acrois21@mail.ru"><i class="fas fa-envelope" style="margin-right: 8px;"></i> acrois21@mail.ru</a>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> г. Минск, ул. Монтажников 9, оф. 23</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Режим работы</h3>
+                    <p>Пн-Пт: 8:00 - 17:00</p>
+                    <p>Сб-Вс: выходной</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Мы в соцсетях</h3>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/acrois.by/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61587841702161" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://t.me/+375447291846" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://wa.me/375447291846" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="viber://chat?number=%2B375447291846" target="_blank"><i class="fab fa-viber"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 ООО «Акроис». Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Модальное окно -->
     <div class="modal" id="requestModal">
@@ -1221,7 +1775,7 @@
                 });
             }, { threshold: 0.2 });
 
-            document.querySelectorAll('.info-section, .docs-header, .doc-card, .partner-card-fade').forEach(el => {
+            document.querySelectorAll('.info-section, .docs-header, .doc-card').forEach(el => {
                 observer.observe(el);
             });
         })();
