@@ -1,5 +1,3 @@
-лента осьановилась и прокрутки тоже нет
-перепиши код и еще хочеться выделить в хэдэре логотип чтобы было понятно что он еще и кнопка на которую гажимаешь и выходишь на главную
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -175,6 +173,29 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+        }
+        
+        /* ===== ВЫДЕЛЕНИЕ ЛОГОТИПА ===== */
+        .logo-acrois {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .logo-acrois::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #C9A96E;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-acrois:hover::after {
+            transform: scaleX(1);
         }
         
         /* Контакты в хедере - компактные */
@@ -1005,12 +1026,11 @@
             width: 100%;
         }
 
-       .clients-marquee-track {
-    display: flex;
-    width: max-content;
-    padding: 0 25px;
-    transition: transform 0.3s ease;
-}
+        .clients-marquee-track {
+            display: flex;
+            animation: marqueeScroll 30s linear infinite;
+            width: max-content;
+            padding: 0 25px;
         }
 
         @keyframes marqueeScroll {
@@ -1276,70 +1296,7 @@
             font-size: var(--fs-small);
             opacity: 0.7;
         }
-/* ========== КНОПКИ ПО БОКАМ ЛЕНТЫ ========== */
-.marquee-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 0 20px;
-    gap: 15px;
-}
 
-.marquee-arrow {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: rgba(5, 5, 5, 0.8);
-    border: 2px solid var(--color-gold);
-    color: var(--color-gold);
-    font-size: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    z-index: 10;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.marquee-arrow:hover {
-    background: var(--gradient-gold);
-    color: var(--color-black);
-    transform: scale(1.15);
-    box-shadow: 0 0 25px rgba(201, 169, 110, 0.5);
-}
-
-.marquee-arrow:active {
-    transform: scale(0.95);
-}
-
-.clients-marquee-wrapper {
-    flex: 1;
-    overflow: hidden;
-}
-
-@media (max-width: 992px) {
-    .marquee-container {
-        padding: 0 10px;
-        gap: 10px;
-    }
-    
-    .marquee-arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 576px) {
-    .marquee-arrow {
-        width: 35px;
-        height: 35px;
-        font-size: 14px;
-    }
-}
         /* Адаптивность */
         @media (max-width: 992px) {
             .advantages-grid {
@@ -1668,42 +1625,36 @@
         </div>
     </section>
 
-<!-- Секция 3: Clients (Нам доверяют) -->
-<section class="section-clients" id="clients">
-    <!-- Заголовок секции в контейнере -->
-    <div class="section-header-wrapper">
-        <div class="section-container">
-            <div class="section-header">
-                <div class="section-badge">
-                    <span class="badge-line"></span>
-                    <span class="badge-text">Нам доверяют</span>
-                    <span class="badge-line"></span>
+    <!-- Секция 3: Clients (Нам доверяют) -->
+    <section class="section-clients" id="clients">
+        <!-- Заголовок секции в контейнере -->
+        <div class="section-header-wrapper">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <span class="badge-line"></span>
+                        <span class="badge-text">Нам доверяют</span>
+                        <span class="badge-line"></span>
+                    </div>
+                    
+                    <h2 class="section-title">
+                        <span class="title-gold">Проекты, которыми</span>
+                        <span class="title-white"> мы гордимся</span>
+                    </h2>
+                    
+                    <p class="section-description">
+                        Мы построили ключевые объекты для лидеров<br>
+                        белорусской промышленности и логистики.<br>
+                        Наш опыт — это реализованные проекты, где<br>
+                        каждая деталь соответствует высшим стандартам
+                    </p>
                 </div>
-                
-                <h2 class="section-title">
-                    <span class="title-gold">Проекты, которыми</span>
-                    <span class="title-white"> мы гордимся</span>
-                </h2>
-                
-                <p class="section-description">
-                    Мы построили ключевые объекты для лидеров<br>
-                    белорусской промышленности и логистики.<br>
-                    Наш опыт — это реализованные проекты, где<br>
-                    каждая деталь соответствует высшим стандартам
-                </p>
             </div>
         </div>
-    </div>
-    
-    <!-- Бегущая лента логотипов с кнопками по бокам -->
-    <div class="clients-marquee-fullwidth">
-        <div class="marquee-container">
-            <!-- Левая кнопка -->
-            <button class="marquee-arrow marquee-arrow-left" id="marqueeLeft">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            
-            <div class="clients-marquee-wrapper" id="marqueeWrapper">
+        
+        <!-- Бегущая лента логотипов -->
+        <div class="clients-marquee-fullwidth">
+            <div class="clients-marquee-wrapper">
                 <div class="clients-marquee-track" id="marqueeTrack">
                     <!-- Первый набор логотипов (10 штук) -->
                     <div class="marquee-item">
@@ -1956,14 +1907,9 @@
                 <div class="marquee-overlay left"></div>
                 <div class="marquee-overlay right"></div>
             </div>
-            
-            <!-- Правая кнопка -->
-            <button class="marquee-arrow marquee-arrow-right" id="marqueeRight">
-                <i class="fas fa-chevron-right"></i>
-            </button>
         </div>
-    </div>
-</section>
+    </section>
+    
     <!-- Секция 4: About & Advantages -->
     <section class="section-about" id="about">
         <div class="section-container">
@@ -2041,15 +1987,15 @@
             </div>
         </div>
     </section>
-                        <!-- Кнопка "Читать подробнее о нас" -->
-            <div style="text-align: center; margin-top: 60px; margin-bottom: 40px;">
-                <a href="about.html" class="btn-hero" style="padding: 18px 45px; font-size: 16px;">
-                    <i class="fas fa-arrow-right" style="margin-right: 10px;"></i>
-                    Читать подробнее о нас
-                </a>
-            </div>
-        </div>
-    </section>
+    
+    <!-- Кнопка "Читать подробнее о нас" -->
+    <div style="text-align: center; margin-top: 60px; margin-bottom: 40px;">
+        <a href="about.html" class="btn-hero" style="padding: 18px 45px; font-size: 16px;">
+            <i class="fas fa-arrow-right" style="margin-right: 10px;"></i>
+            Читать подробнее о нас
+        </a>
+    </div>
+    
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-container">
@@ -2164,21 +2110,18 @@
 
             closeModalBtn.addEventListener('click', closeModal);
 
-            // Закрытие модали при клике вне контента
             requestModal.addEventListener('click', function(e) {
                 if (e.target === requestModal) {
                     closeModal();
                 }
             });
 
-            // Закрытие модали по Escape
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     closeModal();
                 }
             });
 
-            // Обработка формы
             requestForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 alert('Благодарим за заявку! Мы свяжемся с вами в ближайшее время.');
@@ -2337,17 +2280,6 @@
             window.addEventListener('scroll', animateAdvantages);
             setTimeout(animateAdvantages, 500);
         })();
-    });
-
-    // Пауза анимации при наведении
-    marqueeTrack.addEventListener('mouseenter', function() {
-        marqueeTrack.style.animationPlayState = 'paused';
-    });
-
-    marqueeTrack.addEventListener('mouseleave', function() {
-        marqueeTrack.style.animationPlayState = 'running';
-    });
-}
     </script>
 </body>
 </html>
