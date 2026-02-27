@@ -1047,7 +1047,34 @@
         .clients-marquee-wrapper:hover .clients-marquee-track {
             animation-play-state: paused;
         }
+/* Стили для логотипа-кнопки */
+.logo-acrois {
+    display: block;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
 
+.logo-acrois:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px rgba(201, 169, 110, 0.5));
+}
+
+.logo-acrois::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-gold);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.logo-acrois:hover::after {
+    transform: scaleX(1);
+}
         /* ========== ABOUT SECTION ========== */
         .section-about {
             position: relative;
@@ -1697,7 +1724,7 @@
     <div class="clients-marquee-fullwidth">
         <div class="marquee-container">
             <!-- Левая кнопка -->
-            <button class="marquee-arrow marquee-arrow-left" id="marqueeLeft">
+            <button class="marquee-arrow marquee-arrow-left" id="marqueeLeft" title="Прокрутить влево">
                 <i class="fas fa-chevron-left"></i>
             </button>
             
@@ -1956,7 +1983,7 @@
             </div>
             
             <!-- Правая кнопка -->
-            <button class="marquee-arrow marquee-arrow-right" id="marqueeRight">
+            <button class="marquee-arrow marquee-arrow-right" id="marqueeRight" title="Прокрутить вправо">
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>
@@ -2119,253 +2146,239 @@
     </div>
 
     <script>
-        (function() {
-            'use strict';
-            
-            const acroisHeader = document.getElementById('acroisHeader');
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            const mainNavigation = document.getElementById('mainNavigation');
-            const requestModal = document.getElementById('requestModal');
-            const openModalBtn = document.getElementById('openModal');
-            const closeModalBtn = document.getElementById('closeModal');
-            const requestForm = document.getElementById('requestForm');
-            const heroVideo = document.querySelector('.hero-background video');
-            const playPauseBtn = document.getElementById('playPauseBtn');
-            const muteBtn = document.getElementById('muteBtn');
-            const videoControls = document.getElementById('videoControls');
-            
-            // Эффект скролла для хедера
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    acroisHeader.classList.add('scrolled');
-                } else {
-                    acroisHeader.classList.remove('scrolled');
-                }
-            });
-
-            // Управление модальным окном
-            function openModal() {
-                requestModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+    (function() {
+        'use strict';
+        
+        const acroisHeader = document.getElementById('acroisHeader');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mainNavigation = document.getElementById('mainNavigation');
+        const requestModal = document.getElementById('requestModal');
+        const openModalBtn = document.getElementById('openModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const requestForm = document.getElementById('requestForm');
+        const heroVideo = document.querySelector('.hero-background video');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const muteBtn = document.getElementById('muteBtn');
+        const videoControls = document.getElementById('videoControls');
+        
+        // Эффект скролла для хедера
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                acroisHeader.classList.add('scrolled');
+            } else {
+                acroisHeader.classList.remove('scrolled');
             }
+        });
 
-            function closeModal() {
-                requestModal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
+        // Управление модальным окном
+        function openModal() {
+            requestModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-            openModalBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                openModal();
-            });
+        function closeModal() {
+            requestModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
 
-            closeModalBtn.addEventListener('click', closeModal);
+        openModalBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal();
+        });
 
-            // Закрытие модали при клике вне контента
-            requestModal.addEventListener('click', function(e) {
-                if (e.target === requestModal) {
-                    closeModal();
-                }
-            });
+        closeModalBtn.addEventListener('click', closeModal);
 
-            // Закрытие модали по Escape
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeModal();
-                }
-            });
-
-            // Обработка формы
-            requestForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Благодарим за заявку! Мы свяжемся с вами в ближайшее время.');
+        requestModal.addEventListener('click', function(e) {
+            if (e.target === requestModal) {
                 closeModal();
-                requestForm.reset();
-            });
-
-            // Управление мобильным меню
-            mobileMenuToggle.addEventListener('click', function() {
-                mainNavigation.classList.toggle('active');
-                mobileMenuToggle.innerHTML = mainNavigation.classList.contains('active') 
-                    ? '<i class="fas fa-times"></i>' 
-                    : '<i class="fas fa-bars"></i>';
-                
-                document.body.style.overflow = mainNavigation.classList.contains('active') 
-                    ? 'hidden' 
-                    : '';
-            });
-
-            // Закрытие меню при клике на ссылку
-            document.querySelectorAll('.menu-link').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    mainNavigation.classList.remove('active');
-                    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                    document.body.style.overflow = '';
-                });
-            });
-
-            // Анимация статистики при появлении в области видимости
-            function animateStatsOnScroll() {
-                const statCards = document.querySelectorAll('.stat-card');
-                
-                statCards.forEach(function(card, index) {
-                    const cardTop = card.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (cardTop < windowHeight - 100) {
-                        setTimeout(function() {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, index * 100);
-                    }
-                });
             }
+        });
 
-            // Инициализация анимации статистики
-            document.addEventListener('DOMContentLoaded', function() {
-                const statCards = document.querySelectorAll('.stat-card');
-                statCards.forEach(function(card) {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(30px)';
-                    card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                });
-                
-                window.addEventListener('scroll', animateStatsOnScroll);
-                setTimeout(animateStatsOnScroll, 500);
-                
-                // Оптимизация для мобильных устройств
-                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                    const overlay = document.querySelector('.hero-overlay');
-                    overlay.style.background = 'rgba(5, 5, 5, 0.9)';
-                    
-                    if (videoControls) {
-                        videoControls.style.display = 'none';
-                    }
-                }
-            });
-
-            // Parallax эффект для видео
-            window.addEventListener('scroll', function() {
-                const scrollY = window.scrollY;
-                if (heroVideo) {
-                    heroVideo.style.transform = 'translateY(' + (scrollY * 0.5) + 'px) scale(1.05)';
-                }
-            });
-
-            // Управление видео
-            if (heroVideo && playPauseBtn) {
-                playPauseBtn.addEventListener('click', function() {
-                    if (heroVideo.paused) {
-                        heroVideo.play();
-                        this.innerHTML = '<i class="fas fa-pause"></i>';
-                    } else {
-                        heroVideo.pause();
-                        this.innerHTML = '<i class="fas fa-play"></i>';
-                    }
-                });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
             }
+        });
 
-            if (heroVideo && muteBtn) {
-                muteBtn.addEventListener('click', function() {
-                    heroVideo.muted = !heroVideo.muted;
-                    this.innerHTML = heroVideo.muted 
-                        ? '<i class="fas fa-volume-mute"></i>' 
-                        : '<i class="fas fa-volume-up"></i>';
-                });
-            }
+        requestForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Благодарим за заявку! Мы свяжемся с вами в ближайшее время.');
+            closeModal();
+            requestForm.reset();
+        });
 
-            // Автопрятание кнопок управления видео
-            let videoControlsTimeout;
-            function hideVideoControls() {
-                if (videoControls) videoControls.style.opacity = '0';
-            }
-
-            function showVideoControls() {
-                if (videoControls) {
-                    videoControls.style.opacity = '0.7';
-                    clearTimeout(videoControlsTimeout);
-                    videoControlsTimeout = setTimeout(hideVideoControls, 3000);
-                }
-            }
-
-            if (videoControls) {
-                document.addEventListener('mousemove', showVideoControls);
-                videoControls.addEventListener('mouseenter', function() {
-                    clearTimeout(videoControlsTimeout);
-                    this.style.opacity = '1';
-                });
-                
-                videoControls.addEventListener('mouseleave', function() {
-                    videoControlsTimeout = setTimeout(function() {
-                        if (videoControls) videoControls.style.opacity = '0';
-                    }, 1000);
-                });
-                
-                setTimeout(function() {
-                    if (videoControls) {
-                        videoControlsTimeout = setTimeout(hideVideoControls, 3000);
-                    }
-                }, 2000);
-            }
-
-            // Анимация для карточек преимуществ
-            const advantageCards = document.querySelectorAll('.advantage-card');
+        // Управление мобильным меню
+        mobileMenuToggle.addEventListener('click', function() {
+            mainNavigation.classList.toggle('active');
+            mobileMenuToggle.innerHTML = mainNavigation.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
             
-            function animateAdvantages() {
-                advantageCards.forEach((card, index) => {
-                    const cardTop = card.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (cardTop < windowHeight - 100) {
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, index * 150);
-                    }
-                });
-            }
+            document.body.style.overflow = mainNavigation.classList.contains('active') 
+                ? 'hidden' 
+                : '';
+        });
+
+        // Закрытие меню при клике на ссылку
+        document.querySelectorAll('.menu-link').forEach(function(link) {
+            link.addEventListener('click', function() {
+                mainNavigation.classList.remove('active');
+                mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Анимация статистики
+        function animateStatsOnScroll() {
+            const statCards = document.querySelectorAll('.stat-card');
             
-            advantageCards.forEach(card => {
+            statCards.forEach(function(card, index) {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (cardTop < windowHeight - 100) {
+                    setTimeout(function() {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }
+
+        // Инициализация анимации статистики
+        document.addEventListener('DOMContentLoaded', function() {
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach(function(card) {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(30px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             });
             
-            window.addEventListener('scroll', animateAdvantages);
-            setTimeout(animateAdvantages, 500);
-        })();
-// Управление кнопками ленты логотипов с авто-прокруткой
-const marqueeTrack = document.getElementById('marqueeTrack');
-const marqueeLeft = document.getElementById('marqueeLeft');
-const marqueeRight = document.getElementById('marqueeRight');
-
-if (marqueeTrack && marqueeLeft && marqueeRight) {
-    const scrollAmount = 300;
-    
-    // Кнопки для ручной прокрутки
-    marqueeLeft.addEventListener('click', function() {
-        marqueeTrack.scrollBy({
-            left: -scrollAmount,
-            behavior: 'smooth'
+            window.addEventListener('scroll', animateStatsOnScroll);
+            setTimeout(animateStatsOnScroll, 500);
+            
+            // Оптимизация для мобильных
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                const overlay = document.querySelector('.hero-overlay');
+                overlay.style.background = 'rgba(5, 5, 5, 0.9)';
+                
+                if (videoControls) {
+                    videoControls.style.display = 'none';
+                }
+            }
         });
-    });
 
-    marqueeRight.addEventListener('click', function() {
-        marqueeTrack.scrollBy({
-            left: scrollAmount,
-            behavior: 'smooth'
+        // Parallax для видео
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY;
+            if (heroVideo) {
+                heroVideo.style.transform = 'translateY(' + (scrollY * 0.5) + 'px) scale(1.05)';
+            }
         });
-    });
 
-    // Пауза анимации при наведении
-    marqueeTrack.addEventListener('mouseenter', function() {
-        marqueeTrack.style.animationPlayState = 'paused';
-    });
+        // Управление видео
+        if (heroVideo && playPauseBtn) {
+            playPauseBtn.addEventListener('click', function() {
+                if (heroVideo.paused) {
+                    heroVideo.play();
+                    this.innerHTML = '<i class="fas fa-pause"></i>';
+                } else {
+                    heroVideo.pause();
+                    this.innerHTML = '<i class="fas fa-play"></i>';
+                }
+            });
+        }
 
-    marqueeTrack.addEventListener('mouseleave', function() {
-        marqueeTrack.style.animationPlayState = 'running';
-    });
-}
-    </script>
-</body>
-</html>
+        if (heroVideo && muteBtn) {
+            muteBtn.addEventListener('click', function() {
+                heroVideo.muted = !heroVideo.muted;
+                this.innerHTML = heroVideo.muted 
+                    ? '<i class="fas fa-volume-mute"></i>' 
+                    : '<i class="fas fa-volume-up"></i>';
+            });
+        }
+
+        // Автопрятание кнопок видео
+        let videoControlsTimeout;
+        function hideVideoControls() {
+            if (videoControls) videoControls.style.opacity = '0';
+        }
+
+        function showVideoControls() {
+            if (videoControls) {
+                videoControls.style.opacity = '0.7';
+                clearTimeout(videoControlsTimeout);
+                videoControlsTimeout = setTimeout(hideVideoControls, 3000);
+            }
+        }
+
+        if (videoControls) {
+            document.addEventListener('mousemove', showVideoControls);
+            videoControls.addEventListener('mouseenter', function() {
+                clearTimeout(videoControlsTimeout);
+                this.style.opacity = '1';
+            });
+            
+            videoControls.addEventListener('mouseleave', function() {
+                videoControlsTimeout = setTimeout(function() {
+                    if (videoControls) videoControls.style.opacity = '0';
+                }, 1000);
+            });
+            
+            setTimeout(function() {
+                if (videoControls) {
+                    videoControlsTimeout = setTimeout(hideVideoControls, 3000);
+                }
+            }, 2000);
+        }
+
+        // Анимация для карточек преимуществ
+        const advantageCards = document.querySelectorAll('.advantage-card');
+        
+        function animateAdvantages() {
+            advantageCards.forEach((card, index) => {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (cardTop < windowHeight - 100) {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 150);
+                }
+            });
+        }
+        
+        advantageCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateAdvantages);
+        setTimeout(animateAdvantages, 500);
+
+        // ========== УПРАВЛЕНИЕ ЛЕНТОЙ ЛОГОТИПОВ ==========
+        const marqueeTrack = document.getElementById('marqueeTrack');
+        const marqueeLeft = document.getElementById('marqueeLeft');
+        const marqueeRight = document.getElementById('marqueeRight');
+
+        if (marqueeTrack && marqueeLeft && marqueeRight) {
+            const scrollAmount = 400; // Шаг прокрутки
+            
+            marqueeLeft.addEventListener('click', function() {
+                marqueeTrack.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+
+            marqueeRight.addEventListener('click', function() {
+                marqueeTrack.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    })();
+</script>
