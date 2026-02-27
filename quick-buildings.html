@@ -990,7 +990,37 @@
         .file-label i {
             color: var(--color-gold);
         }
-        
+        /* Улучшение качества изображений */
+.gallery-main img,
+.gallery-thumb img,
+.portfolio-card img,
+.service-image,
+.equipment-image,
+.doc-img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    -ms-interpolation-mode: bicubic;
+}
+
+.gallery-main {
+    background: #1a1a1a;
+}
+
+.gallery-thumb {
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.gallery-thumb:hover {
+    border-color: var(--color-gold);
+    transform: scale(1.05);
+}
+
+.gallery-thumb.active {
+    border-color: var(--color-gold);
+    box-shadow: 0 0 15px rgba(201, 169, 110, 0.5);
+}
         /* ========== FOOTER ========== */
         .footer {
             background: #0a0a0a;
