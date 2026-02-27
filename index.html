@@ -94,6 +94,12 @@
             padding: 0;
         }
         
+        .acrois-header.scrolled {
+            height: 70px;
+            background: rgba(5, 5, 5, 0.98);
+            box-shadow: var(--shadow-gold);
+        }
+        
         .header-container {
             display: flex;
             align-items: center;
@@ -160,6 +166,34 @@
         
         .menu-link:hover::before {
             width: 100%;
+        }
+        
+        .logo-acrois {
+            display: block;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .logo-acrois:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 15px rgba(201, 169, 110, 0.5));
+        }
+        
+        .logo-acrois::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-acrois:hover::after {
+            transform: scaleX(1);
         }
         
         .logo-image-container {
@@ -1003,16 +1037,64 @@
             width: 100%;
         }
 
-       .clients-marquee-track {
-    display: flex;
-    width: max-content;
-    padding: 0 25px;
-    transition: transform 0.3s ease;
-}
+        /* ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ ПРОКРУТКИ */
+        .marquee-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0 20px;
+            gap: 15px;
+        }
 
-        @keyframes marqueeScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        .marquee-arrow {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(5, 5, 5, 0.8);
+            border: 2px solid var(--color-gold);
+            color: var(--color-gold);
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .marquee-arrow:hover {
+            background: var(--gradient-gold);
+            color: var(--color-black);
+            transform: scale(1.15);
+            box-shadow: 0 0 25px rgba(201, 169, 110, 0.5);
+        }
+
+        .marquee-arrow:active {
+            transform: scale(0.95);
+        }
+
+        .clients-marquee-wrapper {
+            flex: 1;
+            overflow-x: auto;
+            scrollbar-width: none; /* для Firefox */
+            -ms-overflow-style: none; /* для IE/Edge */
+            scroll-behavior: smooth;
+            border-top: 2px solid rgba(201,169,110,0.15);
+            border-bottom: 2px solid rgba(201,169,110,0.15);
+            padding: 40px 0;
+        }
+
+        .clients-marquee-wrapper::-webkit-scrollbar {
+            display: none; /* для Chrome/Safari */
+        }
+
+        .clients-marquee-track {
+            display: flex;
+            width: max-content;
+            padding: 0 25px;
         }
 
         .marquee-item {
@@ -1043,37 +1125,6 @@
             background: linear-gradient(90deg, transparent 0%, #0F0F0F 100%);
         }
 
-        .clients-marquee-wrapper:hover .clients-marquee-track {
-            animation-play-state: paused;
-        }
-/* Стили для логотипа-кнопки */
-.logo-acrois {
-    display: block;
-    transition: all 0.3s ease;
-    position: relative;
-    cursor: pointer;
-}
-
-.logo-acrois:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 15px rgba(201, 169, 110, 0.5));
-}
-
-.logo-acrois::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--gradient-gold);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.logo-acrois:hover::after {
-    transform: scaleX(1);
-}
         /* ========== ABOUT SECTION ========== */
         .section-about {
             position: relative;
@@ -1221,6 +1272,35 @@
             font-family: 'Manrope', sans-serif;
         }
 
+        .btn-hero {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 45px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            gap: 8px;
+            background: var(--gradient-gold);
+            color: var(--color-black);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-premium);
+            filter: brightness(1.1);
+        }
+
         /* ========== FOOTER ========== */
         .footer {
             background: #0a0a0a;
@@ -1300,70 +1380,7 @@
             font-size: var(--fs-small);
             opacity: 0.7;
         }
-/* ========== КНОПКИ ПО БОКАМ ЛЕНТЫ ========== */
-.marquee-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 0 20px;
-    gap: 15px;
-}
 
-.marquee-arrow {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: rgba(5, 5, 5, 0.8);
-    border: 2px solid var(--color-gold);
-    color: var(--color-gold);
-    font-size: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    z-index: 10;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.marquee-arrow:hover {
-    background: var(--gradient-gold);
-    color: var(--color-black);
-    transform: scale(1.15);
-    box-shadow: 0 0 25px rgba(201, 169, 110, 0.5);
-}
-
-.marquee-arrow:active {
-    transform: scale(0.95);
-}
-
-.clients-marquee-wrapper {
-    flex: 1;
-    overflow: hidden;
-}
-
-@media (max-width: 992px) {
-    .marquee-container {
-        padding: 0 10px;
-        gap: 10px;
-    }
-    
-    .marquee-arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 576px) {
-    .marquee-arrow {
-        width: 35px;
-        height: 35px;
-        font-size: 14px;
-    }
-}
         /* Адаптивность */
         @media (max-width: 992px) {
             .advantages-grid {
@@ -1446,6 +1463,17 @@
                 min-height: 48px;
                 font-size: 14px;
                 padding: 12px 20px;
+            }
+            
+            .marquee-container {
+                padding: 0 10px;
+                gap: 10px;
+            }
+            
+            .marquee-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
             }
         }
 
@@ -1541,6 +1569,12 @@
             .marquee-overlay {
                 width: 60px;
             }
+            
+            .marquee-arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -1551,7 +1585,7 @@
             <!-- Логотип -->
             <a href="index.html" class="logo-acrois">
                 <div class="logo-image-container">
-                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/Aкроис-logo-final.pdf-e1769983083185.png" alt="АКРОИС" class="logo-image" style="filter: none !important;">
+                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/Акроис-logo-final.pdf-e1769983083185.png" alt="АКРОИС" class="logo-image">
                 </div>
             </a>
         
@@ -1692,298 +1726,300 @@
         </div>
     </section>
 
-<!-- Секция 3: Clients (Нам доверяют) -->
-<section class="section-clients" id="clients">
-    <!-- Заголовок секции в контейнере -->
-    <div class="section-header-wrapper">
-        <div class="section-container">
-            <div class="section-header">
-                <div class="section-badge">
-                    <span class="badge-line"></span>
-                    <span class="badge-text">Нам доверяют</span>
-                    <span class="badge-line"></span>
+    <!-- Секция 3: Clients (Нам доверяют) -->
+    <section class="section-clients" id="clients">
+        <!-- Заголовок секции в контейнере -->
+        <div class="section-header-wrapper">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-badge">
+                        <span class="badge-line"></span>
+                        <span class="badge-text">Нам доверяют</span>
+                        <span class="badge-line"></span>
+                    </div>
+                    
+                    <h2 class="section-title">
+                        <span class="title-gold">Проекты, которыми</span>
+                        <span class="title-white"> мы гордимся</span>
+                    </h2>
+                    
+                    <p class="section-description">
+                        Мы построили ключевые объекты для лидеров<br>
+                        белорусской промышленности и логистики.<br>
+                        Наш опыт — это реализованные проекты, где<br>
+                        каждая деталь соответствует высшим стандартам
+                    </p>
                 </div>
-                
-                <h2 class="section-title">
-                    <span class="title-gold">Проекты, которыми</span>
-                    <span class="title-white"> мы гордимся</span>
-                </h2>
-                
-                <p class="section-description">
-                    Мы построили ключевые объекты для лидеров<br>
-                    белорусской промышленности и логистики.<br>
-                    Наш опыт — это реализованные проекты, где<br>
-                    каждая деталь соответствует высшим стандартам
-                </p>
             </div>
         </div>
-    </div>
+        
+        <!-- Лента логотипов с кнопками по бокам -->
+        <div class="clients-marquee-fullwidth">
+            <div class="marquee-container">
+                <!-- Левая кнопка -->
+                <button class="marquee-arrow" id="marqueeLeft">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <!-- Контейнер с прокруткой -->
+                <div class="clients-marquee-wrapper" id="marqueeContainer">
+                    <div class="clients-marquee-track" id="marqueeTrack">
+                        <!-- Первый набор логотипов (10 штук) -->
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/7-e1770489571776.png" 
+                                         alt="БЕЛТРАНСХОЛОД" 
+                                         class="logo-image-clients" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/6-e1770489536836.png" 
+                                         alt="PROliv" 
+                                         class="logo-image-clients vertical" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/5-e1770489498805.png" 
+                                         alt="Передовые агротехнологии" 
+                                         class="logo-image-clients" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/4-e1770489444939.png" 
+                                         alt="Марис Авто" 
+                                         class="logo-image-clients" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/3-1-e1770489405180.png" 
+                                         alt="Unistar" 
+                                         class="logo-image-clients" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/2-1-e1770489365946.png" 
+                                         alt="LUXVISAGE" 
+                                         class="logo-image-clients" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/1-1-e1770489318484.png" 
+                                         alt="JENTY" 
+                                         class="logo-image-clients wide" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/3-e1770489282321.png" 
+                                         alt="ЯНТАК" 
+                                         class="logo-image-clients dark-logo" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/2-e1770489250650.png" 
+                                         alt="БЕЛТЯЖМАШ" 
+                                         class="logo-image-clients dark-logo" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/1-e1770489179405.png" 
+                                         alt="ЭпиоХаус" 
+                                         class="logo-image-clients dark-logo" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Новый логотип logo_bnbk.png -->
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="images/logo_bnbk.png" 
+                                         alt="BNBK" 
+                                         class="logo-image-clients" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Дубликаты для бесконечной анимации (можно оставить для непрерывности) -->
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/7-e1770489571776.png" 
+                                         alt="БЕЛТРАНСХОЛОД" 
+                                         class="logo-image-clients" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/6-e1770489536836.png" 
+                                         alt="PROliv" 
+                                         class="logo-image-clients vertical" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/5-e1770489498805.png" 
+                                         alt="Передовые агротехнологии" 
+                                         class="logo-image-clients" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/4-e1770489444939.png" 
+                                         alt="Марис Авто" 
+                                         class="logo-image-clients" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/3-1-e1770489405180.png" 
+                                         alt="Unistar" 
+                                         class="logo-image-clients" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/2-1-e1770489365946.png" 
+                                         alt="LUXVISAGE" 
+                                         class="logo-image-clients" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/1-1-e1770489318484.png" 
+                                         alt="JENTY" 
+                                         class="logo-image-clients wide" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/3-e1770489282321.png" 
+                                         alt="ЯНТАК" 
+                                         class="logo-image-clients dark-logo" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/2-e1770489250650.png" 
+                                         alt="БЕЛТЯЖМАШ" 
+                                         class="logo-image-clients dark-logo" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/1-e1770489179405.png" 
+                                         alt="ЭпиоХаус" 
+                                         class="logo-image-clients dark-logo" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Новый логотип logo_bnbk.png (дубликат) -->
+                        <div class="marquee-item">
+                            <div class="logo-gold-frame">
+                                <div class="logo-image-wrapper">
+                                    <img src="images/logo_bnbk.png" 
+                                         alt="BNBK" 
+                                         class="logo-image-clients" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Правая кнопка -->
+                <button class="marquee-arrow" id="marqueeRight">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
     
-    <!-- Лента логотипов с кнопками по бокам -->
-    <div class="clients-marquee-fullwidth">
-        <div style="display: flex; align-items: center; width: 100%; padding: 0 20px;">
-            <!-- Левая кнопка -->
-            <button class="marquee-arrow" id="marqueeLeft" style="flex-shrink: 0; width: 50px; height: 50px; border-radius: 50%; background: rgba(5,5,5,0.8); border: 2px solid #C9A96E; color: #C9A96E; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-right: 15px; z-index: 10;">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            
-            <div style="flex: 1; overflow: hidden; border-top: 2px solid rgba(201,169,110,0.15); border-bottom: 2px solid rgba(201,169,110,0.15); padding: 40px 0;">
-                <div id="marqueeTrack" style="display: flex; width: max-content; padding: 0 25px;">
-                    <!-- Первый набор логотипов (10 штук) -->
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/7-e1770489571776.png" 
-                                     alt="БЕЛТРАНСХОЛОД" 
-                                     class="logo-image-clients" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/6-e1770489536836.png" 
-                                     alt="PROliv" 
-                                     class="logo-image-clients vertical" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/5-e1770489498805.png" 
-                                     alt="Передовые агротехнологии" 
-                                     class="logo-image-clients" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/4-e1770489444939.png" 
-                                     alt="Марис Авто" 
-                                     class="logo-image-clients" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/3-1-e1770489405180.png" 
-                                     alt="Unistar" 
-                                     class="logo-image-clients" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/2-1-e1770489365946.png" 
-                                     alt="LUXVISAGE" 
-                                     class="logo-image-clients" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/1-1-e1770489318484.png" 
-                                     alt="JENTY" 
-                                     class="logo-image-clients wide" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/3-e1770489282321.png" 
-                                     alt="ЯНТАК" 
-                                     class="logo-image-clients dark-logo" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/2-e1770489250650.png" 
-                                     alt="БЕЛТЯЖМАШ" 
-                                     class="logo-image-clients dark-logo" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/1-e1770489179405.png" 
-                                     alt="ЭпиоХаус" 
-                                     class="logo-image-clients dark-logo" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Новый логотип logo_bnbk.png -->
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="images/logo_bnbk.png" 
-                                     alt="BNBK" 
-                                     class="logo-image-clients" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Дубликаты для бесконечной анимации -->
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/7-e1770489571776.png" 
-                                     alt="БЕЛТРАНСХОЛОД" 
-                                     class="logo-image-clients" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/6-e1770489536836.png" 
-                                     alt="PROliv" 
-                                     class="logo-image-clients vertical" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/5-e1770489498805.png" 
-                                     alt="Передовые агротехнологии" 
-                                     class="logo-image-clients" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/4-e1770489444939.png" 
-                                     alt="Марис Авто" 
-                                     class="logo-image-clients" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/3-1-e1770489405180.png" 
-                                     alt="Unistar" 
-                                     class="logo-image-clients" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/2-1-e1770489365946.png" 
-                                     alt="LUXVISAGE" 
-                                     class="logo-image-clients" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/1-1-e1770489318484.png" 
-                                     alt="JENTY" 
-                                     class="logo-image-clients wide" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/3-e1770489282321.png" 
-                                     alt="ЯНТАК" 
-                                     class="logo-image-clients dark-logo" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/2-e1770489250650.png" 
-                                     alt="БЕЛТЯЖМАШ" 
-                                     class="logo-image-clients dark-logo" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/1-e1770489179405.png" 
-                                     alt="ЭпиоХаус" 
-                                     class="logo-image-clients dark-logo" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Новый логотип logo_bnbk.png (дубликат) -->
-                    <div style="flex: 0 0 auto; padding: 0 20px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                        <div class="logo-gold-frame">
-                            <div class="logo-image-wrapper">
-                                <img src="images/logo_bnbk.png" 
-                                     alt="BNBK" 
-                                     class="logo-image-clients" 
-                                     loading="lazy">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Правая кнопка -->
-            <button class="marquee-arrow" id="marqueeRight" style="flex-shrink: 0; width: 50px; height: 50px; border-radius: 50%; background: rgba(5,5,5,0.8); border: 2px solid #C9A96E; color: #C9A96E; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-left: 15px; z-index: 10;">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
-    </div>
-</section>
     <!-- Секция 4: About & Advantages -->
     <section class="section-about" id="about">
         <div class="section-container">
@@ -2059,17 +2095,17 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-                        <!-- Кнопка "Читать подробнее о нас" -->
+            
+            <!-- Кнопка "Читать подробнее о нас" -->
             <div style="text-align: center; margin-top: 60px; margin-bottom: 40px;">
-                <a href="about.html" class="btn-hero" style="padding: 18px 45px; font-size: 16px;">
+                <a href="about.html" class="btn-hero">
                     <i class="fas fa-arrow-right" style="margin-right: 10px;"></i>
                     Читать подробнее о нас
                 </a>
             </div>
         </div>
     </section>
+    
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-container">
@@ -2144,6 +2180,7 @@
     (function() {
         'use strict';
         
+        // Элементы DOM
         const acroisHeader = document.getElementById('acroisHeader');
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const mainNavigation = document.getElementById('mainNavigation');
@@ -2155,6 +2192,11 @@
         const playPauseBtn = document.getElementById('playPauseBtn');
         const muteBtn = document.getElementById('muteBtn');
         const videoControls = document.getElementById('videoControls');
+        
+        // Элементы для ленты логотипов
+        const marqueeContainer = document.getElementById('marqueeContainer');
+        const leftBtn = document.getElementById('marqueeLeft');
+        const rightBtn = document.getElementById('marqueeRight');
         
         // Эффект скролла для хедера
         window.addEventListener('scroll', function() {
@@ -2176,18 +2218,24 @@
             document.body.style.overflow = '';
         }
 
-        openModalBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal();
-        });
+        if (openModalBtn) {
+            openModalBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal();
+            });
+        }
 
-        closeModalBtn.addEventListener('click', closeModal);
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', closeModal);
+        }
 
-        requestModal.addEventListener('click', function(e) {
-            if (e.target === requestModal) {
-                closeModal();
-            }
-        });
+        if (requestModal) {
+            requestModal.addEventListener('click', function(e) {
+                if (e.target === requestModal) {
+                    closeModal();
+                }
+            });
+        }
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
@@ -2195,30 +2243,38 @@
             }
         });
 
-        requestForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Благодарим за заявку! Мы свяжемся с вами в ближайшее время.');
-            closeModal();
-            requestForm.reset();
-        });
+        if (requestForm) {
+            requestForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Благодарим за заявку! Мы свяжемся с вами в ближайшее время.');
+                closeModal();
+                requestForm.reset();
+            });
+        }
 
         // Управление мобильным меню
-        mobileMenuToggle.addEventListener('click', function() {
-            mainNavigation.classList.toggle('active');
-            mobileMenuToggle.innerHTML = mainNavigation.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-            
-            document.body.style.overflow = mainNavigation.classList.contains('active') 
-                ? 'hidden' 
-                : '';
-        });
+        if (mobileMenuToggle && mainNavigation) {
+            mobileMenuToggle.addEventListener('click', function() {
+                mainNavigation.classList.toggle('active');
+                mobileMenuToggle.innerHTML = mainNavigation.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+                
+                document.body.style.overflow = mainNavigation.classList.contains('active') 
+                    ? 'hidden' 
+                    : '';
+            });
+        }
 
         // Закрытие меню при клике на ссылку
         document.querySelectorAll('.menu-link').forEach(function(link) {
             link.addEventListener('click', function() {
-                mainNavigation.classList.remove('active');
-                mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                if (mainNavigation) {
+                    mainNavigation.classList.remove('active');
+                }
+                if (mobileMenuToggle) {
+                    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
                 document.body.style.overflow = '';
             });
         });
@@ -2255,7 +2311,9 @@
             // Оптимизация для мобильных
             if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 const overlay = document.querySelector('.hero-overlay');
-                overlay.style.background = 'rgba(5, 5, 5, 0.9)';
+                if (overlay) {
+                    overlay.style.background = 'rgba(5, 5, 5, 0.9)';
+                }
                 
                 if (videoControls) {
                     videoControls.style.display = 'none';
@@ -2264,12 +2322,12 @@
         });
 
         // Parallax для видео
-        window.addEventListener('scroll', function() {
-            const scrollY = window.scrollY;
-            if (heroVideo) {
+        if (heroVideo) {
+            window.addEventListener('scroll', function() {
+                const scrollY = window.scrollY;
                 heroVideo.style.transform = 'translateY(' + (scrollY * 0.5) + 'px) scale(1.05)';
-            }
-        });
+            });
+        }
 
         // Управление видео
         if (heroVideo && playPauseBtn) {
@@ -2353,20 +2411,37 @@
         window.addEventListener('scroll', animateAdvantages);
         setTimeout(animateAdvantages, 500);
 
-       // Управление кнопками ленты логотипов - ПРОСТАЯ ВЕРСИЯ
-document.addEventListener('DOMContentLoaded', function() {
-    const track = document.getElementById('marqueeTrack');
-    const leftBtn = document.getElementById('marqueeLeft');
-    const rightBtn = document.getElementById('marqueeRight');
-    
-    if (track && leftBtn && rightBtn) {
-        leftBtn.addEventListener('click', function() {
-            track.scrollLeft -= 400;
-        });
-        
-        rightBtn.addEventListener('click', function() {
-            track.scrollLeft += 400;
-        });
-    }
-});
-</script>
+        // Управление кнопками ленты логотипов - ИСПРАВЛЕННАЯ ВЕРСИЯ
+        if (marqueeContainer && leftBtn && rightBtn) {
+            // Ширина прокрутки - примерно ширина одного логотипа с отступами
+            const scrollAmount = 400;
+            
+            leftBtn.addEventListener('click', function() {
+                marqueeContainer.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+            
+            rightBtn.addEventListener('click', function() {
+                marqueeContainer.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Опционально: добавим поддержку колесика мыши
+            marqueeContainer.addEventListener('wheel', function(e) {
+                if (e.deltaY !== 0) {
+                    e.preventDefault();
+                    marqueeContainer.scrollBy({
+                        left: e.deltaY > 0 ? scrollAmount/2 : -scrollAmount/2,
+                        behavior: 'auto'
+                    });
+                }
+            });
+        }
+    })();
+    </script>
+</body>
+</html>
