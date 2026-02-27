@@ -869,7 +869,7 @@
             transition: all 0.4s ease;
         }
 
-        .logo-image {
+        .logo-image-clients {
             max-width: 80%;
             max-height: 50px;
             width: auto;
@@ -887,17 +887,17 @@
             opacity: 0.9;
         }
 
-        .logo-image.vertical {
+        .logo-image-clients.vertical {
             max-width: 60%;
             max-height: 60px;
         }
 
-        .logo-image.wide {
+        .logo-image-clients.wide {
             max-width: 85%;
             max-height: 50px;
         }
 
-        .logo-image.dark-logo {
+        .logo-image-clients.dark-logo {
             filter: 
                 brightness(0) 
                 invert(1) 
@@ -912,13 +912,13 @@
             box-shadow: 0 10px 30px rgba(201, 169, 110, 0.15);
         }
 
-        .logo-gold-frame:hover .logo-image {
+        .logo-gold-frame:hover .logo-image-clients {
             filter: none;
             opacity: 1;
             transform: scale(1.1);
         }
 
-        .logo-gold-frame:hover .logo-image.dark-logo {
+        .logo-gold-frame:hover .logo-image-clients.dark-logo {
             filter: 
                 brightness(1.1)
                 contrast(1.1);
@@ -1194,198 +1194,87 @@
             font-family: 'Manrope', sans-serif;
         }
 
-        .about-cta {
-            text-align: center;
-            margin-top: 50px;
+        /* ========== FOOTER ========== */
+        .footer {
+            background: #0a0a0a;
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(201, 169, 110, 0.15);
         }
 
-        /* ========== SERVICES SECTION ========== */
-        .section-services {
-            padding: 100px 0 60px;
-            background: #0F0F0F;
-            position: relative;
-            width: 100vw;
-            margin-left: calc(-50vw + 50%);
-            margin-right: calc(-50vw + 50%);
-        }
-
-        .services-header {
+        .footer-container {
             max-width: 1400px;
-            margin: 0 auto 50px;
-            padding: 0 40px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .services-description {
-            font-size: var(--fs-body-large);
-            color: rgba(245, 245, 245, 0.9);
-            line-height: 1.6;
-            font-weight: 300;
-            font-family: 'Manrope', sans-serif;
-            max-width: 900px;
             margin: 0 auto;
+            padding: 0 30px;
         }
 
-        .services-grid-fullwidth {
-            width: 100vw;
-            margin: 0;
-            padding: 0;
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
-        .service-card {
-            background: rgba(26, 26, 26, 0.95);
-            border: 1px solid rgba(201, 169, 110, 0.1);
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            position: relative;
-            min-height: 500px;
-        }
-
-        .service-card:hover {
-            border-color: rgba(201, 169, 110, 0.4);
-            transform: translateY(-3px) scale(1.01);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            z-index: 10;
-        }
-
-        .service-card {
-            border-right: 1px solid rgba(201, 169, 110, 0.05);
-            border-bottom: 1px solid rgba(201, 169, 110, 0.05);
-        }
-
-        .service-card:nth-child(3n) {
-            border-right: none;
-        }
-
-        .service-card.special {
-            border: 2px solid rgba(201, 169, 110, 0.3);
-            background: rgba(26, 26, 26, 0.98);
-        }
-
-        .card-image {
-            height: 250px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, 
-                rgba(15, 15, 15, 0) 0%,
-                rgba(15, 15, 15, 0.9) 100%);
-        }
-
-        .card-number {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-family: 'Manrope', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: rgba(201, 169, 110, 0.7);
-            line-height: 1;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        .special-badge {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(201, 169, 110, 0.3);
-            color: #C9A96E;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-family: 'Manrope', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid rgba(201, 169, 110, 0.5);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .card-content {
-            padding: 30px 25px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            background: rgba(15, 15, 15, 0.7);
-        }
-
-        .card-title {
-            font-family: 'Cormorant Garamond', serif;
+        .footer-col h3 {
+            font-family: var(--font-heading);
             font-size: var(--fs-h3);
-            color: #F5F5F5;
-            font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: 15px;
+            color: var(--color-gold);
+            margin-bottom: 20px;
         }
 
-        .card-description {
-            font-family: 'Manrope', sans-serif;
+        .footer-col p, .footer-col a {
+            color: var(--color-gold-light);
             font-size: var(--fs-body);
-            color: rgba(245, 245, 245, 0.9);
-            line-height: 1.6;
-            font-weight: 300;
-            margin-bottom: 25px;
-            flex: 1;
-        }
-
-        .card-btn {
-            display: inline-block;
-            width: fit-content;
-            padding: 12px 25px;
-            background: transparent;
-            border: 2px solid rgba(201, 169, 110, 0.6);
-            color: #C9A96E;
-            border-radius: 8px;
-            font-family: 'Manrope', sans-serif;
-            font-size: var(--fs-small);
-            font-weight: 600;
+            line-height: 1.8;
             text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 10px;
+            transition: var(--transition);
         }
 
-        .card-btn:hover {
-            background: rgba(201, 169, 110, 0.15);
-            border-color: #C9A96E;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(201, 169, 110, 0.2);
+        .footer-col a:hover {
+            color: var(--color-gold);
+            transform: translateX(5px);
         }
 
-        /* ========== АДАПТИВНОСТЬ ========== */
-        @media (max-width: 1400px) {
-            .services-grid-fullwidth {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .service-card:nth-child(3n) {
-                border-right: 1px solid rgba(201, 169, 110, 0.05);
-            }
-            
-            .service-card:nth-child(2n) {
-                border-right: none;
-            }
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
         }
 
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(201, 169, 110, 0.1);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+            font-size: 18px;
+            transition: var(--transition);
+            margin-bottom: 0;
+        }
+
+        .footer-social a:hover {
+            background: var(--gradient-gold);
+            color: var(--color-black);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(201, 169, 110, 0.1);
+            color: var(--color-gold-light);
+            font-size: var(--fs-small);
+            opacity: 0.7;
+        }
+
+        /* Адаптивность */
         @media (max-width: 992px) {
             .advantages-grid {
                 grid-template-columns: 1fr;
@@ -1396,16 +1285,8 @@
                 padding: 30px;
             }
             
-            .services-grid-fullwidth {
-                grid-template-columns: 1fr;
-            }
-            
-            .service-card {
-                min-height: 450px;
-            }
-            
-            .service-card:nth-child(2n) {
-                border-right: 1px solid rgba(201, 169, 110, 0.05);
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .mobile-menu-toggle {
@@ -1510,21 +1391,9 @@
                 margin: 0 auto;
             }
             
-            .card-image {
-                height: 200px;
-            }
-            
-            .card-content {
-                padding: 25px 20px;
-            }
-            
-            .card-number {
-                font-size: 3rem;
-            }
-            
-            .special-badge {
-                padding: 6px 15px;
-                font-size: 12px;
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
 
@@ -1565,7 +1434,7 @@
                 padding: 10px;
             }
             
-            .logo-image {
+            .logo-image-clients {
                 max-height: 40px;
             }
             
@@ -1582,11 +1451,6 @@
             .marquee-overlay {
                 width: 60px;
             }
-            
-            .card-btn {
-                padding: 10px 20px;
-                font-size: 12px;
-            }
         }
     </style>
 </head>
@@ -1595,12 +1459,11 @@
     <header class="acrois-header" id="acroisHeader">
         <div class="header-container">
             <!-- Логотип -->
-           <!-- Логотип -->
-<a href="index.html" class="logo-acrois">
-    <div class="logo-image-container">
-        <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/Aкроис-logo-final.pdf-e1769983083185.png" alt="АКРОИС" class="logo-image" style="filter: none !important;">
-    </div>
-</a>
+            <a href="index.html" class="logo-acrois">
+                <div class="logo-image-container">
+                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/Aкроис-logo-final.pdf-e1769983083185.png" alt="АКРОИС" class="logo-image" style="filter: none !important;">
+                </div>
+            </a>
         
             <!-- Кнопка мобильного меню -->
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
@@ -1614,18 +1477,20 @@
                     <li class="menu-item">
                         <a href="about.html" class="menu-link">О компании</a>
                     </li>
-                   <li class="menu-item"><a href="services.html" class="menu-link">Услуги</a></li>
+                    <li class="menu-item">
+                        <a href="services.html" class="menu-link">Услуги</a>
+                    </li>
                     <li class="menu-item">
                         <a href="#projects" class="menu-link">Проекты</a>
                     </li>
                     <li class="menu-item">
-                        <a href="#quick-buildings" class="menu-link">Быстровозводимые здания</a>
+                        <a href="quick-buildings.html" class="menu-link">Быстровозводимые здания</a>
                     </li>
                     <li class="menu-item">
                         <a href="career.html" class="menu-link">Вакансии</a>
                     </li>
                     <li class="menu-item">
-                        <a href="#contact" class="menu-link">Контакты</a>
+                        <a href="contact.html" class="menu-link">Контакты</a>
                     </li>
                 </ul>
                 
@@ -1649,15 +1514,15 @@
             </div>
         </div>
     </header>
+    
     <!-- Секция 2: Hero с видео -->
     <section class="hero-acrois" id="heroSection">
         <!-- Фоновое видео -->
-        <!-- Фоновое видео -->
-<div class="hero-background">
-    <video autoplay muted loop playsinline preload="auto">
-        <source src="https://elizavetavasenok-lab.github.io/acrois.github.io/videos/video.mp4" type="video/mp4">
-    </video>
-</div>
+        <div class="hero-background">
+            <video autoplay muted loop playsinline preload="auto">
+                <source src="https://elizavetavasenok-lab.github.io/acrois.github.io/videos/video.mp4" type="video/mp4">
+            </video>
+        </div>
         
         <!-- Усиленное затемнение для лучшей читаемости текста -->
         <div class="hero-overlay"></div>
@@ -1692,7 +1557,7 @@
                 
                 <!-- Кнопки действий -->
                 <div class="hero-actions">
-                    <a href="#services" class="btn-hero btn-hero-secondary">
+                    <a href="services.html" class="btn-hero btn-hero-secondary">
                         Наши услуги
                     </a>
                 </div>
@@ -1768,13 +1633,13 @@
         <div class="clients-marquee-fullwidth">
             <div class="clients-marquee-wrapper">
                 <div class="clients-marquee-track">
-                    <!-- Первый набор логотипов (10 штук) -->
+                    <!-- Первый набор логотипов -->
                     <div class="marquee-item">
                         <div class="logo-gold-frame">
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/7-e1770489571776.png" 
                                      alt="БЕЛТРАНСХОЛОД" 
-                                     class="logo-image" 
+                                     class="logo-image-clients" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1785,7 +1650,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/6-e1770489536836.png" 
                                      alt="PROliv" 
-                                     class="logo-image vertical" 
+                                     class="logo-image-clients vertical" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1796,7 +1661,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/5-e1770489498805.png" 
                                      alt="Передовые агротехнологии" 
-                                     class="logo-image" 
+                                     class="logo-image-clients" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1807,7 +1672,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/4-e1770489444939.png" 
                                      alt="Марис Авто" 
-                                     class="logo-image" 
+                                     class="logo-image-clients" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1818,7 +1683,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/3-1-e1770489405180.png" 
                                      alt="Unistar" 
-                                     class="logo-image" 
+                                     class="logo-image-clients" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1829,7 +1694,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/2-1-e1770489365946.png" 
                                      alt="LUXVISAGE" 
-                                     class="logo-image" 
+                                     class="logo-image-clients" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1840,7 +1705,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/1-1-e1770489318484.png" 
                                      alt="JENTY" 
-                                     class="logo-image wide" 
+                                     class="logo-image-clients wide" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1851,7 +1716,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/3-e1770489282321.png" 
                                      alt="ЯНТАК" 
-                                     class="logo-image dark-logo" 
+                                     class="logo-image-clients dark-logo" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1862,7 +1727,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/2-e1770489250650.png" 
                                      alt="БЕЛТЯЖМАШ" 
-                                     class="logo-image dark-logo" 
+                                     class="logo-image-clients dark-logo" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1873,11 +1738,23 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/1-e1770489179405.png" 
                                      alt="ЭпиоХаус" 
-                                     class="logo-image dark-logo" 
+                                     class="logo-image-clients dark-logo" 
                                      loading="lazy">
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Новый логотип logo_bnbk.png -->
+<div class="marquee-item">
+    <div class="logo-gold-frame">
+        <div class="logo-image-wrapper">
+            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/logo_bnbk.png" 
+                 alt="BNBK" 
+                 class="logo-image-clients" 
+                 loading="lazy">
+        </div>
+    </div>
+</div>
                     
                     <!-- Дубликаты для бесконечной анимации -->
                     <div class="marquee-item">
@@ -1885,7 +1762,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/7-e1770489571776.png" 
                                      alt="БЕЛТРАНСХОЛОД" 
-                                     class="logo-image" 
+                                     class="logo-image-clients" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1896,7 +1773,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/6-e1770489536836.png" 
                                      alt="PROliv" 
-                                     class="logo-image vertical" 
+                                     class="logo-image-clients vertical" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1907,7 +1784,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/5-e1770489498805.png" 
                                      alt="Передовые агротехнологии" 
-                                     class="logo-image" 
+                                     class="logo-image-clients" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1918,7 +1795,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/4-e1770489444939.png" 
                                      alt="Марис Авто" 
-                                     class="logo-image" 
+                                     class="logo-image-clients" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1929,7 +1806,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/3-1-e1770489405180.png" 
                                      alt="Unistar" 
-                                     class="logo-image" 
+                                     class="logo-image-clients" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1940,7 +1817,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/2-1-e1770489365946.png" 
                                      alt="LUXVISAGE" 
-                                     class="logo-image" 
+                                     class="logo-image-clients" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1951,7 +1828,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/1-1-e1770489318484.png" 
                                      alt="JENTY" 
-                                     class="logo-image wide" 
+                                     class="logo-image-clients wide" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1962,7 +1839,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/3-e1770489282321.png" 
                                      alt="ЯНТАК" 
-                                     class="logo-image dark-logo" 
+                                     class="logo-image-clients dark-logo" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1973,7 +1850,7 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/2-e1770489250650.png" 
                                      alt="БЕЛТЯЖМАШ" 
-                                     class="logo-image dark-logo" 
+                                     class="logo-image-clients dark-logo" 
                                      loading="lazy">
                             </div>
                         </div>
@@ -1984,13 +1861,23 @@
                             <div class="logo-image-wrapper">
                                 <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/1-e1770489179405.png" 
                                      alt="ЭпиоХаус" 
-                                     class="logo-image dark-logo" 
+                                     class="logo-image-clients dark-logo" 
                                      loading="lazy">
                             </div>
                         </div>
                     </div>
-                </div>
-                
+                    
+                    <!-- Новый логотип logo_bnbk.png (дубликат) -->
+<div class="marquee-item">
+    <div class="logo-gold-frame">
+        <div class="logo-image-wrapper">
+            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/logo_bnbk.png" 
+                 alt="BNBK" 
+                 class="logo-image-clients" 
+                 loading="lazy">
+        </div>
+    </div>
+</div>
                 <!-- Градиентные накладки по бокам -->
                 <div class="marquee-overlay left"></div>
                 <div class="marquee-overlay right"></div>
@@ -2073,185 +1960,50 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Кнопка CTA -->
-            <div class="about-cta">
-                <a href="#contact" class="btn-hero">
-                    <i class="fas fa-handshake"></i>
-                    Обсудить проект
-                </a>
-            </div>
         </div>
     </section>
 
-    <!-- Секция 5: Services - На всю ширину -->
-    <section class="section-services" id="services">
-        <!-- Заголовок секции -->
-        <div class="services-header">
-            <div class="section-badge">
-                <span class="badge-line"></span>
-                <span class="badge-text">комплексные решения</span>
-                <span class="badge-line"></span>
-            </div>
-            
-            <h2 class="section-title">
-                <span class="title-gold">Полный спектр</span>
-                <span class="title-white">строительных услуг</span>
-            </h2>
-            
-            <p class="services-description">
-                От проектирования до сдачи под ключ. Более 10 направлений строительных работ<br>
-                в одном месте с гарантией качества и соблюдением сроков.
-            </p>
-        </div>
-        
-        <!-- Сетка услуг на всю ширину -->
-        <div class="services-grid-fullwidth">
-            <!-- Карточка 1 -->
-            <div class="service-card" data-service="1">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80');">
-                    <div class="card-overlay"></div>
-                    <div class="card-number">01</div>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>ООО «Акроис»</h3>
+                    <p>Генеральный подрядчик 3-го класса сложности</p>
+                    <p>Собственная база техники и более 13 лет безупречной репутации</p>
                 </div>
-                <div class="card-content">
-                    <h3 class="card-title">Генеральный подряд</h3>
-                    <p class="card-description">Управление строительством зданий 3-го класса сложности. От проектирования до сдачи госкомиссии.</p>
-                    <a href="#" class="card-btn">Подробнее</a>
+                
+                <div class="footer-col">
+                    <h3>Контакты</h3>
+                    <a href="tel:+375293459345"><i class="fas fa-phone" style="margin-right: 8px;"></i> +375 (29) 345-9-345</a>
+                    <a href="tel:+375447873053"><i class="fas fa-phone" style="margin-right: 8px;"></i> +375 (44) 787-30-53</a>
+                    <a href="mailto:acrois21@mail.ru"><i class="fas fa-envelope" style="margin-right: 8px;"></i> acrois21@mail.ru</a>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> г. Минск, ул. Монтажников 9, оф. 23</p>
                 </div>
-            </div>
-            
-            <!-- Карточка 2 -->
-            <div class="service-card" data-service="2">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1503387769-00c5f6d1fc0d?auto=format&fit=crop&w=1200&q=80');">
-                    <div class="card-overlay"></div>
-                    <div class="card-number">02</div>
+                
+                <div class="footer-col">
+                    <h3>Режим работы</h3>
+                    <p>Пн-Пт: 8:00 - 17:00</p>
+                    <p>Сб-Вс: выходной</p>
                 </div>
-                <div class="card-content">
-                    <h3 class="card-title">Строительство зданий и сооружений</h3>
-                    <p class="card-description">Возведение современных складов, производственных цехов, ангаров и офисных центров.</p>
-                    <a href="#" class="card-btn">Подробнее</a>
+                
+                <div class="footer-col">
+                    <h3>Мы в соцсетях</h3>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/acrois.by/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61587841702161" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://t.me/+375447291846" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://wa.me/375447291846" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="viber://chat?number=%2B375447291846" target="_blank"><i class="fab fa-viber"></i></a>
+                    </div>
                 </div>
             </div>
             
-            <!-- Карточка 3 -->
-            <div class="service-card" data-service="3">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1487956382158-bb926046304a?auto=format&fit=crop&w=1200&q=80');">
-                    <div class="card-overlay"></div>
-                    <div class="card-number">03</div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Складские и административные помещения</h3>
-                    <p class="card-description">Строительство современных складских комплексов, логистических центров и офисных зданий.</p>
-                    <a href="#" class="card-btn">Подробнее</a>
-                </div>
-            </div>
-            
-            <!-- Карточка 4 -->
-            <div class="service-card" data-service="4">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80');">
-                    <div class="card-overlay"></div>
-                    <div class="card-number">04</div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Общестроительные работы</h3>
-                    <p class="card-description">Устройство фундаментов, возведение стен и перекрытий, все виды общестроительных работ.</p>
-                    <a href="#" class="card-btn">Подробнее</a>
-                </div>
-            </div>
-            
-            <!-- Карточка 5 -->
-            <div class="service-card" data-service="5">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80');">
-                    <div class="card-overlay"></div>
-                    <div class="card-number">05</div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Инженерные сети</h3>
-                    <p class="card-description">Строительство и монтаж систем водоснабжения, канализации, отопления, вентиляции.</p>
-                    <a href="#" class="card-btn">Подробнее</a>
-                </div>
-            </div>
-            
-            <!-- Карточка 6 -->
-            <div class="service-card" data-service="6">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80');">
-                    <div class="card-overlay"></div>
-                    <div class="card-number">06</div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Ремонтные и отделочные работы</h3>
-                    <p class="card-description">Качественный ремонт и финишная отделка помещений любого назначения.</p>
-                    <a href="#" class="card-btn">Подробнее</a>
-                </div>
-            </div>
-            
-            <!-- Карточка 7 -->
-            <div class="service-card" data-service="7">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1503387769-00c5f6d1fc0d?auto=format&fit=crop&w=1200&q=80');">
-                    <div class="card-overlay"></div>
-                    <div class="card-number">07</div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Кровельные работы</h3>
-                    <p class="card-description">Монтаж кровельных систем с современными гидро- и теплоизоляционными материалами.</p>
-                    <a href="#" class="card-btn">Подробнее</a>
-                </div>
-            </div>
-            
-            <!-- Карточка 8 -->
-            <div class="service-card" data-service="8">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80');">
-                    <div class="card-overlay"></div>
-                    <div class="card-number">08</div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Металлоконструкции и сэндвич-панели</h3>
-                    <p class="card-description">Изготовление и монтаж металлоконструкций. Прямые поставки с завода.</p>
-                    <a href="#" class="card-btn">Подробнее</a>
-                </div>
-            </div>
-            
-            <!-- Карточка 9 -->
-            <div class="service-card" data-service="9">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80');">
-                    <div class="card-overlay"></div>
-                    <div class="card-number">09</div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Сантехнические и электромонтажные работы</h3>
-                    <p class="card-description">Профессиональный монтаж систем ВК, ОВ, НВК и полный спектр электромонтажных работ.</p>
-                    <a href="#" class="card-btn">Подробнее</a>
-                </div>
-            </div>
-            
-            <!-- Карточка 10 -->
-            <div class="service-card" data-service="10">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80');">
-                    <div class="card-overlay"></div>
-                    <div class="card-number">10</div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Монолитные работы</h3>
-                    <p class="card-description">Устройство монолитных конструкций любой сложности: фундаменты, колонны, перекрытия.</p>
-                    <a href="#" class="card-btn">Подробнее</a>
-                </div>
-            </div>
-            
-            <!-- Карточка 11 - Быстровозводимые здания (выделенная) -->
-            <div class="service-card special" data-service="11">
-                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1503387769-00c5f6d1fc0d?auto=format&fit=crop&w=1200&q=80');">
-                    <div class="card-overlay"></div>
-                    <div class="card-number special">11</div>
-                    <div class="special-badge">Быстровозводимые</div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Аренда техники и опалубки</h3>
-                    <p class="card-description">Собственный парк техники</p>
-                    <a href="#" class="card-btn special">Подробнее</a>
-                </div>
+            <div class="footer-bottom">
+                <p>© 2026 ООО «Акроис». Все права защищены.</p>
             </div>
         </div>
-    </section>
+    </footer>
 
     <!-- Modal: Оставить заявку -->
     <div class="modal" id="requestModal">
@@ -2496,33 +2248,6 @@
             
             window.addEventListener('scroll', animateAdvantages);
             setTimeout(animateAdvantages, 500);
-
-            // Анимация для карточек услуг
-            const serviceCards = document.querySelectorAll('.service-card');
-            
-            function animateServices() {
-                serviceCards.forEach((card, index) => {
-                    const cardTop = card.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (cardTop < windowHeight * 0.85) {
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, index * 100);
-                    }
-                });
-            }
-            
-            serviceCards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(40px)';
-                card.style.transition = 'opacity 0.8s ease, transform 0.8s ease, border-color 0.3s ease';
-            });
-            
-            window.addEventListener('scroll', animateServices);
-            window.addEventListener('load', animateServices);
-            setTimeout(animateServices, 300);
         })();
     </script>
 </body>
