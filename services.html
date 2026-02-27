@@ -469,28 +469,7 @@
             line-height: 1.7;
             max-width: 90%;
         }
-        /* Простой эффект для логотипа - подчеркивание */
-.logo-acrois {
-    display: inline-block;
-    position: relative;
-    text-decoration: none;
-}
 
-.logo-acrois::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #C9A96E; /* Золотой цвет */
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.logo-acrois:hover::after {
-    transform: scaleX(1);
-}
         /* Секция с техникой */
         .equipment-section {
             padding: 80px 0;
@@ -720,7 +699,28 @@
             max-width: 600px;
             margin: 0 auto 30px;
         }
-        
+        /* Простой эффект для логотипа - подчеркивание */
+.logo-acrois {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+}
+
+.logo-acrois::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #C9A96E; /* Золотой цвет */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.logo-acrois:hover::after {
+    transform: scaleX(1);
+}
         /* Адаптивность */
         @media (max-width: 1200px) {
             .services-grid {
