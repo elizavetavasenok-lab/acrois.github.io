@@ -1003,11 +1003,12 @@
             width: 100%;
         }
 
-        .clients-marquee-track {
-            display: flex;
-            animation: marqueeScroll 30s linear infinite;
-            width: max-content;
-            padding: 0 25px;
+       .clients-marquee-track {
+    display: flex;
+    width: max-content;
+    padding: 0 25px;
+    transition: transform 0.3s ease;
+}
         }
 
         @keyframes marqueeScroll {
@@ -2333,24 +2334,25 @@
             window.addEventListener('scroll', animateAdvantages);
             setTimeout(animateAdvantages, 500);
         })();
-// Управление кнопками ленты логотипов
+// Управление кнопками ленты логотипов с авто-прокруткой
 const marqueeTrack = document.getElementById('marqueeTrack');
 const marqueeLeft = document.getElementById('marqueeLeft');
 const marqueeRight = document.getElementById('marqueeRight');
 
 if (marqueeTrack && marqueeLeft && marqueeRight) {
-    // Левая кнопка
+    const scrollAmount = 300;
+    
+    // Кнопки для ручной прокрутки
     marqueeLeft.addEventListener('click', function() {
         marqueeTrack.scrollBy({
-            left: -300,
+            left: -scrollAmount,
             behavior: 'smooth'
         });
     });
 
-    // Правая кнопка
     marqueeRight.addEventListener('click', function() {
         marqueeTrack.scrollBy({
-            left: 300,
+            left: scrollAmount,
             behavior: 'smooth'
         });
     });
@@ -2361,16 +2363,6 @@ if (marqueeTrack && marqueeLeft && marqueeRight) {
     });
 
     marqueeTrack.addEventListener('mouseleave', function() {
-        marqueeTrack.style.animationPlayState = 'running';
-    });
-}
-
-    // Останавливаем автоматическую прокрутку при наведении
-    marqueeTrack.addEventListener('mouseenter', () => {
-        marqueeTrack.style.animationPlayState = 'paused';
-    });
-
-    marqueeTrack.addEventListener('mouseleave', () => {
         marqueeTrack.style.animationPlayState = 'running';
     });
 }
