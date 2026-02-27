@@ -1274,15 +1274,16 @@
             opacity: 0.7;
         }
 /* ========== КНОПКИ ПО БОКАМ ЛЕНТЫ ========== */
-.marquee-wrapper-with-buttons {
+.marquee-container {
     position: relative;
     display: flex;
     align-items: center;
     width: 100%;
     padding: 0 20px;
+    gap: 15px;
 }
 
-.marquee-nav-btn {
+.marquee-arrow {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -1291,33 +1292,24 @@
     color: var(--color-gold);
     font-size: 20px;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(5px);
-    z-index: 20;
     flex-shrink: 0;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.marquee-nav-btn:hover {
+.marquee-arrow:hover {
     background: var(--gradient-gold);
     color: var(--color-black);
     transform: scale(1.15);
-    box-shadow: var(--shadow-premium);
+    box-shadow: 0 0 25px rgba(201, 169, 110, 0.5);
 }
 
-.marquee-nav-btn:active {
+.marquee-arrow:active {
     transform: scale(0.95);
-}
-
-.marquee-nav-left {
-    margin-right: 15px;
-}
-
-.marquee-nav-right {
-    margin-left: 15px;
 }
 
 .clients-marquee-wrapper {
@@ -1326,27 +1318,20 @@
 }
 
 @media (max-width: 992px) {
-    .marquee-wrapper-with-buttons {
+    .marquee-container {
         padding: 0 10px;
+        gap: 10px;
     }
     
-    .marquee-nav-btn {
+    .marquee-arrow {
         width: 40px;
         height: 40px;
         font-size: 16px;
     }
-    
-    .marquee-nav-left {
-        margin-right: 10px;
-    }
-    
-    .marquee-nav-right {
-        margin-left: 10px;
-    }
 }
 
-@media (max-width: 768px) {
-    .marquee-nav-btn {
+@media (max-width: 576px) {
+    .marquee-arrow {
         width: 35px;
         height: 35px;
         font-size: 14px;
@@ -1680,7 +1665,7 @@
         </div>
     </section>
 
-   <!-- Секция 3: Clients (Нам доверяют) -->
+<!-- Секция 3: Clients (Нам доверяют) -->
 <section class="section-clients" id="clients">
     <!-- Заголовок секции в контейнере -->
     <div class="section-header-wrapper">
@@ -1709,9 +1694,9 @@
     
     <!-- Бегущая лента логотипов с кнопками по бокам -->
     <div class="clients-marquee-fullwidth">
-        <div class="marquee-wrapper-with-buttons">
+        <div class="marquee-container">
             <!-- Левая кнопка -->
-            <button class="marquee-nav-btn marquee-nav-left" id="marqueeLeft" aria-label="Прокрутить влево">
+            <button class="marquee-arrow marquee-arrow-left" id="marqueeLeft">
                 <i class="fas fa-chevron-left"></i>
             </button>
             
@@ -1970,7 +1955,7 @@
             </div>
             
             <!-- Правая кнопка -->
-            <button class="marquee-nav-btn marquee-nav-right" id="marqueeRight" aria-label="Прокрутить вправо">
+            <button class="marquee-arrow marquee-arrow-right" id="marqueeRight">
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>
@@ -2348,28 +2333,37 @@
             window.addEventListener('scroll', animateAdvantages);
             setTimeout(animateAdvantages, 500);
         })();
-        // Управление лентой логотипов с кнопками по бокам
+// Управление кнопками ленты логотипов
 const marqueeTrack = document.getElementById('marqueeTrack');
 const marqueeLeft = document.getElementById('marqueeLeft');
 const marqueeRight = document.getElementById('marqueeRight');
-let autoScrollInterval;
 
 if (marqueeTrack && marqueeLeft && marqueeRight) {
-    // Функция для прокрутки влево
-    marqueeLeft.addEventListener('click', () => {
+    // Левая кнопка
+    marqueeLeft.addEventListener('click', function() {
         marqueeTrack.scrollBy({
             left: -300,
             behavior: 'smooth'
         });
     });
 
-    // Функция для прокрутки вправо
-    marqueeRight.addEventListener('click', () => {
+    // Правая кнопка
+    marqueeRight.addEventListener('click', function() {
         marqueeTrack.scrollBy({
             left: 300,
             behavior: 'smooth'
         });
     });
+
+    // Пауза анимации при наведении
+    marqueeTrack.addEventListener('mouseenter', function() {
+        marqueeTrack.style.animationPlayState = 'paused';
+    });
+
+    marqueeTrack.addEventListener('mouseleave', function() {
+        marqueeTrack.style.animationPlayState = 'running';
+    });
+}
 
     // Останавливаем автоматическую прокрутку при наведении
     marqueeTrack.addEventListener('mouseenter', () => {
