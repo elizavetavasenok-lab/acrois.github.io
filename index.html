@@ -207,6 +207,7 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+            filter: brightness(0) invert(1); /* Добавлено для правильного отображения логотипа */
         }
         
         /* Контакты в хедере - компактные */
@@ -1037,7 +1038,6 @@
             width: 100%;
         }
 
-        /* ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ ПРОКРУТКИ */
         .marquee-container {
             position: relative;
             display: flex;
@@ -1078,23 +1078,26 @@
 
         .clients-marquee-wrapper {
             flex: 1;
-            overflow-x: auto;
-            scrollbar-width: none; /* для Firefox */
-            -ms-overflow-style: none; /* для IE/Edge */
-            scroll-behavior: smooth;
-            border-top: 2px solid rgba(201,169,110,0.15);
-            border-bottom: 2px solid rgba(201,169,110,0.15);
-            padding: 40px 0;
-        }
-
-        .clients-marquee-wrapper::-webkit-scrollbar {
-            display: none; /* для Chrome/Safari */
+            overflow: hidden;
+            position: relative;
         }
 
         .clients-marquee-track {
             display: flex;
             width: max-content;
             padding: 0 25px;
+            animation: marqueeScroll 30s linear infinite;
+            will-change: transform;
+        }
+
+        /* Пауза анимации при наведении или при ручной прокрутке */
+        .clients-marquee-wrapper.paused .clients-marquee-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         .marquee-item {
@@ -1761,10 +1764,10 @@
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 
-                <!-- Контейнер с прокруткой -->
-                <div class="clients-marquee-wrapper" id="marqueeContainer">
+                <!-- Контейнер с анимированной лентой -->
+                <div class="clients-marquee-wrapper" id="marqueeWrapper">
                     <div class="clients-marquee-track" id="marqueeTrack">
-                        <!-- Первый набор логотипов (10 штук) -->
+                        <!-- Первый набор логотипов (11 штук) -->
                         <div class="marquee-item">
                             <div class="logo-gold-frame">
                                 <div class="logo-image-wrapper">
@@ -1887,7 +1890,7 @@
                             </div>
                         </div>
                         
-                        <!-- Дубликаты для бесконечной анимации (можно оставить для непрерывности) -->
+                        <!-- Дубликаты для бесконечной анимации (те же 11 логотипов) -->
                         <div class="marquee-item">
                             <div class="logo-gold-frame">
                                 <div class="logo-image-wrapper">
@@ -2194,7 +2197,8 @@
         const videoControls = document.getElementById('videoControls');
         
         // Элементы для ленты логотипов
-        const marqueeContainer = document.getElementById('marqueeContainer');
+        const marqueeWrapper = document.getElementById('marqueeWrapper');
+        const marqueeTrack = document.getElementById('marqueeTrack');
         const leftBtn = document.getElementById('marqueeLeft');
         const rightBtn = document.getElementById('marqueeRight');
         
@@ -2411,34 +2415,73 @@
         window.addEventListener('scroll', animateAdvantages);
         setTimeout(animateAdvantages, 500);
 
-        // Управление кнопками ленты логотипов - ИСПРАВЛЕННАЯ ВЕРСИЯ
-        if (marqueeContainer && leftBtn && rightBtn) {
-            // Ширина прокрутки - примерно ширина одного логотипа с отступами
-            const scrollAmount = 400;
+        // Управление лентой логотипов - автоматическая прокрутка + кнопки
+        if (marqueeWrapper && leftBtn && rightBtn) {
+            // Переменная для отслеживания состояния паузы
+            let isPaused = false;
             
+            // Функция для приостановки анимации
+            function pauseAnimation() {
+                if (!isPaused) {
+                    marqueeWrapper.classList.add('paused');
+                    isPaused = true;
+                }
+            }
+            
+            // Функция для возобновления анимации
+            function resumeAnimation() {
+                if (isPaused) {
+                    marqueeWrapper.classList.remove('paused');
+                    isPaused = false;
+                }
+            }
+            
+            // Обработчики для кнопок
             leftBtn.addEventListener('click', function() {
-                marqueeContainer.scrollBy({
-                    left: -scrollAmount,
-                    behavior: 'smooth'
-                });
+                pauseAnimation();
+                // Небольшая задержка для применения паузы
+                setTimeout(() => {
+                    // Сдвигаем влево на 400px
+                    marqueeTrack.style.transform = `translateX(${getCurrentTranslateX() + 400}px)`;
+                }, 10);
             });
             
             rightBtn.addEventListener('click', function() {
-                marqueeContainer.scrollBy({
-                    left: scrollAmount,
-                    behavior: 'smooth'
-                });
+                pauseAnimation();
+                setTimeout(() => {
+                    marqueeTrack.style.transform = `translateX(${getCurrentTranslateX() - 400}px)`;
+                }, 10);
             });
             
-            // Опционально: добавим поддержку колесика мыши
-            marqueeContainer.addEventListener('wheel', function(e) {
-                if (e.deltaY !== 0) {
-                    e.preventDefault();
-                    marqueeContainer.scrollBy({
-                        left: e.deltaY > 0 ? scrollAmount/2 : -scrollAmount/2,
-                        behavior: 'auto'
-                    });
+            // Вспомогательная функция для получения текущего translateX
+            function getCurrentTranslateX() {
+                const transform = marqueeTrack.style.transform;
+                if (transform && transform.includes('translateX')) {
+                    const match = transform.match(/translateX\(([-\d.]+)px\)/);
+                    if (match) return parseFloat(match[1]);
                 }
+                return 0;
+            }
+            
+            // При наведении на ленту - пауза
+            marqueeWrapper.addEventListener('mouseenter', pauseAnimation);
+            
+            // При уходе с ленты - возобновление анимации
+            marqueeWrapper.addEventListener('mouseleave', function() {
+                // Сбрасываем transform, чтобы вернуться к CSS анимации
+                marqueeTrack.style.transform = '';
+                resumeAnimation();
+            });
+            
+            // При касании на мобильных устройствах
+            marqueeWrapper.addEventListener('touchstart', pauseAnimation);
+            marqueeWrapper.addEventListener('touchend', function() {
+                setTimeout(() => {
+                    if (!marqueeWrapper.matches(':hover')) {
+                        marqueeTrack.style.transform = '';
+                        resumeAnimation();
+                    }
+                }, 300);
             });
         }
     })();
