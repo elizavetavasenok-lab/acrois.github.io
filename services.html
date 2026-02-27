@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги | ООО "Акроис"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-black: #050505;
+            --color-dark: #0F0F0F;
+            --color-dark-gray: #1A1A1A;
+            --color-gray: #2D2D2D;
+            --color-light-gray: #3A3A3A;
+            --color-gold: #C9A96E;
+            --color-gold-light: #E6D4B1;
+            --color-gold-dark: #A6894B;
+            --color-white: #F5F5F5;
+            --color-cream: #F8F4E9;
+            
+            --gradient-gold: linear-gradient(135deg, #C9A96E 0%, #E6D4B1 50%, #A6894B 100%);
+            --gradient-dark: linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 100%);
+            --gradient-overlay: linear-gradient(to bottom, rgba(5,5,5,0.95) 0%, rgba(15,15,15,0.7) 50%, rgba(5,5,5,0.9) 100%);
+            --gradient-text: linear-gradient(90deg, #C9A96E 0%, #E6D4B1 100%);
+            
+            --shadow-gold: 0 10px 40px rgba(201, 169, 110, 0.3);
+            --shadow-gold-heavy: 0 20px 60px rgba(201, 169, 110, 0.5);
+            --shadow-dark: 0 20px 60px rgba(0, 0, 0, 0.5);
+            --shadow-premium: 0 30px 80px rgba(201, 169, 110, 0.3), 0 0 100px rgba(201, 169, 110, 0.1);
+            
+            --border-radius-sm: 2px;
+            --border-radius: 4px;
+            --border-radius-lg: 8px;
+            --border-radius-xl: 12px;
+            --border-radius-2xl: 20px;
+            
+            --transition-slow: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+            --transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Manrope', sans-serif;
+            
+            /* Единые размеры шрифтов */
+            --fs-h1: 4rem;
+            --fs-h2: 2.4rem;
+            --fs-h3: 1.8rem;
+            --fs-body: 1rem;
+            --fs-body-large: 1.2rem;
+            --fs-small: 0.85rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            font-weight: 300;
+            background-color: var(--color-black);
+            color: var(--color-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: var(--fs-body);
+        }
+        
+        /* ========== HEADER SECTION ========== */
+        .acrois-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+            box-shadow: var(--shadow-dark);
+            transition: var(--transition);
+            padding: 0;
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 100%;
+        }
+        
+        .main-navigation {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            height: 100%;
+            flex: 1;
+            justify-content: flex-end;
+        }
+        
+        .menu-primary {
+            display: flex;
+            list-style: none;
+            gap: 12px;
+            height: 100%;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .menu-item {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .menu-link {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 14px;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 10px;
+            letter-spacing: 0.4px;
+            white-space: nowrap;
+        }
+        
+        .menu-link::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+            transition: var(--transition);
+        }
+        
+        .menu-link:hover {
+            color: var(--color-gold);
+        }
+        
+        .menu-link:hover::before {
+            width: 100%;
+        }
+        
+        .logo-image-container {
+            width: 200px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .header-contact-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 10px;
+            padding-left: 10px;
+            border-left: 1px solid rgba(201, 169, 110, 0.2);
+            height: 30px;
+            flex-shrink: 0;
+        }
+        
+        .contact-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        
+        .phone-icon {
+            width: 30px;
+            height: 30px;
+            background: rgba(201, 169, 110, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+            font-size: 13px;
+            transition: var(--transition);
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .phone-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 169, 110, 0.3);
+            animation: pulse-ring 2s infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+        
+        .phone-number {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-gold);
+            transition: var(--transition);
+        }
+        
+        .contact-phone:hover .phone-icon {
+            background: var(--gradient-gold);
+            color: var(--color-black);
+            transform: scale(1.15);
+        }
+        
+        .header-cta-button {
+            margin-left: 10px;
+            flex-shrink: 0;
+        }
+        
+        .btn-acrois, .btn-hero {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 18px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            gap: 8px;
+            transform: translateY(0);
+            min-height: 38px;
+            line-height: 1;
+            background: var(--gradient-gold);
+            color: var(--color-black);
+            box-shadow: var(--shadow-gold);
+        }
+        
+        .btn-acrois:hover, .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-premium);
+            color: var(--color-black);
+            background: var(--gradient-gold);
+            filter: brightness(1.1);
+        }
+        
+        .btn-hero-secondary {
+            background: transparent;
+            color: var(--color-gold);
+            border: 2px solid var(--color-gold);
+        }
+        
+        .btn-hero-secondary:hover {
+            background: var(--gradient-gold);
+            color: var(--color-black);
+            border-color: var(--color-gold);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-premium);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--color-gold);
+            font-size: 22px;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+        
+        .mobile-menu-toggle:hover {
+            border-color: var(--color-gold);
+            background: rgba(201, 169, 110, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* ========== SERVICES PAGE ========== */
+        .page-services {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            min-height: 100vh;
+            position: relative;
+            background: linear-gradient(135deg, rgba(5,5,5,0.97) 0%, rgba(15,15,15,0.95) 100%);
+            overflow-x: hidden;
+        }
+        
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero секция с видео */
+        .services-hero {
+            padding: 60px 0 80px;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+            position: relative;
+        }
+        
+        .services-hero .label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .services-hero h1 {
+            font-family: var(--font-heading);
+            font-size: var(--fs-h1);
+            line-height: 1;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 30px;
+        }
+        
+        .services-hero h1 .gold-gradient {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+            display: block;
+        }
+        
+        .hero-video-container {
+            width: 100%;
+            height: 400px;
+            border-radius: var(--border-radius-2xl);
+            overflow: hidden;
+            position: relative;
+            margin-top: 40px;
+            border: 1px solid rgba(201, 169, 110, 0.2);
+        }
+        
+        .hero-video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .hero-video-container:hover video {
+            opacity: 1;
+            transform: scale(1.02);
+        }
+        
+        .hero-video-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+        
+        .hero-video-overlay p {
+            font-size: var(--fs-body-large);
+            color: var(--color-gold-light);
+            max-width: 600px;
+        }
+        
+        /* Сетка услуг с фото на фоне */
+        .services-grid {
+            padding: 80px 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .service-card {
+            position: relative;
+            border-radius: var(--border-radius-2xl);
+            overflow: hidden;
+            height: 450px;
+            cursor: pointer;
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-gold);
+            box-shadow: var(--shadow-premium);
+        }
+        
+        .service-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: var(--transition-slow);
+        }
+        
+        .service-card:hover .service-image {
+            transform: scale(1.1);
+        }
+        
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.3));
+            z-index: 1;
+        }
+        
+        .service-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            z-index: 2;
+        }
+        
+        .service-title {
+            font-family: var(--font-heading);
+            font-size: var(--fs-h2);
+            color: var(--color-gold);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .service-description {
+            font-size: var(--fs-body);
+            color: var(--color-white);
+            opacity: 0.9;
+            line-height: 1.7;
+            max-width: 90%;
+        }
+        
+        /* Секция с техникой */
+        .equipment-section {
+            padding: 80px 0;
+            border-top: 1px solid rgba(201, 169, 110, 0.1);
+        }
+        
+        .equipment-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .equipment-header .label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .equipment-header h2 {
+            font-family: var(--font-heading);
+            font-size: var(--fs-h2);
+        }
+        
+        .equipment-header h2 span {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .equipment-card {
+            position: relative;
+            border-radius: var(--border-radius-xl);
+            overflow: hidden;
+            height: 350px;
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            transition: var(--transition);
+        }
+        
+        .equipment-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-gold);
+            box-shadow: var(--shadow-premium);
+        }
+        
+        .equipment-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: var(--transition-slow);
+        }
+        
+        .equipment-card:hover .equipment-image {
+            transform: scale(1.1);
+        }
+        
+        .equipment-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4));
+            z-index: 1;
+        }
+        
+        .equipment-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            z-index: 2;
+        }
+        
+        .equipment-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(201, 169, 110, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+            font-size: 24px;
+            margin-bottom: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(201, 169, 110, 0.3);
+        }
+        
+        .equipment-content h3 {
+            font-family: var(--font-heading);
+            font-size: var(--fs-h3);
+            color: var(--color-gold);
+            margin-bottom: 10px;
+        }
+        
+        .equipment-content p {
+            font-size: var(--fs-body);
+            color: var(--color-white);
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+        
+        /* CTA секция */
+        .services-cta {
+            padding: 60px 0 0;
+            text-align: center;
+        }
+        
+        .services-cta h2 {
+            font-family: var(--font-heading);
+            font-size: var(--fs-h2);
+            margin-bottom: 20px;
+        }
+        
+        .services-cta h2 span {
+            color: var(--color-gold);
+        }
+        
+        .services-cta p {
+            font-size: var(--fs-body-large);
+            color: var(--color-gold-light);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .equipment-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .main-navigation {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(5, 5, 5, 0.98);
+                backdrop-filter: blur(30px);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 30px 20px;
+                transition: var(--transition-slow);
+                overflow-y: auto;
+                gap: 0;
+            }
+            
+            .main-navigation.active {
+                left: 0;
+            }
+            
+            .menu-primary {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+            }
+            
+            .menu-item {
+                height: auto;
+                width: 100%;
+            }
+            
+            .menu-link {
+                display: block;
+                padding: 15px 0;
+                font-size: 16px;
+                border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+                width: 100%;
+            }
+            
+            .header-contact-info {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                margin: 20px 0;
+                padding: 20px 0;
+                border-left: none;
+                border-top: 1px solid rgba(201, 169, 110, 0.1);
+                width: 100%;
+                height: auto;
+            }
+            
+            .header-cta-button {
+                margin: 0;
+                width: 100%;
+            }
+            
+            .btn-acrois {
+                width: 100%;
+                justify-content: center;
+                min-height: 48px;
+                font-size: 14px;
+                padding: 12px 20px;
+            }
+            
+            .hero-video-container {
+                height: 300px;
+            }
+            
+            .service-card {
+                height: 400px;
+            }
+            
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-content {
+                padding: 30px;
+            }
+            
+            .service-description {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            :root {
+                --fs-h1: 3rem;
+                --fs-h2: 2rem;
+                --fs-h3: 1.6rem;
+            }
+            
+            .page-services {
+                padding-top: 100px;
+            }
+            
+            .services-hero {
+                padding: 40px 0 60px;
+            }
+            
+            .hero-video-container {
+                height: 250px;
+            }
+            
+            .service-card {
+                height: 350px;
+            }
+            
+            .equipment-card {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== HEADER ========== -->
+    <header class="acrois-header" id="acroisHeader">
+        <div class="header-container">
+            <a href="index.html" class="logo-acrois">
+                <div class="logo-image-container">
+                    <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/Aкроис-logo-final.pdf-e1769983083185.png" alt="АКРОИС" class="logo-image">
+                </div>
+            </a>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="main-navigation" id="mainNavigation">
+                <ul class="menu-primary">
+                    <li class="menu-item"><a href="about.html" class="menu-link">О компании</a></li>
+                    <li class="menu-item"><a href="services.html" class="menu-link" style="color: var(--color-gold);">Услуги</a></li>
+                    <li class="menu-item"><a href="projects.html" class="menu-link">Проекты</a></li>
+                    <li class="menu-item"><a href="quick-buildings.html" class="menu-link">Быстровозводимые здания</a></li>
+                    <li class="menu-item"><a href="career.html" class="menu-link">Вакансии</a></li>
+                    <li class="menu-item"><a href="contact.html" class="menu-link">Контакты</a></li>
+                </ul>
+                
+                <div class="header-contact-info">
+                    <a href="tel:+375293459345" class="contact-phone">
+                        <div class="phone-icon"><i class="fas fa-phone"></i></div>
+                        <div class="phone-number">+375 (29) 345-9-345</div>
+                    </a>
+                </div>
+                
+                <div class="header-cta-button">
+                    <a href="#" class="btn-acrois" id="openModal">
+                        <i class="fas fa-paper-plane"></i> Оставить заявку
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== SERVICES PAGE ========== -->
+    <section class="page-services">
+        <div class="services-container">
+            <!-- Hero секция с видео -->
+            <div class="services-hero">
+                <span class="label">Наши услуги</span>
+                <h1>
+                    <span class="gold-gradient">Строительные услуги</span> полного цикла
+                </h1>
+                
+                <div class="hero-video-container">
+                    <video autoplay muted loop playsinline>
+                        <source src="https://elizavetavasenok-lab.github.io/acrois.github.io/videos/video2.mp4" type="video/mp4">
+                    </video>
+                    <div class="hero-video-overlay">
+                        <p>От проекта до объекта — всё в одних руках</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сетка услуг с фото на фоне -->
+            <div class="services-grid">
+                <!-- 1. Генеральный подряд -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('images/service-1-genpodryad.jpg');"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Генеральный подряд</h3>
+                        <p class="service-description">Управление строительством зданий 3-го класса сложности. Берем на себя всю ответственность: от проектирования до сдачи госкомиссии.</p>
+                    </div>
+                </div>
+                
+                <!-- 2. Строительство зданий -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('images/service-2-stroitelstvo.jpg');"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Строительство зданий</h3>
+                        <p class="service-description">Возведение современных складов, производственных цехов, ангаров и офисных центров с учетом специфики вашего бизнеса.</p>
+                    </div>
+                </div>
+                
+                <!-- 3. Монтаж металлоконструкций -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('images/service-3-metall.jpg');"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Монтаж металлоконструкций</h3>
+                        <p class="service-description">Прямые поставки от завода «Рекламика строй». Разработка чертежей КМД и оперативный монтаж ограждающих конструкций.</p>
+                    </div>
+                </div>
+                
+                <!-- 4. Инженерные коммуникации -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('images/service-4-inzheneriya.jpg');"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Инженерные коммуникации</h3>
+                        <p class="service-description">Профессиональный монтаж систем ВК, ОВ, НВК и полный спектр электромонтажных работ.</p>
+                    </div>
+                </div>
+                
+                <!-- 5. Общестроительные работы -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('images/service-5-obshestroitelnye.jpg');"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Общестроительные работы</h3>
+                        <p class="service-description">Монолитные работы, устройство фундаментов любой сложности, кладка и финишная отделка помещений.</p>
+                    </div>
+                </div>
+                
+                <!-- 6. Устройство кровли -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('images/service-6-krovlya.jpg');"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Устройство кровли</h3>
+                        <p class="service-description">Монтаж кровельных систем с применением современных гидро- и теплоизоляционных материалов.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Секция с техникой -->
+            <div class="equipment-section">
+                <div class="equipment-header">
+                    <span class="label">Наш парк</span>
+                    <h2><span>Аренда спецтехники</span></h2>
+                </div>
+                
+                <div class="equipment-grid">
+                    <!-- Экскаватор-погрузчик -->
+                    <div class="equipment-card">
+                        <div class="equipment-image" style="background-image: url('images/equipment-1-excavator.jpg');"></div>
+                        <div class="equipment-overlay"></div>
+                        <div class="equipment-content">
+                            <div class="equipment-icon"><i class="fas fa-tractor"></i></div>
+                            <h3>Экскаватор-погрузчик</h3>
+                            <p>YUCHAI YC105BL (2024 г.в.) — мощный и надежный помощник на стройплощадке</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Автокран -->
+                    <div class="equipment-card">
+                        <div class="equipment-image" style="background-image: url('images/equipment-2-crane.jpg');"></div>
+                        <div class="equipment-overlay"></div>
+                        <div class="equipment-content">
+                            <div class="equipment-icon"><i class="fas fa-truck"></i></div>
+                            <h3>Автокран</h3>
+                            <p>Zoomlion ZTF250V — грузоподъемность 25 тонн для любых монтажных работ</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Подъемники и опалубка -->
+                    <div class="equipment-card">
+                        <div class="equipment-image" style="background-image: url('images/equipment-3-lift.jpg');"></div>
+                        <div class="equipment-overlay"></div>
+                        <div class="equipment-content">
+                            <div class="equipment-icon"><i class="fas fa-arrow-up"></i></div>
+                            <h3>Подъемники и опалубка</h3>
+                            <p>Sinoboom и собственный парк опалубки для высотных работ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA секция -->
+            <div class="services-cta">
+                <h2>Готовы начать <span>проект?</span></h2>
+                <p>Свяжитесь с нами для консультации и точного расчета</p>
+                <a href="contact.html" class="btn-hero btn-hero-secondary">Обсудить проект</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        (function() {
+            'use strict';
+            
+            // Header scroll effect
+            const acroisHeader = document.getElementById('acroisHeader');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    acroisHeader.classList.add('scrolled');
+                } else {
+                    acroisHeader.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mainNavigation = document.getElementById('mainNavigation');
+            
+            mobileMenuToggle.addEventListener('click', function() {
+                mainNavigation.classList.toggle('active');
+                mobileMenuToggle.innerHTML = mainNavigation.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = mainNavigation.classList.contains('active') ? 'hidden' : '';
+            });
+
+            // Close menu on link click
+            document.querySelectorAll('.menu-link').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    mainNavigation.classList.remove('active');
+                    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Анимация появления при скролле
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll('.service-card, .equipment-card').forEach(el => {
+                observer.observe(el);
+            });
+        })();
+    </script>
+</body>
+</html>
