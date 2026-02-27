@@ -704,7 +704,40 @@
             background: rgba(201, 169, 110, 0.1);
             transform: scale(1.1);
         }
-        
+        /* Эффект с золотой рамкой вокруг логотипа */
+.logo-acrois {
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.logo-acrois:hover {
+    background: rgba(201, 169, 110, 0.1);
+    transform: translateY(-2px);
+}
+
+.logo-acrois::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    right: 5px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #C9A96E, #E6D4B1, #C9A96E, transparent);
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.logo-acrois:hover::after {
+    opacity: 1;
+}
+
+.logo-acrois:hover .logo-image {
+    filter: drop-shadow(0 0 15px rgba(201, 169, 110, 0.7));
+}
         /* Кнопка на главную */
         .back-home-btn {
             text-align: center;
