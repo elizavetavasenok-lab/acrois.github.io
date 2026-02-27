@@ -452,6 +452,254 @@
             line-height: 1.7;
         }
         
+        /* Партнеры */
+        .partners-section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+            background: rgba(5, 5, 5, 0.3);
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .partner-card {
+            background: rgba(15, 15, 15, 0.6);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            border-radius: var(--border-radius-2xl);
+            padding: 40px 30px;
+            transition: var(--transition-slow);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .partner-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .partner-card:nth-child(1) { transition-delay: 0.1s; }
+        .partner-card:nth-child(2) { transition-delay: 0.2s; }
+        .partner-card:nth-child(3) { transition-delay: 0.3s; }
+        .partner-card:nth-child(4) { transition-delay: 0.4s; }
+        .partner-card:nth-child(5) { transition-delay: 0.5s; }
+        
+        .partner-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-gold);
+            box-shadow: 0 20px 40px rgba(201, 169, 110, 0.3);
+            background: rgba(20, 20, 20, 0.8);
+        }
+        
+        .partner-logo-wrapper {
+            width: 220px;
+            height: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius-xl);
+            border: 1px solid rgba(201, 169, 110, 0.3);
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .partner-card:hover .partner-logo-wrapper {
+            border-color: var(--color-gold);
+            background: white;
+            box-shadow: 0 0 30px rgba(201, 169, 110, 0.3);
+            transform: scale(1.05);
+        }
+        
+        .partner-logo {
+            max-width: 180px;
+            max-height: 90px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: none !important;
+            transition: var(--transition);
+        }
+        
+        .partner-card:hover .partner-logo {
+            transform: scale(1.1);
+        }
+        
+        .partner-info h3 {
+            font-family: var(--font-heading);
+            font-size: var(--fs-h3);
+            color: var(--color-gold);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .partner-info p {
+            font-size: var(--fs-body);
+            color: var(--color-gold-light);
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* ГАЛЕРЕЯ */
+        .gallery-section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+        }
+        
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .gallery-header .label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--color-gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .gallery-header h2 {
+            font-family: var(--font-heading);
+            font-size: var(--fs-h2);
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+        
+        .gallery-header h2 span {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .gallery-subtitle {
+            font-size: var(--fs-body-large);
+            color: var(--color-gold-light);
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+        
+        .gallery-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-main {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            border-radius: var(--border-radius-2xl);
+            overflow: hidden;
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            margin-bottom: 20px;
+            background: #1a1a1a;
+        }
+        
+        .gallery-main img,
+        .gallery-thumb img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            image-rendering: pixelated;
+            -ms-interpolation-mode: bicubic;
+        }
+        
+        .gallery-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-thumbnails {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .gallery-thumbnails::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .gallery-thumb {
+            flex: 0 0 100px;
+            height: 70px;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            opacity: 0.7;
+        }
+        
+        .gallery-thumb:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+            border-color: var(--color-gold);
+        }
+        
+        .gallery-thumb.active {
+            border-color: var(--color-gold);
+            opacity: 1;
+            box-shadow: 0 0 15px rgba(201, 169, 110, 0.5);
+        }
+        
+        .gallery-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(5, 5, 5, 0.7);
+            border: 2px solid var(--color-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+        
+        .gallery-nav:hover {
+            background: var(--gradient-gold);
+            color: var(--color-black);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: var(--shadow-premium);
+        }
+        
+        .gallery-nav.prev {
+            left: 20px;
+        }
+        
+        .gallery-nav.next {
+            right: 20px;
+        }
+        
         /* Калькулятор */
         .calculator-section {
             padding: 80px 0;
@@ -657,370 +905,6 @@
             border-top: 1px solid rgba(201, 169, 110, 0.1);
         }
         
-        /* ========== ПАРТНЕРЫ ========== */
-.partners-section {
-    padding: 80px 0;
-    border-bottom: 1px solid rgba(201, 169, 110, 0.1);
-    background: rgba(5, 5, 5, 0.3);
-}
-
-.partners-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    margin-top: 40px;
-}
-
-.partner-card {
-    background: rgba(15, 15, 15, 0.6);
-    border: 1px solid rgba(201, 169, 110, 0.2);
-    border-radius: var(--border-radius-2xl);
-    padding: 40px 30px;
-    transition: var(--transition-slow);
-    backdrop-filter: blur(10px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-.partner-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.partner-card:nth-child(1) { transition-delay: 0.1s; }
-.partner-card:nth-child(2) { transition-delay: 0.2s; }
-.partner-card:nth-child(3) { transition-delay: 0.3s; }
-.partner-card:nth-child(4) { transition-delay: 0.4s; }
-.partner-card:nth-child(5) { transition-delay: 0.5s; }
-
-.partner-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--color-gold);
-    box-shadow: 0 20px 40px rgba(201, 169, 110, 0.3);
-    background: rgba(20, 20, 20, 0.8);
-}
-
-.partner-logo-wrapper {
-    width: 200px;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 25px;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--border-radius-xl);
-    border: 1px solid rgba(201, 169, 110, 0.2);
-    transition: var(--transition);
-    backdrop-filter: blur(5px);
-}
-
-.partner-card:hover .partner-logo-wrapper {
-    border-color: var(--color-gold);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 30px rgba(201, 169, 110, 0.2);
-}
-
-.partner-logo {
-    max-width: 160px;
-    max-height: 80px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    /* Инверсия для темных логотипов на светлом фоне */
-    filter: brightness(0) invert(1);
-    transition: var(--transition);
-    opacity: 0.9;
-}
-
-.partner-card:hover .partner-logo {
-    transform: scale(1.1);
-    filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(201, 169, 110, 0.5));
-}
-
-.partner-info h3 {
-    font-family: var(--font-heading);
-    font-size: var(--fs-h3);
-    color: var(--color-gold);
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-.partner-info p {
-    font-size: var(--fs-body);
-    color: var(--color-gold-light);
-    opacity: 0.9;
-    line-height: 1.6;
-}
-        /* ========== ГАЛЕРЕЯ ========== */
-        .gallery-section {
-            padding: 80px 0;
-            border-bottom: 1px solid rgba(201, 169, 110, 0.1);
-        }
-        
-        .gallery-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .gallery-header .label {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--color-gold);
-            margin-bottom: 20px;
-            display: block;
-        }
-        
-        .gallery-header h2 {
-            font-family: var(--font-heading);
-            font-size: var(--fs-h2);
-            font-weight: 400;
-            margin-bottom: 10px;
-        }
-        
-        .gallery-header h2 span {
-            background: var(--gradient-text);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .gallery-subtitle {
-            font-size: var(--fs-body-large);
-            color: var(--color-gold-light);
-            opacity: 0.8;
-            margin-bottom: 40px;
-        }
-        
-        .gallery-container {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .gallery-main {
-            position: relative;
-            width: 100%;
-            height: 600px;
-            border-radius: var(--border-radius-2xl);
-            overflow: hidden;
-            border: 1px solid rgba(201, 169, 110, 0.2);
-            margin-bottom: 20px;
-        }
-        
-        .gallery-main img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .gallery-thumbnails {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            padding: 10px 0;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        
-        .gallery-thumbnails::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .gallery-thumb {
-            flex: 0 0 100px;
-            height: 70px;
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: var(--transition);
-            opacity: 0.7;
-        }
-        
-        .gallery-thumb:hover {
-            opacity: 1;
-            transform: translateY(-2px);
-        }
-        
-        .gallery-thumb.active {
-            border-color: var(--color-gold);
-            opacity: 1;
-            box-shadow: var(--shadow-gold);
-        }
-        
-        .gallery-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .gallery-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: rgba(5, 5, 5, 0.7);
-            border: 1px solid rgba(201, 169, 110, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-gold);
-            cursor: pointer;
-            transition: var(--transition);
-            z-index: 10;
-            backdrop-filter: blur(5px);
-        }
-        
-        .gallery-nav:hover {
-            background: var(--gradient-gold);
-            color: var(--color-black);
-            border-color: transparent;
-        }
-        
-        .gallery-nav.prev {
-            left: 20px;
-        }
-        
-        .gallery-nav.next {
-            right: 20px;
-        }
-        
-        /* CTA секция */
-        .cta-section {
-            padding: 80px 0;
-        }
-        
-        .cta-wrapper {
-            background: linear-gradient(135deg, rgba(26,26,26,0.9) 0%, rgba(15,15,15,0.9) 100%);
-            border: 1px solid rgba(201, 169, 110, 0.2);
-            border-radius: var(--border-radius-2xl);
-            padding: 60px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .cta-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .cta-content h2 {
-            font-family: var(--font-heading);
-            font-size: var(--fs-h2);
-            margin-bottom: 20px;
-        }
-        
-        .cta-content h2 span {
-            color: var(--color-gold);
-        }
-        
-        .cta-content p {
-            font-size: var(--fs-body-large);
-            color: var(--color-gold-light);
-            opacity: 0.9;
-        }
-        
-        .cta-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        .cta-form input,
-        .cta-form textarea {
-            background: rgba(5, 5, 5, 0.5);
-            border: 1px solid rgba(201, 169, 110, 0.3);
-            border-radius: var(--border-radius);
-            padding: 15px;
-            color: var(--color-white);
-            font-family: var(--font-body);
-            font-size: var(--fs-body);
-            width: 100%;
-        }
-        
-        .cta-form input:focus,
-        .cta-form textarea:focus {
-            outline: none;
-            border-color: var(--color-gold);
-            box-shadow: 0 0 0 2px rgba(201, 169, 110, 0.2);
-        }
-        
-        .file-attach {
-            position: relative;
-        }
-        
-        .file-attach input[type="file"] {
-            position: absolute;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-        }
-        
-        .file-label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 15px;
-            background: rgba(201, 169, 110, 0.1);
-            border: 1px dashed rgba(201, 169, 110, 0.3);
-            border-radius: var(--border-radius);
-            color: var(--color-gold-light);
-            font-size: var(--fs-small);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .file-label:hover {
-            background: rgba(201, 169, 110, 0.15);
-            border-color: var(--color-gold);
-        }
-        
-        .file-label i {
-            color: var(--color-gold);
-        }
-        /* Улучшение качества изображений */
-.gallery-main img,
-.gallery-thumb img,
-.portfolio-card img,
-.service-image,
-.equipment-image,
-.doc-img {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-    image-rendering: pixelated;
-    -ms-interpolation-mode: bicubic;
-}
-
-.gallery-main {
-    background: #1a1a1a;
-}
-
-.gallery-thumb {
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.gallery-thumb:hover {
-    border-color: var(--color-gold);
-    transform: scale(1.05);
-}
-
-.gallery-thumb.active {
-    border-color: var(--color-gold);
-    box-shadow: 0 0 15px rgba(201, 169, 110, 0.5);
-}
         /* ========== FOOTER ========== */
         .footer {
             background: #0a0a0a;
@@ -1190,10 +1074,6 @@
                 grid-template-columns: 1fr;
             }
             
-            .cta-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .partners-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1305,21 +1185,17 @@
                 grid-template-columns: 1fr;
             }
             
-            .cta-wrapper {
-                padding: 30px;
-            }
-            
             .result-price {
                 font-size: 2.8rem;
             }
             
             .partner-logo-wrapper {
-                width: 160px;
+                width: 180px;
                 height: 100px;
             }
             
             .partner-logo {
-                max-width: 130px;
+                max-width: 150px;
                 max-height: 70px;
             }
             
@@ -1460,6 +1336,110 @@
                 </div>
             </div>
 
+            <!-- Партнеры -->
+            <div class="partners-section">
+                <div class="section-header">
+                    <span class="label">Партнеры</span>
+                    <h2><span>Наши технологические партнеры</span></h2>
+                </div>
+                
+                <div class="partners-grid">
+                    <!-- Рекламика Строй -->
+                    <div class="partner-card" id="partner1">
+                        <div class="partner-logo-wrapper">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/27-e1772214141975.png" alt="Рекламика Строй" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <h3>РЕКЛАМИКА СТРОЙ</h3>
+                            <p>Производитель металлоконструкций — надежность и качество в каждом проекте</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ЭкоПромПанель -->
+                    <div class="partner-card" id="partner2">
+                        <div class="partner-logo-wrapper">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/9-e1772213691916.png" alt="ЭкоПромПанель" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <h3>ЭКОПРОМПАНЕЛЬ</h3>
+                            <p>Белорусские сэндвич-панели — оптимальное решение для быстровозводимых зданий</p>
+                        </div>
+                    </div>
+                    
+                    <!-- VINSERA -->
+                    <div class="partner-card" id="partner3">
+                        <div class="partner-logo-wrapper">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/11-e1772213745332.png" alt="VINSERA" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <h3>VINSERA</h3>
+                            <p>Ворота и комплектующие для современных промышленных объектов</p>
+                        </div>
+                    </div>
+                    
+                    <!-- VistaТехно -->
+                    <div class="partner-card" id="partner4">
+                        <div class="partner-logo-wrapper">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/24-e1772214062443.png" alt="VistaТехно" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <h3>VISTAТЕХНО</h3>
+                            <p>Надежный поставщик бетона для фундаментов любой сложности</p>
+                        </div>
+                    </div>
+                    
+                    <!-- АРМЕТ -->
+                    <div class="partner-card" id="partner5">
+                        <div class="partner-logo-wrapper">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/20-e1772213960165.png" alt="АРМЕТ" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <h3>АРМЕТ</h3>
+                            <p>Поставка металла и арматуры с гарантией качества</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ГАЛЕРЕЯ -->
+            <div class="gallery-section">
+                <div class="gallery-header">
+                    <span class="label">Портфолио</span>
+                    <h2><span>ГАЛЕРЕЯ</span></h2>
+                    <p class="gallery-subtitle">Типовые решения и реализованные проекты</p>
+                </div>
+                
+                <div class="gallery-container">
+                    <div class="gallery-nav prev" id="galleryPrev">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="gallery-nav next" id="galleryNext">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    
+                    <div class="gallery-main" id="galleryMain">
+                        <img src="images/quick1.jpg" alt="Галерея" id="galleryMainImg">
+                    </div>
+                    
+                    <div class="gallery-thumbnails" id="galleryThumbnails">
+                        <div class="gallery-thumb active" data-index="0"><img src="images/quick1.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="1"><img src="images/quick2.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="2"><img src="images/quick3.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="3"><img src="images/quick4.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="4"><img src="images/quick5.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="5"><img src="images/quick6.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="6"><img src="images/quick7.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="7"><img src="images/quick8.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="8"><img src="images/quick9.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="9"><img src="images/quick10.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="10"><img src="images/quick11.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="11"><img src="images/quick12.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="12"><img src="images/quick13.jpg" alt=""></div>
+                        <div class="gallery-thumb" data-index="13"><img src="images/quick14.jpg" alt=""></div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Калькулятор -->
             <div class="calculator-section">
                 <div class="section-header">
@@ -1533,137 +1513,6 @@
                         <div class="price-note">
                             * Стоимость является ориентировочной. Итоговая цена зависит от цвета панелей, толщины металла, сложности фундамента и инженерных сетей.
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Партнеры с логотипами -->
-<div class="partners-section">
-    <div class="section-header">
-        <span class="label">Партнеры</span>
-        <h2><span>Наши технологические партнеры</span></h2>
-    </div>
-    
-    <div class="partners-grid">
-        <!-- Рекламика Строй -->
-        <div class="partner-card" id="partner1">
-            <div class="partner-logo-wrapper" style="background: rgba(255, 255, 255, 0.95);">
-                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/27-e1772214141975.png" alt="Рекламика Строй" class="partner-logo" style="filter: none; max-width: 180px;">
-            </div>
-            <div class="partner-info">
-                <h3>РЕКЛАМИКА СТРОЙ</h3>
-                <p>Производитель металлоконструкций — надежность и качество в каждом проекте</p>
-            </div>
-        </div>
-        
-        <!-- ЭкоПромПанель -->
-        <div class="partner-card" id="partner2">
-            <div class="partner-logo-wrapper" style="background: rgba(255, 255, 255, 0.95);">
-                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/9-e1772213691916.png" alt="ЭкоПромПанель" class="partner-logo" style="filter: none; max-width: 180px;">
-            </div>
-            <div class="partner-info">
-                <h3>ЭКОПРОМПАНЕЛЬ</h3>
-                <p>Белорусские сэндвич-панели — оптимальное решение для быстровозводимых зданий</p>
-            </div>
-        </div>
-        
-        <!-- VINSERA -->
-        <div class="partner-card" id="partner3">
-            <div class="partner-logo-wrapper" style="background: rgba(255, 255, 255, 0.95);">
-                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/11-e1772213745332.png" alt="VINSERA" class="partner-logo" style="filter: none; max-width: 180px;">
-            </div>
-            <div class="partner-info">
-                <h3>VINSERA</h3>
-                <p>Ворота и комплектующие для современных промышленных объектов</p>
-            </div>
-        </div>
-        
-        <!-- VistaТехно -->
-        <div class="partner-card" id="partner4">
-            <div class="partner-logo-wrapper" style="background: rgba(255, 255, 255, 0.95);">
-                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/24-e1772214062443.png" alt="VistaТехно" class="partner-logo" style="filter: none; max-width: 180px;">
-            </div>
-            <div class="partner-info">
-                <h3>VISTAТЕХНО</h3>
-                <p>Надежный поставщик бетона для фундаментов любой сложности</p>
-            </div>
-        </div>
-        
-        <!-- АРМЕТ -->
-        <div class="partner-card" id="partner5">
-            <div class="partner-logo-wrapper" style="background: rgba(255, 255, 255, 0.95);">
-                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/20-e1772213960165.png" alt="АРМЕТ" class="partner-logo" style="filter: none; max-width: 180px;">
-            </div>
-            <div class="partner-info">
-                <h3>АРМЕТ</h3>
-                <p>Поставка металла и арматуры с гарантией качества</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-            <!-- ГАЛЕРЕЯ -->
-            <div class="gallery-section">
-                <div class="gallery-header">
-                    <span class="label">Портфолио</span>
-                    <h2><span>ГАЛЕРЕЯ</span></h2>
-                    <p class="gallery-subtitle">Типовые решения и реализованные проекты</p>
-                </div>
-                
-                <div class="gallery-container">
-                    <div class="gallery-nav prev" id="galleryPrev">
-                        <i class="fas fa-chevron-left"></i>
-                    </div>
-                    <div class="gallery-nav next" id="galleryNext">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                    
-                    <div class="gallery-main" id="galleryMain">
-                        <img src="images/quick1.jpg" alt="Галерея" id="galleryMainImg">
-                    </div>
-                    
-                    <div class="gallery-thumbnails" id="galleryThumbnails">
-                        <div class="gallery-thumb active" data-index="0"><img src="images/quick1.jpg" alt=""></div>
-                        <div class="gallery-thumb" data-index="1"><img src="images/quick2.jpg" alt=""></div>
-                        <div class="gallery-thumb" data-index="2"><img src="images/quick3.jpg" alt=""></div>
-                        <div class="gallery-thumb" data-index="3"><img src="images/quick4.jpg" alt=""></div>
-                        <div class="gallery-thumb" data-index="4"><img src="images/quick5.jpg" alt=""></div>
-                        <div class="gallery-thumb" data-index="5"><img src="images/quick6.jpg" alt=""></div>
-                        <div class="gallery-thumb" data-index="6"><img src="images/quick7.jpg" alt=""></div>
-                        <div class="gallery-thumb" data-index="7"><img src="images/quick8.jpg" alt=""></div>
-                        <div class="gallery-thumb" data-index="8"><img src="images/quick9.jpg" alt=""></div>
-                        <div class="gallery-thumb" data-index="9"><img src="images/quick10.jpg" alt=""></div>
-                        <div class="gallery-thumb" data-index="10"><img src="images/quick11.jpg" alt=""></div>
-                        <div class="gallery-thumb" data-index="11"><img src="images/quick12.jpg" alt=""></div>
-                        <div class="gallery-thumb" data-index="12"><img src="images/quick13.jpg" alt=""></div>
-                        <div class="gallery-thumb" data-index="13"><img src="images/quick14.jpg" alt=""></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA секция -->
-            <div class="cta-section">
-                <div class="cta-wrapper">
-                    <div class="cta-grid">
-                        <div class="cta-content">
-                            <h2>Получите <span>точный расчет</span> и консультацию инженера</h2>
-                            <p>Заполните форму, и мы свяжемся с вами в ближайшее время</p>
-                        </div>
-                        
-                        <form class="cta-form" id="ctaForm">
-                            <input type="text" placeholder="Ваше имя" required>
-                            <input type="tel" placeholder="Ваш телефон" required>
-                            
-                            <div class="file-attach">
-                                <input type="file" id="projectFile" accept=".pdf,.doc,.docx,.dwg">
-                                <label for="projectFile" class="file-label">
-                                    <i class="fas fa-paperclip"></i>
-                                    Прикрепить проект или ТЗ
-                                </label>
-                            </div>
-                            
-                            <button type="submit" class="btn-acrois">Отправить заявку</button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -1869,12 +1718,6 @@
             
             document.getElementById('getCalculation').addEventListener('click', function() {
                 openModal();
-            });
-            
-            document.getElementById('ctaForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
-                this.reset();
             });
 
             // Галерея
