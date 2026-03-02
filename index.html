@@ -2293,7 +2293,21 @@ async function submitToBitrix(event) {
         alert('Пожалуйста, заполните все обязательные поля');
         return false;
     }
-    
+    fetch('https://acrois.bitrix24.by/rest/48/nzovg8dicdvrt46e/crm.lead.add.json', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({
+    fields: {
+      TITLE: 'Тест из консоли',
+      NAME: 'Тест',
+      PHONE: [{VALUE: '123456789', VALUE_TYPE: 'WORK'}],
+      EMAIL: [{VALUE: 'test@test.com', VALUE_TYPE: 'WORK'}]
+    }
+  })
+})
+.then(r => r.json())
+.then(console.log)
+.catch(console.error);
     // Меняем текст кнопки на "Отправка..."
     const submitBtn = document.getElementById('submitBtn');
     const originalText = submitBtn.innerHTML;
