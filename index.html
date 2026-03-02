@@ -2039,33 +2039,33 @@
         </div>
     </footer>
 
-    <!-- Modal: Оставить заявку -->
-    <div class="modal" id="requestModal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeModal">
-                <i class="fas fa-times"></i>
+   <!-- Modal: Оставить заявку -->
+<div class="modal" id="requestModal">
+    <div class="modal-content">
+        <button class="modal-close" id="closeModal">
+            <i class="fas fa-times"></i>
+        </button>
+        <h2 style="margin-bottom: 25px; font-family: var(--font-heading); font-size: 1.8rem;">Оставить заявку</h2>
+        <form id="requestForm" onsubmit="return submitToBitrix(event)">
+            <div style="margin-bottom: 15px;">
+                <input type="text" id="bitrix_name" placeholder="Ваше имя" style="width: 100%; padding: 12px 15px; background: rgba(201, 169, 110, 0.1); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 4px; color: var(--color-white); font-family: var(--font-body);" required>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <input type="email" id="bitrix_email" placeholder="Ваш email" style="width: 100%; padding: 12px 15px; background: rgba(201, 169, 110, 0.1); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 4px; color: var(--color-white); font-family: var(--font-body);" required>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <input type="tel" id="bitrix_phone" placeholder="Ваш телефон" style="width: 100%; padding: 12px 15px; background: rgba(201, 169, 110, 0.1); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 4px; color: var(--color-white); font-family: var(--font-body);" required>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <textarea id="bitrix_comment" placeholder="Описание проекта" style="width: 100%; padding: 12px 15px; background: rgba(201, 169, 110, 0.1); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 4px; color: var(--color-white); font-family: var(--font-body); min-height: 100px; resize: vertical;"></textarea>
+            </div>
+            <button type="submit" class="btn-hero" style="width: 100%;" id="submitBtn">
+                <i class="fas fa-send"></i>
+                Отправить заявку
             </button>
-            <h2 style="margin-bottom: 25px; font-family: var(--font-heading); font-size: 1.8rem;">Оставить заявку</h2>
-            <form id="requestForm">
-                <div style="margin-bottom: 15px;">
-                    <input type="text" placeholder="Ваше имя" style="width: 100%; padding: 12px 15px; background: rgba(201, 169, 110, 0.1); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 4px; color: var(--color-white); font-family: var(--font-body);" required>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <input type="email" placeholder="Ваш email" style="width: 100%; padding: 12px 15px; background: rgba(201, 169, 110, 0.1); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 4px; color: var(--color-white); font-family: var(--font-body);" required>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <input type="tel" placeholder="Ваш телефон" style="width: 100%; padding: 12px 15px; background: rgba(201, 169, 110, 0.1); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 4px; color: var(--color-white); font-family: var(--font-body);" required>
-                </div>
-                <div style="margin-bottom: 15px;">
-                    <textarea placeholder="Описание проекта" style="width: 100%; padding: 12px 15px; background: rgba(201, 169, 110, 0.1); border: 1px solid rgba(201, 169, 110, 0.3); border-radius: 4px; color: var(--color-white); font-family: var(--font-body); min-height: 100px; resize: vertical;"></textarea>
-                </div>
-                <button type="submit" class="btn-hero" style="width: 100%;">
-                    <i class="fas fa-send"></i>
-                    Отправить заявку
-                </button>
-            </form>
-        </div>
+        </form>
     </div>
+</div>
 
     <script>
         (function() {
@@ -2120,13 +2120,6 @@
                 if (e.key === 'Escape') {
                     closeModal();
                 }
-            });
-
-            requestForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Благодарим за заявку! Мы свяжемся с вами в ближайшее время.');
-                closeModal();
-                requestForm.reset();
             });
 
             // Управление мобильным меню
@@ -2281,5 +2274,88 @@
             setTimeout(animateAdvantages, 500);
         })();
     </script>
+    <script>
+// Функция отправки в Битрикс24
+async function submitToBitrix(event) {
+    event.preventDefault();
+    
+    // Ваш веб-хук URL
+    const webhookUrl = 'https://acrois.bitrix24.by/rest/48/nzovg8dicdvrt46e/crm.lead.add.json';
+    
+    // Получаем значения полей
+    const name = document.getElementById('bitrix_name').value;
+    const email = document.getElementById('bitrix_email').value;
+    const phone = document.getElementById('bitrix_phone').value;
+    const comment = document.getElementById('bitrix_comment').value;
+    
+    // Проверяем, что все поля заполнены
+    if (!name || !email || !phone) {
+        alert('Пожалуйста, заполните все обязательные поля');
+        return false;
+    }
+    
+    // Меняем текст кнопки на "Отправка..."
+    const submitBtn = document.getElementById('submitBtn');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+    submitBtn.disabled = true;
+    
+    // Формируем данные для Битрикс24
+    const data = {
+        fields: {
+            TITLE: 'Заявка с сайта Акроис от ' + new Date().toLocaleString('ru-RU'),
+            NAME: name,
+            COMMENTS: comment || 'Без комментария',
+            SOURCE_ID: 'WEB', // Источник - сайт
+            PHONE: [{
+                VALUE: phone,
+                VALUE_TYPE: 'WORK'
+            }],
+            EMAIL: [{
+                VALUE: email,
+                VALUE_TYPE: 'WORK'
+            }]
+        }
+    };
+    
+    try {
+        // Отправляем запрос в Битрикс24
+        const response = await fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+        
+        const result = await response.json();
+        
+        if (result.result) {
+            // Успешно отправлено
+            alert('Спасибо! Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.');
+            
+            // Очищаем форму
+            document.getElementById('requestForm').reset();
+            
+            // Закрываем модальное окно
+            document.getElementById('requestModal').classList.remove('active');
+            document.body.style.overflow = '';
+        } else {
+            // Ошибка от Битрикс24
+            alert('Ошибка при отправке: ' + (result.error_description || 'Неизвестная ошибка'));
+        }
+    } catch (error) {
+        // Ошибка соединения
+        alert('Ошибка соединения. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону.');
+        console.error('Error:', error);
+    } finally {
+        // Возвращаем кнопку в исходное состояние
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }
+    
+    return false;
+}
+</script>
 </body>
 </html>
