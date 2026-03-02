@@ -2274,13 +2274,13 @@
             setTimeout(animateAdvantages, 500);
         })();
     </script>
-    <script>
+<script>
 // Функция отправки в Битрикс24
 async function submitToBitrix(event) {
     event.preventDefault();
     
-    // Ваш веб-хук URL
-    const webhookUrl = 'https://acrois.bitrix24.by/rest/48/nzovg8dicdvrt46e/crm.lead.add.json';
+    // ВАШ НОВЫЙ РАБОЧИЙ ВЕБ-ХУК
+    const webhookUrl = 'https://acrois.bitrix24.by/rest/48/4jm80aydyb3xn1xi/crm.lead.add.json';
     
     // Получаем значения полей
     const name = document.getElementById('bitrix_name').value;
@@ -2293,21 +2293,7 @@ async function submitToBitrix(event) {
         alert('Пожалуйста, заполните все обязательные поля');
         return false;
     }
-    fetch('https://acrois.bitrix24.by/rest/48/nzovg8dicdvrt46e/crm.lead.add.json', {
-  method: 'POST',
-  headers: {'Content-Type': 'application/json'},
-  body: JSON.stringify({
-    fields: {
-      TITLE: 'Тест из консоли',
-      NAME: 'Тест',
-      PHONE: [{VALUE: '123456789', VALUE_TYPE: 'WORK'}],
-      EMAIL: [{VALUE: 'test@test.com', VALUE_TYPE: 'WORK'}]
-    }
-  })
-})
-.then(r => r.json())
-.then(console.log)
-.catch(console.error);
+    
     // Меняем текст кнопки на "Отправка..."
     const submitBtn = document.getElementById('submitBtn');
     const originalText = submitBtn.innerHTML;
@@ -2320,7 +2306,7 @@ async function submitToBitrix(event) {
             TITLE: 'Заявка с сайта Акроис от ' + new Date().toLocaleString('ru-RU'),
             NAME: name,
             COMMENTS: comment || 'Без комментария',
-            SOURCE_ID: 'WEB', // Источник - сайт
+            SOURCE_ID: 'WEB',
             PHONE: [{
                 VALUE: phone,
                 VALUE_TYPE: 'WORK'
@@ -2345,31 +2331,24 @@ async function submitToBitrix(event) {
         const result = await response.json();
         
         if (result.result) {
-            // Успешно отправлено
             alert('Спасибо! Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.');
-            
-            // Очищаем форму
             document.getElementById('requestForm').reset();
-            
-            // Закрываем модальное окно
             document.getElementById('requestModal').classList.remove('active');
             document.body.style.overflow = '';
         } else {
-            // Ошибка от Битрикс24
             alert('Ошибка при отправке: ' + (result.error_description || 'Неизвестная ошибка'));
         }
     } catch (error) {
-        // Ошибка соединения
         alert('Ошибка соединения. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону.');
         console.error('Error:', error);
     } finally {
-        // Возвращаем кнопку в исходное состояние
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
     }
     
     return false;
 }
+</script>
 </script>
 </body>
 </html>
