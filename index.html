@@ -2307,6 +2307,7 @@ async function submitToBitrix(event) {
             NAME: name,
             COMMENTS: comment || 'Без комментария',
             SOURCE_ID: 'WEB',
+             ASSIGNED_BY_ID: 1, 
             PHONE: [{
                 VALUE: phone,
                 VALUE_TYPE: 'WORK'
@@ -2348,7 +2349,6 @@ async function submitToBitrix(event) {
     
     return false;
 }
-</script>
 </script>
 </body>
 </html>
