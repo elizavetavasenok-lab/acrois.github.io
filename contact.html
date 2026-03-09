@@ -437,71 +437,69 @@
         }
         
         .team-photo {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 12px;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
             border-radius: 50%;
-            border: 2px solid var(--color-gold);
+            border: 3px solid var(--color-gold);
             overflow: hidden;
             background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             transition: var(--transition);
         }
         
         .team-card:hover .team-photo {
             border-color: var(--color-gold-light);
             transform: scale(1.05);
+            box-shadow: var(--shadow-gold);
         }
         
-        .team-photo svg {
-            width: 45px;
-            height: 45px;
-            fill: var(--color-gold);
-            opacity: 0.7;
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
         
         .team-card h3 {
             font-family: var(--font-heading);
             font-size: calc(var(--fs-h3) * 0.9);
             color: var(--color-gold);
-            margin-bottom: 3px;
+            margin-bottom: 5px;
             line-height: 1.2;
         }
         
         .team-card .position {
             font-size: var(--fs-small);
             color: var(--color-gold-light);
-            margin-bottom: 8px;
-            opacity: 0.8;
-            font-weight: 300;
+            margin-bottom: 10px;
+            opacity: 0.9;
+            font-weight: 400;
         }
         
         .team-card .phone {
             font-size: var(--fs-small);
             color: var(--color-white);
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
         }
         
         .team-card .phone i {
             color: var(--color-gold);
-            font-size: 10px;
+            font-size: 12px;
         }
         
         .team-card .email {
-            font-size: 10px;
+            font-size: 11px;
             color: var(--color-gold-light);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
             margin-top: 5px;
-            padding: 4px 10px;
+            padding: 6px 12px;
             background: rgba(201, 169, 110, 0.1);
             border-radius: 20px;
             transition: var(--transition);
@@ -513,30 +511,32 @@
         }
         
         .team-card .email i {
-            font-size: 10px;
+            font-size: 11px;
         }
+        
         /* Простой эффект для логотипа - подчеркивание */
-.logo-acrois {
-    display: inline-block;
-    position: relative;
-    text-decoration: none;
-}
+        .logo-acrois {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+        }
 
-.logo-acrois::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #C9A96E; /* Золотой цвет */
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
+        .logo-acrois::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #C9A96E;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
 
-.logo-acrois:hover::after {
-    transform: scaleX(1);
-}
+        .logo-acrois:hover::after {
+            transform: scaleX(1);
+        }
+        
         /* Контактная информация и реквизиты */
         .contact-info-section {
             padding: 80px 0;
@@ -829,6 +829,11 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
+            
+            .team-photo {
+                width: 100px;
+                height: 100px;
+            }
         }
         
         @media (max-width: 992px) {
@@ -945,6 +950,11 @@
             .map-container {
                 height: 300px;
             }
+            
+            .team-photo {
+                width: 120px;
+                height: 120px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -965,6 +975,11 @@
             
             .social-links {
                 justify-content: center;
+            }
+            
+            .team-photo {
+                width: 100px;
+                height: 100px;
             }
         }
     </style>
@@ -987,7 +1002,7 @@
                 <ul class="menu-primary">
                     <li class="menu-item"><a href="about.html" class="menu-link">О компании</a></li>
                     <li class="menu-item"><a href="services.html" class="menu-link">Услуги</a></li>
-                  <li class="menu-item"><a href="projects.html" class="menu-link">Проекты</a></li>
+                    <li class="menu-item"><a href="projects.html" class="menu-link">Проекты</a></li>
                     <li class="menu-item"><a href="quick-buildings.html" class="menu-link">Быстровозводимые здания</a></li>
                     <li class="menu-item"><a href="career.html" class="menu-link">Вакансии</a></li>
                     <li class="menu-item"><a href="contact.html" class="menu-link" style="color: var(--color-gold);">Контакты</a></li>
@@ -1032,9 +1047,7 @@
                     <!-- Директор -->
                     <div class="team-card">
                         <div class="team-photo">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
+                            <img src="images/team/nosik.jpg" alt="Носик Дмитрий Николаевич" loading="lazy">
                         </div>
                         <h3>Носик Дмитрий Николаевич</h3>
                         <div class="position">Руководитель предприятия</div>
@@ -1045,319 +1058,9 @@
                     <!-- Зам Директора -->
                     <div class="team-card">
                         <div class="team-photo">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
+                            <img src="images/team/pats.jpg" alt="Пац Николай Николаевич" loading="lazy">
                         </div>
                         <h3>Пац Николай Николаевич</h3>
                         <div class="position">Заместитель директора</div>
                         <div class="phone"><i class="fas fa-phone"></i> +375 (29) 131-91-81</div>
-                    </div>
-                </div>
-                
-                <!-- Ряд 2: Специалисты (Гл.инженер, Гл.бухгалтер, ПТО, Юрист) -->
-                <div class="team-row-specialists">
-                    <!-- Гл. Инженер -->
-                    <div class="team-card">
-                        <div class="team-photo">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
-                        <h3>Телегин Анатолий Юрьевич</h3>
-                        <div class="position">Главный инженер</div>
-                        <div class="phone"><i class="fas fa-phone"></i> +375 (29) 199-60-14</div>
-                    </div>
-                    
-                    <!-- Гл. Бухгалтер -->
-                    <div class="team-card">
-                        <div class="team-photo">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
-                        <h3>Акинчиц Вероника Николаевна</h3>
-                        <div class="position">Главный бухгалтер</div>
-                        <div class="phone"><i class="fas fa-phone"></i> +375 (44) 777-46-68</div>
-                    </div>
-                    
-                    <!-- ПТО -->
-                    <div class="team-card">
-                        <div class="team-photo">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
-                        <h3>Казацкая Татьяна Федоровна</h3>
-                        <div class="position">ПТО</div>
-                        <div class="phone"><i class="fas fa-phone"></i> +375 (29) 313-88-78</div>
-                    </div>
-                    
-                    <!-- Юрист -->
-                    <div class="team-card">
-                        <div class="team-photo">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
-                        <h3>Бортняк Анастасия Юрьевна</h3>
-                        <div class="position">Юрист</div>
-                        <div class="phone"><i class="fas fa-phone"></i> +375 (33) 695-76-32</div>
-                    </div>
-                </div>
-                
-                <!-- Ряд 3: Остальные (5 человек) -->
-                <div class="team-row-others">
-                    <!-- Снабжение -->
-                    <div class="team-card">
-                        <div class="team-photo">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
-                        <h3>Дрень Олег Александрович</h3>
-                        <div class="position">Снабжение</div>
-                        <div class="phone"><i class="fas fa-phone"></i> +375 (44) 787-30-53</div>
-                        <a href="mailto:vkl2021@mail.ru" class="email"><i class="fas fa-envelope"></i> vkl2021@mail.ru</a>
-                    </div>
-                    
-                    <!-- Прораб 1 -->
-                    <div class="team-card">
-                        <div class="team-photo">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
-                        <h3>Мишуров Юрий Сергеевич</h3>
-                        <div class="position">Прораб</div>
-                        <div class="phone"><i class="fas fa-phone"></i> +375 (29) 668-35-00</div>
-                    </div>
-                    
-                    <!-- Прораб 2 -->
-                    <div class="team-card">
-                        <div class="team-photo">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
-                        <h3>Ларченко Ян Дмитриевич</h3>
-                        <div class="position">Прораб</div>
-                        <div class="phone"><i class="fas fa-phone"></i> +375 (29) 144-28-30</div>
-                    </div>
-                    
-                    <!-- Мастер -->
-                    <div class="team-card">
-                        <div class="team-photo">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
-                        <h3>Гончарик Олег Игоревич</h3>
-                        <div class="position">Мастер</div>
-                        <div class="phone"><i class="fas fa-phone"></i> +375 (44) 719-96-68</div>
-                    </div>
-                    
-                    <!-- Прораб 3 -->
-                    <div class="team-card">
-                        <div class="team-photo">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
-                        <h3>Пастернак Леонид Иосифович</h3>
-                        <div class="position">Прораб</div>
-                        <div class="phone"><i class="fas fa-phone"></i> +375 (29) 377-51-10</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ========== КОНТАКТНАЯ ИНФОРМАЦИЯ И РЕКВИЗИТЫ ========== -->
-            <div class="contact-info-section">
-                <div class="info-grid">
-                    <!-- Левая колонка - Реквизиты -->
-                    <div class="info-block">
-                        <h2><span>Реквизиты компании</span></h2>
-                        
-                        <div class="requisites">
-                            <p><strong>ООО «Акроис»</strong></p>
-                            <p><strong>УНП</strong> 193581962</p>
-                            <p><strong>р/сч</strong> BY92 PJCB 3012 0678 2210 0000 0933</p>
-                            <p><strong>в ЦБУ №101/2 ОАО «Приорбанк»</strong></p>
-                            <p><strong>г. Минск, код</strong> PJCBBY2X</p>
-                            <p><strong>Адрес:</strong> 220019, г. Минск, ул. Монтажников, д. 9, оф. 23</p>
-                            <p><strong>Директор:</strong> Носик Дмитрий Николаевич, действующий на основании устава</p>
-                        </div>
-                        
-                        <a href="files/blank.docx" class="btn-download" download>
-    <i class="fas fa-file-word"></i>
-    Скачать реквизиты
-</a>
-                    </div>
-                    
-                    <!-- Правая колонка - Контакты -->
-                    <div class="info-block">
-                        <h2><span>Контактная информация</span></h2>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                            <div class="contact-text">
-                                <h4>Телефоны</h4>
-                                <p>+375 (44) 787-30-53</p>
-                                <p>+375 (17) 542-26-09</p>
-                                <p>Факс: +375 (17) 227-71-97</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <a href="mailto:acrois21@mail.ru">acrois21@mail.ru</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-clock"></i></div>
-                            <div class="contact-text">
-                                <h4>Режим работы</h4>
-                                <p>Пн-Пт: 8:00 - 17:00</p>
-                                <p>Сб-Вс: выходной</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                            <div class="contact-text">
-                                <h4>Адрес</h4>
-                                <p>220019, г. Минск, ул. Монтажников 9, офис 23</p>
-                            </div>
-                        </div>
-                        
-                        <div class="social-links">
-                            <a href="https://www.instagram.com/acrois.by/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.facebook.com/profile.php?id=61587841702161" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://t.me/+375447291846" target="_blank" class="social-link"><i class="fab fa-telegram-plane"></i></a>
-                            <a href="https://wa.me/375447291846" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
-                            <a href="viber://chat?number=%2B375447291846" target="_blank" class="social-link"><i class="fab fa-viber"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ========== КАРТА ========== -->
-            <div class="map-section">
-                <div class="map-header">
-                    <span class="label">Как нас найти</span>
-                    <h2><span>Мы на карте</span></h2>
-                    <p>220019, г. Минск, ул. Монтажников 9, офис 23</p>
-                </div>
-                
-                <div class="map-container">
-                    <iframe 
-                        src="https://yandex.ru/map-widget/v1/?ll=27.411830,53.871047&z=17&pt=27.411830,53.871047&size=600,450&l=map" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal -->
-    <div class="modal" id="requestModal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
-            <h2 style="margin-bottom: 25px; font-family: var(--font-heading); font-size: var(--fs-h3);">Оставить заявку</h2>
-            <form id="requestForm">
-                <input type="text" placeholder="Ваше имя" required>
-                <input type="email" placeholder="Ваш email" required>
-                <input type="tel" placeholder="Ваш телефон" required>
-                <textarea placeholder="Описание проекта" style="min-height: 100px; resize: vertical;"></textarea>
-                <button type="submit" class="btn-acrois" style="width: 100%;">
-                    <i class="fas fa-send"></i> Отправить заявку
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        (function() {
-            'use strict';
-            
-            // Header scroll effect
-            const acroisHeader = document.getElementById('acroisHeader');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    acroisHeader.classList.add('scrolled');
-                } else {
-                    acroisHeader.classList.remove('scrolled');
-                }
-            });
-
-            // Mobile menu
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            const mainNavigation = document.getElementById('mainNavigation');
-            
-            mobileMenuToggle.addEventListener('click', function() {
-                mainNavigation.classList.toggle('active');
-                mobileMenuToggle.innerHTML = mainNavigation.classList.contains('active') 
-                    ? '<i class="fas fa-times"></i>' 
-                    : '<i class="fas fa-bars"></i>';
-                document.body.style.overflow = mainNavigation.classList.contains('active') ? 'hidden' : '';
-            });
-
-            // Close menu on link click
-            document.querySelectorAll('.menu-link').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    mainNavigation.classList.remove('active');
-                    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                    document.body.style.overflow = '';
-                });
-            });
-
-            // Modal
-            const requestModal = document.getElementById('requestModal');
-            const openModalBtn = document.getElementById('openModal');
-            const closeModalBtn = document.getElementById('closeModal');
-            const requestForm = document.getElementById('requestForm');
-
-            function openModal() {
-                requestModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeModal() {
-                requestModal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-
-            if (openModalBtn) {
-                openModalBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openModal();
-                });
-            }
-
-            if (closeModalBtn) {
-                closeModalBtn.addEventListener('click', closeModal);
-            }
-            
-            requestModal.addEventListener('click', function(e) {
-                if (e.target === requestModal) closeModal();
-            });
-
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') closeModal();
-            });
-
-            if (requestForm) {
-                requestForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Благодарим за заявку! Мы свяжемся с вами в ближайшее время.');
-                    closeModal();
-                    requestForm.reset();
-                });
-            }
-        })();
-    </script>
-</body>
-</html>
+                   
