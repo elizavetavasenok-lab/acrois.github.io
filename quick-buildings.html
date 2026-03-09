@@ -493,6 +493,8 @@
         .partner-card:nth-child(3) { transition-delay: 0.3s; }
         .partner-card:nth-child(4) { transition-delay: 0.4s; }
         .partner-card:nth-child(5) { transition-delay: 0.5s; }
+        .partner-card:nth-child(6) { transition-delay: 0.6s; }
+        .partner-card:nth-child(7) { transition-delay: 0.7s; }
         
         .partner-card:hover {
             transform: translateY(-10px);
@@ -699,28 +701,30 @@
         .gallery-nav.next {
             right: 20px;
         }
+        
         /* Простой эффект для логотипа - подчеркивание */
-.logo-acrois {
-    display: inline-block;
-    position: relative;
-    text-decoration: none;
-}
+        .logo-acrois {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+        }
 
-.logo-acrois::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #C9A96E; /* Золотой цвет */
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
+        .logo-acrois::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #C9A96E;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
 
-.logo-acrois:hover::after {
-    transform: scaleX(1);
-}
+        .logo-acrois:hover::after {
+            transform: scaleX(1);
+        }
+        
         /* Калькулятор */
         .calculator-section {
             padding: 80px 0;
@@ -1280,7 +1284,7 @@
                 <ul class="menu-primary">
                     <li class="menu-item"><a href="about.html" class="menu-link">О компании</a></li>
                     <li class="menu-item"><a href="services.html" class="menu-link">Услуги</a></li>
-       <li class="menu-item"><a href="projects.html" class="menu-link">Проекты</a></li>
+                    <li class="menu-item"><a href="projects.html" class="menu-link">Проекты</a></li>
                     <li class="menu-item"><a href="quick-buildings.html" class="menu-link" style="color: var(--color-gold);">Быстровозводимые здания</a></li>
                     <li class="menu-item"><a href="career.html" class="menu-link">Вакансии</a></li>
                     <li class="menu-item"><a href="contact.html" class="menu-link">Контакты</a></li>
@@ -1309,10 +1313,10 @@
             <div class="about-hero">
                 <span class="label">Быстровозводимые здания</span>
                 <h1>
-                    <span class="gold-gradient">Строительство быстровозводимых</span> зданий и сооружений
+                    <span class="gold-gradient">Строительство быстровозводимых зданий:</span> технологическое преимущество и финансовая гибкость
                 </h1>
                 <p class="subtitle">
-                    Полный цикл работ от генподрядчика: от проектирования до монтажа металлоконструкций и сэндвич-панелей
+                    Для современного бизнеса скорость запуска объекта напрямую влияет на возврат инвестиций. В этом разделе мы представляем решения по возведению складских, производственных и административных комплексов из металлоконструкций и сэндвич-панелей, где высокая скорость строительства сочетается с оптимизацией вашего бюджета.
                 </p>
             </div>
 
@@ -1323,8 +1327,8 @@
                     <div class="benefit-item" id="benefit1">
                         <div class="benefit-card">
                             <div class="benefit-number">01</div>
-                            <h3>Экономия до 30-40%</h3>
-                            <p>В отличие от конкурентов, мы используем собственный штат (прорабы, монтажники) и свою спецтехнику, что значительно снижает конечную стоимость монтажа.</p>
+                            <h3>Собственный штат экспертов</h3>
+                            <p>В компании работает постоянный коллектив из более чем 40 квалифицированных специалистов. Мы не привлекаем сторонние бригады, что исключает ошибки монтажа и гарантирует стабильное качество на каждом этапе.</p>
                         </div>
                     </div>
                     
@@ -1332,8 +1336,8 @@
                     <div class="benefit-item" id="benefit2">
                         <div class="benefit-card">
                             <div class="benefit-number">02</div>
-                            <h3>Прямые поставки и дисконт</h3>
-                            <p>Работа напрямую с заводами-изготовителями дает нам дилерские скидки на основные материалы, которыми мы делимся с клиентом.</p>
+                            <h3>Полная техническая независимость</h3>
+                            <p>На нашем балансе находится собственная строительная база, спецтехника и оборудование (включая новые экскаваторы-погрузчики YUCHAI 2024 г.в., автокраны и подъемники). Это позволяет нам исключить из сметы расходы на аренду сторонней техники и посреднические наценки.</p>
                         </div>
                     </div>
                     
@@ -1341,8 +1345,8 @@
                     <div class="benefit-item" id="benefit3">
                         <div class="benefit-card">
                             <div class="benefit-number">03</div>
-                            <h3>Отсрочка платежа</h3>
-                            <p>Благодаря доверию поставщиков, мы готовы предлагать клиентам гибкие финансовые условия и отсрочку платежа на несколько месяцев.</p>
+                            <h3>Прямые контракты с производителями</h3>
+                            <p>Являясь партнерами ключевых заводов (металлоконструкции, сэндвич-панели, бетон), мы обеспечиваем оперативную поставку материалов по оптимальным ценам.</p>
                         </div>
                     </div>
                     
@@ -1350,8 +1354,10 @@
                     <div class="benefit-item" id="benefit4">
                         <div class="benefit-card">
                             <div class="benefit-number">04</div>
-                            <h3>Сжатые сроки</h3>
-                            <p>Налаженные процессы и постоянные партнеры позволяют выходить на объект и завершать его быстрее рынка.</p>
+                            <h3>Индивидуальные условия для наших партнеров</h3>
+                            <p>Мы нацелены на долгосрочное сотрудничество, поэтому фраза «любой заказчик сегодня — партнер завтра» является для нас фундаментальной.</p>
+                            <p style="margin-top: 10px;"><strong>Гибкое ценообразование:</strong> Расчет стоимости производится индивидуально, исходя из специфики и объема вашего проекта.</p>
+                            <p><strong>Рассрочка платежа:</strong> Мы готовы обсуждать отсрочку или рассрочку платежа за выполненные строительно-монтажные работы на срок от 3 до 6 месяцев.</p>
                         </div>
                     </div>
                 </div>
@@ -1417,6 +1423,28 @@
                         <div class="partner-info">
                             <h3>АРМЕТ</h3>
                             <p>Поставка металла и арматуры с гарантией качества</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Металл Профиль (НОВЫЙ) -->
+                    <div class="partner-card" id="partner6">
+                        <div class="partner-logo-wrapper">
+                            <img src="images/partners/metalprofil.png" alt="Металл Профиль" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <h3>МЕТАЛЛ ПРОФИЛЬ</h3>
+                            <p>Производитель №1 профнастила, металлочерепицы, сэндвич-панелей</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ЭЛИТЕВРОСТРОЙ (НОВЫЙ) -->
+                    <div class="partner-card" id="partner7">
+                        <div class="partner-logo-wrapper">
+                            <img src="images/partners/elitevrostroy.png" alt="ЭЛИТЕВРОСТРОЙ" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <h3>ЭЛИТЕВРОСТРОЙ</h3>
+                            <p>Оптово-розничные продажи отделочных и строительных материалов в Республике Беларусь</p>
                         </div>
                     </div>
                 </div>
@@ -1550,7 +1578,7 @@
                     <p>Собственная база техники и более 13 лет безупречной репутации</p>
                 </div>
                 
-                 <div class="footer-col">
+                <div class="footer-col">
                     <h3>Контакты</h3>
                     <a href="tel:+375293459345"><i class="fas fa-phone" style="margin-right: 8px;"></i> +375 (29) 345-9-345</a>
                     <a href="tel:+375291996014"><i class="fas fa-phone" style="margin-right: 8px;"></i> +375 (29) 199-60-14</a>
@@ -1588,13 +1616,13 @@
         <div class="modal-content">
             <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
             <h2 style="margin-bottom: 25px; font-family: var(--font-heading); font-size: var(--fs-h3);">Оставить заявку</h2>
-            <form id="requestForm">
-                <input type="text" placeholder="Ваше имя" required>
-                <input type="email" placeholder="Ваш email" required>
-                <input type="tel" placeholder="Ваш телефон" required>
-                <textarea placeholder="Описание проекта" style="min-height: 100px; resize: vertical;"></textarea>
-                <button type="submit" class="btn-acrois" style="width: 100%;">
-                    <i class="fas fa-send"></i> Отправить заявку
+            <form id="requestForm" onsubmit="return submitToBitrix(event)">
+                <input type="text" id="bitrix_name" placeholder="Ваше имя" required>
+                <input type="email" id="bitrix_email" placeholder="Ваш email" required>
+                <input type="tel" id="bitrix_phone" placeholder="Ваш телефон" required>
+                <textarea id="bitrix_comment" placeholder="Описание проекта" style="min-height: 100px; resize: vertical;"></textarea>
+                <button type="submit" class="btn-acrois" style="width: 100%;" id="submitBtn">
+                    <i class="fas fa-paper-plane"></i> Отправить заявку
                 </button>
             </form>
         </div>
@@ -1669,15 +1697,6 @@
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') closeModal();
             });
-
-            if (requestForm) {
-                requestForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Благодарим за заявку! Мы свяжемся с вами в ближайшее время.');
-                    closeModal();
-                    requestForm.reset();
-                });
-            }
 
             // Калькулятор
             function calculatePrice() {
@@ -1803,6 +1822,83 @@
                 observer.observe(el);
             });
         })();
+    </script>
+
+    <script>
+    // Функция отправки в Битрикс24
+    async function submitToBitrix(event) {
+        event.preventDefault();
+        
+        // ВАШ РАБОЧИЙ ВЕБ-ХУК
+        const webhookUrl = 'https://acrois.bitrix24.by/rest/48/4jm80aydyb3xn1xi/crm.lead.add.json';
+        
+        // Получаем значения полей
+        const name = document.getElementById('bitrix_name').value;
+        const email = document.getElementById('bitrix_email').value;
+        const phone = document.getElementById('bitrix_phone').value;
+        const comment = document.getElementById('bitrix_comment').value;
+        
+        // Проверяем, что все поля заполнены
+        if (!name || !email || !phone) {
+            alert('Пожалуйста, заполните все обязательные поля');
+            return false;
+        }
+        
+        // Меняем текст кнопки на "Отправка..."
+        const submitBtn = document.getElementById('submitBtn');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+        submitBtn.disabled = true;
+        
+        // Формируем данные для Битрикс24
+        const data = {
+            fields: {
+                TITLE: 'Заявка с сайта Акроис (Быстровозводимые здания) от ' + new Date().toLocaleString('ru-RU'),
+                NAME: name,
+                COMMENTS: comment || 'Без комментария',
+                SOURCE_ID: 'WEB',
+                ASSIGNED_BY_ID: 1,
+                PHONE: [{
+                    VALUE: phone,
+                    VALUE_TYPE: 'WORK'
+                }],
+                EMAIL: [{
+                    VALUE: email,
+                    VALUE_TYPE: 'WORK'
+                }]
+            }
+        };
+        
+        try {
+            // Отправляем запрос в Битрикс24
+            const response = await fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+            
+            const result = await response.json();
+            
+            if (result.result) {
+                alert('Спасибо! Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.');
+                document.getElementById('requestForm').reset();
+                document.getElementById('requestModal').classList.remove('active');
+                document.body.style.overflow = '';
+            } else {
+                alert('Ошибка при отправке: ' + (result.error_description || 'Неизвестная ошибка'));
+            }
+        } catch (error) {
+            alert('Ошибка соединения. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону.');
+            console.error('Error:', error);
+        } finally {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
+        
+        return false;
+    }
     </script>
 </body>
 </html>
