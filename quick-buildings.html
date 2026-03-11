@@ -41,7 +41,6 @@
             --font-heading: 'Cormorant Garamond', serif;
             --font-body: 'Manrope', sans-serif;
             
-            /* Единые размеры шрифтов */
             --fs-h1: 4rem;
             --fs-h2: 2.4rem;
             --fs-h3: 1.8rem;
@@ -71,7 +70,7 @@
             font-size: var(--fs-body);
         }
         
-        /* ========== HEADER SECTION ========== */
+        /* ========== HEADER ========== */
         .acrois-header {
             position: fixed;
             top: 0;
@@ -308,6 +307,28 @@
             transform: translateY(-2px);
         }
         
+        .logo-acrois {
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .logo-acrois::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #C9A96E;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-acrois:hover::after {
+            transform: scaleX(1);
+        }
+        
         /* ========== QUICK BUILDINGS PAGE ========== */
         .page-quick-buildings {
             padding-top: 120px;
@@ -323,7 +344,6 @@
             padding: 0 20px;
         }
         
-        /* Hero секция */
         .about-hero {
             padding: 60px 0 80px;
             border-bottom: 1px solid rgba(201, 169, 110, 0.1);
@@ -365,7 +385,6 @@
             margin-top: 20px;
         }
         
-        /* Преимущества */
         .benefits-section {
             padding: 80px 0;
             border-bottom: 1px solid rgba(201, 169, 110, 0.1);
@@ -452,7 +471,6 @@
             line-height: 1.7;
         }
         
-        /* Партнеры */
         .partners-section {
             padding: 80px 0;
             border-bottom: 1px solid rgba(201, 169, 110, 0.1);
@@ -554,7 +572,6 @@
             line-height: 1.6;
         }
         
-        /* ГАЛЕРЕЯ */
         .gallery-section {
             padding: 80px 0;
             border-bottom: 1px solid rgba(201, 169, 110, 0.1);
@@ -702,30 +719,6 @@
             right: 20px;
         }
         
-        /* Простой эффект для логотипа - подчеркивание */
-        .logo-acrois {
-            display: inline-block;
-            position: relative;
-            text-decoration: none;
-        }
-
-        .logo-acrois::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: #C9A96E;
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .logo-acrois:hover::after {
-            transform: scaleX(1);
-        }
-        
-        /* Калькулятор */
         .calculator-section {
             padding: 80px 0;
             border-bottom: 1px solid rgba(201, 169, 110, 0.1);
@@ -930,7 +923,6 @@
             border-top: 1px solid rgba(201, 169, 110, 0.1);
         }
         
-        /* ========== FOOTER ========== */
         .footer {
             background: #0a0a0a;
             padding: 60px 0 30px;
@@ -1011,7 +1003,6 @@
             opacity: 0.7;
         }
         
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -1083,7 +1074,6 @@
             margin-bottom: 15px;
         }
         
-        /* Адаптивность */
         @media (max-width: 1200px) {
             :root {
                 --fs-h1: 3.5rem;
@@ -1267,7 +1257,6 @@
     </style>
 </head>
 <body>
-    <!-- ========== HEADER ========== -->
     <header class="acrois-header" id="acroisHeader">
         <div class="header-container">
             <a href="index.html" class="logo-acrois">
@@ -1306,10 +1295,8 @@
         </div>
     </header>
 
-    <!-- ========== QUICK BUILDINGS PAGE ========== -->
     <section class="page-quick-buildings">
         <div class="about-container">
-            <!-- Hero секция -->
             <div class="about-hero">
                 <span class="label">Быстровозводимые здания</span>
                 <h1>
@@ -1320,10 +1307,8 @@
                 </p>
             </div>
 
-            <!-- Преимущества -->
             <div class="benefits-section">
                 <div class="benefits-grid">
-                    <!-- Преимущество 1 -->
                     <div class="benefit-item" id="benefit1">
                         <div class="benefit-card">
                             <div class="benefit-number">01</div>
@@ -1332,7 +1317,6 @@
                         </div>
                     </div>
                     
-                    <!-- Преимущество 2 -->
                     <div class="benefit-item" id="benefit2">
                         <div class="benefit-card">
                             <div class="benefit-number">02</div>
@@ -1341,7 +1325,6 @@
                         </div>
                     </div>
                     
-                    <!-- Преимущество 3 -->
                     <div class="benefit-item" id="benefit3">
                         <div class="benefit-card">
                             <div class="benefit-number">03</div>
@@ -1350,7 +1333,6 @@
                         </div>
                     </div>
                     
-                    <!-- Преимущество 4 -->
                     <div class="benefit-item" id="benefit4">
                         <div class="benefit-card">
                             <div class="benefit-number">04</div>
@@ -1363,94 +1345,85 @@
                 </div>
             </div>
 
-           <!-- Партнеры -->
-<div class="partners-section">
-    <div class="section-header">
-        <span class="label">Партнеры</span>
-        <h2><span>Наши технологические партнеры</span></h2>
-    </div>
-    
-    <div class="partners-grid">
-        <!-- Рекламика Строй -->
-        <div class="partner-card" id="partner1">
-            <div class="partner-logo-wrapper">
-                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/27-e1772214141975.png" alt="Рекламика Строй" class="partner-logo">
+            <div class="partners-section">
+                <div class="section-header">
+                    <span class="label">Партнеры</span>
+                    <h2><span>Наши технологические партнеры</span></h2>
+                </div>
+                
+                <div class="partners-grid">
+                    <div class="partner-card" id="partner1">
+                        <div class="partner-logo-wrapper">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/27-e1772214141975.png" alt="Рекламика Строй" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <h3>РЕКЛАМИКА СТРОЙ</h3>
+                            <p>Производитель металлоконструкций — надежность и качество в каждом проекте</p>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card" id="partner2">
+                        <div class="partner-logo-wrapper">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/9-e1772213691916.png" alt="ЭкоПромПанель" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <h3>ЭКОПРОМПАНЕЛЬ</h3>
+                            <p>Белорусские сэндвич-панели — оптимальное решение для быстровозводимых зданий</p>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card" id="partner3">
+                        <div class="partner-logo-wrapper">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/11-e1772213745332.png" alt="VINSERA" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <h3>VINSERA</h3>
+                            <p>Ворота и комплектующие для современных промышленных объектов</p>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card" id="partner4">
+                        <div class="partner-logo-wrapper">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/24-e1772214062443.png" alt="VistaТехно" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <h3>VISTAТЕХНО</h3>
+                            <p>Надежный поставщик бетона для фундаментов любой сложности</p>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card" id="partner5">
+                        <div class="partner-logo-wrapper">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/20-e1772213960165.png" alt="АРМЕТ" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <h3>АРМЕТ</h3>
+                            <p>Поставка металла и арматуры с гарантией качества</p>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card" id="partner6">
+                        <div class="partner-logo-wrapper">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/03/32-1-e1773082305330.png" alt="Металл Профиль" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <h3>МЕТАЛЛ ПРОФИЛЬ</h3>
+                            <p>Производитель №1 профнастила, металлочерепицы, сэндвич-панелей</p>
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card" id="partner7">
+                        <div class="partner-logo-wrapper">
+                            <img src="https://ecmonstroy.by/wp-content/uploads/2026/03/jhvjh-e1773082243642.png" alt="ЭЛИТЕВРОСТРОЙ" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <h3>ЭЛИТЕВРОСТРОЙ</h3>
+                            <p>Оптово-розничные продажи отделочных и строительных материалов в Республике Беларусь</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="partner-info">
-                <h3>РЕКЛАМИКА СТРОЙ</h3>
-                <p>Производитель металлоконструкций — надежность и качество в каждом проекте</p>
-            </div>
-        </div>
-        
-        <!-- ЭкоПромПанель -->
-        <div class="partner-card" id="partner2">
-            <div class="partner-logo-wrapper">
-                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/9-e1772213691916.png" alt="ЭкоПромПанель" class="partner-logo">
-            </div>
-            <div class="partner-info">
-                <h3>ЭКОПРОМПАНЕЛЬ</h3>
-                <p>Белорусские сэндвич-панели — оптимальное решение для быстровозводимых зданий</p>
-            </div>
-        </div>
-        
-        <!-- VINSERA -->
-        <div class="partner-card" id="partner3">
-            <div class="partner-logo-wrapper">
-                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/11-e1772213745332.png" alt="VINSERA" class="partner-logo">
-            </div>
-            <div class="partner-info">
-                <h3>VINSERA</h3>
-                <p>Ворота и комплектующие для современных промышленных объектов</p>
-            </div>
-        </div>
-        
-        <!-- VistaТехно -->
-        <div class="partner-card" id="partner4">
-            <div class="partner-logo-wrapper">
-                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/24-e1772214062443.png" alt="VistaТехно" class="partner-logo">
-            </div>
-            <div class="partner-info">
-                <h3>VISTAТЕХНО</h3>
-                <p>Надежный поставщик бетона для фундаментов любой сложности</p>
-            </div>
-        </div>
-        
-        <!-- АРМЕТ -->
-        <div class="partner-card" id="partner5">
-            <div class="partner-logo-wrapper">
-                <img src="https://ecmonstroy.by/wp-content/uploads/2026/02/20-e1772213960165.png" alt="АРМЕТ" class="partner-logo">
-            </div>
-            <div class="partner-info">
-                <h3>АРМЕТ</h3>
-                <p>Поставка металла и арматуры с гарантией качества</p>
-            </div>
-        </div>
-        
-        <!-- Металл Профиль (НОВЫЙ) -->
-        <div class="partner-card" id="partner6">
-            <div class="partner-logo-wrapper">
-                <img src="https://ecmonstroy.by/wp-content/uploads/2026/03/32-1-e1773082305330.png" alt="Металл Профиль" class="partner-logo">
-            </div>
-            <div class="partner-info">
-                <h3>МЕТАЛЛ ПРОФИЛЬ</h3>
-                <p>Производитель №1 профнастила, металлочерепицы, сэндвич-панелей</p>
-            </div>
-        </div>
-        
-        <!-- ЭЛИТЕВРОСТРОЙ (НОВЫЙ) -->
-        <div class="partner-card" id="partner7">
-            <div class="partner-logo-wrapper">
-                <img src="https://ecmonstroy.by/wp-content/uploads/2026/03/jhvjh-e1773082243642.png" alt="ЭЛИТЕВРОСТРОЙ" class="partner-logo">
-            </div>
-            <div class="partner-info">
-                <h3>ЭЛИТЕВРОСТРОЙ</h3>
-                <p>Оптово-розничные продажи отделочных и строительных материалов в Республике Беларусь</p>
-            </div>
-        </div>
-    </div>
-</div>
 
-            <!-- ГАЛЕРЕЯ -->
             <div class="gallery-section">
                 <div class="gallery-header">
                     <span class="label">Портфолио</span>
@@ -1489,7 +1462,7 @@
                 </div>
             </div>
 
-            <!-- Калькулятор -->
+            <!-- Калькулятор с обновленной логикой -->
             <div class="calculator-section">
                 <div class="section-header">
                     <span class="label">Калькулятор</span>
@@ -1518,21 +1491,33 @@
                         </div>
                         
                         <div class="input-group">
-                            <label>Толщина сэндвич-панелей</label>
-                            <select id="thickness">
-                                <option value="100">100 мм (стены)</option>
-                                <option value="150" selected>150 мм (стены/кровля)</option>
-                                <option value="200">200 мм (кровля)</option>
-                                <option value="250">250 мм (холодильные камеры)</option>
+                            <label>Тип фундамента</label>
+                            <select id="foundation">
+                                <option value="column">Столбчатый (стаканного типа) - коэф. 1.0</option>
+                                <option value="pile" selected>Свайно-ростверковый - коэф. 1.1</option>
+                                <option value="strip">Ленточный - коэф. 1.2</option>
+                                <option value="slab">Плитный - коэф. 1.3</option>
                             </select>
                         </div>
                         
                         <div class="input-group">
-                            <label>Тип фундамента</label>
-                            <select id="foundation">
-                                <option value="1.3">Плитный</option>
-                                <option value="1.0" selected>Ростверковый</option>
-                                <option value="0.9">Стаканного типа</option>
+                            <label>Толщина сэндвич-панелей (стены/кровля)</label>
+                            <select id="thickness">
+                                <option value="80">80-100 мм / без кровли - коэф. 0.85</option>
+                                <option value="100" selected>80-100 мм / 150 мм - коэф. 1.0</option>
+                                <option value="150">120-150 мм / 200 мм - коэф. 1.2</option>
+                                <option value="200">200 мм / 250 мм (холодильные) - коэф. 1.4</option>
+                            </select>
+                        </div>
+                        
+                        <!-- НОВОЕ ПОЛЕ: Удаленность -->
+                        <div class="input-group">
+                            <label>Удаленность от Минска (км)</label>
+                            <select id="distance">
+                                <option value="30" selected>до 30 км - коэф. 1.0</option>
+                                <option value="100">до 100 км - коэф. 1.05</option>
+                                <option value="300">до 300 км - коэф. 1.1</option>
+                                <option value="500">свыше 300 км - коэф. 1.15</option>
                             </select>
                         </div>
                     </div>
@@ -1545,22 +1530,40 @@
                         
                         <div class="result-details">
                             <div class="result-detail-item">
-                                <span>Цена за м²:</span>
-                                <span id="pricePerM2">$ 550</span>
+                                <span>Базовая цена за м²:</span>
+                                <span id="pricePerM2">$ 500</span>
                             </div>
                             <div class="result-detail-item">
                                 <span>Коэф. фундамента:</span>
-                                <span id="foundationFactor">1.0</span>
+                                <span id="foundationFactor">1.1</span>
+                            </div>
+                            <div class="result-detail-item">
+                                <span>Коэф. габаритов:</span>
+                                <span id="sizeFactor">0.9</span>
+                            </div>
+                            <div class="result-detail-item">
+                                <span>Коэф. толщины:</span>
+                                <span id="thicknessFactor">1.0</span>
                             </div>
                             <div class="result-detail-item">
                                 <span>Коэф. высоты:</span>
                                 <span id="heightFactor">1.0</span>
                             </div>
+                            <!-- НОВОЕ: отображение коэффициента удаленности -->
+                            <div class="result-detail-item">
+                                <span>Коэф. удаленности:</span>
+                                <span id="distanceFactor">1.0</span>
+                            </div>
+                            <div class="result-detail-item" style="border-top: 1px solid rgba(201,169,110,0.3); margin-top: 8px; padding-top: 8px;">
+                                <span>Всего комбинаций:</span>
+                                <span id="totalCombinations">4×3×4×4×3 = 576</span>
+                            </div>
                         </div>
                         
                         <button class="btn-calc" id="getCalculation">Получить точный расчет</button>
                         <div class="price-note">
-                            * Стоимость является ориентировочной. Итоговая цена зависит от цвета панелей, толщины металла, сложности фундамента и инженерных сетей.
+                            * Стоимость является ориентировочной. Итоговая цена зависит от цвета панелей, толщины металла, сложности фундамента и инженерных сетей.<br>
+                            <strong>Базовая цена: 500 у.е./м² (без инженерных сетей, ворот, дверей, окон)</strong>
                         </div>
                     </div>
                 </div>
@@ -1568,7 +1571,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-grid">
@@ -1632,7 +1634,6 @@
         (function() {
             'use strict';
             
-            // Header scroll effect
             const acroisHeader = document.getElementById('acroisHeader');
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
@@ -1642,7 +1643,6 @@
                 }
             });
 
-            // Mobile menu
             const mobileMenuToggle = document.getElementById('mobileMenuToggle');
             const mainNavigation = document.getElementById('mainNavigation');
             
@@ -1654,7 +1654,6 @@
                 document.body.style.overflow = mainNavigation.classList.contains('active') ? 'hidden' : '';
             });
 
-            // Close menu on link click
             document.querySelectorAll('.menu-link').forEach(function(link) {
                 link.addEventListener('click', function() {
                     mainNavigation.classList.remove('active');
@@ -1663,11 +1662,9 @@
                 });
             });
 
-            // Modal
             const requestModal = document.getElementById('requestModal');
             const openModalBtn = document.getElementById('openModal');
             const closeModalBtn = document.getElementById('closeModal');
-            const requestForm = document.getElementById('requestForm');
 
             function openModal() {
                 requestModal.classList.add('active');
@@ -1698,62 +1695,76 @@
                 if (e.key === 'Escape') closeModal();
             });
 
-            // Калькулятор
+            // ОБНОВЛЕННАЯ функция калькулятора
             function calculatePrice() {
+                const BASE_PRICE = 500;
+                
                 const length = parseFloat(document.getElementById('length').value) || 1;
                 const width = parseFloat(document.getElementById('width').value) || 1;
-                const height = parseFloat(document.getElementById('height').value) || 1;
-                const thickness = parseFloat(document.getElementById('thickness').value) || 150;
-                const foundation = parseFloat(document.getElementById('foundation').value) || 1.0;
+                const height = parseFloat(document.getElementById('height').value) || 6;
+                const distance = parseFloat(document.getElementById('distance').value) || 30;
                 
                 const area = length * width;
-                const perimeter = 2 * (length + width);
-                
                 document.getElementById('estimatedArea').textContent = `Площадь: ${area.toFixed(0)} м²`;
-                document.getElementById('foundationFactor').textContent = foundation.toFixed(1);
                 
-                let basePricePerM2 = 0;
-                if (area < 500) {
-                    basePricePerM2 = 650;
-                } else if (area < 1000) {
-                    basePricePerM2 = 550;
-                } else if (area < 2000) {
-                    basePricePerM2 = 450;
-                } else if (area < 5000) {
-                    basePricePerM2 = 380;
-                } else if (area < 10000) {
-                    basePricePerM2 = 330;
-                } else {
-                    basePricePerM2 = 300;
-                }
+                // Коэффициент фундамента
+                const foundationType = document.getElementById('foundation').value;
+                let foundationFactor = 1.0;
+                if (foundationType === 'column') foundationFactor = 1.0;
+                else if (foundationType === 'pile') foundationFactor = 1.1;
+                else if (foundationType === 'strip') foundationFactor = 1.2;
+                else if (foundationType === 'slab') foundationFactor = 1.3;
+                document.getElementById('foundationFactor').textContent = foundationFactor.toFixed(1);
                 
+                // Коэффициент габаритов
+                let sizeFactor = 1.0;
+                if (area < 200) sizeFactor = 1.0;
+                else if (area <= 1000) sizeFactor = 0.9;
+                else sizeFactor = 0.8;
+                document.getElementById('sizeFactor').textContent = sizeFactor.toFixed(1);
+                
+                // Коэффициент толщины
+                const thicknessValue = parseInt(document.getElementById('thickness').value);
+                let thicknessFactor = 1.0;
+                if (thicknessValue <= 100) thicknessFactor = 0.85;
+                else if (thicknessValue <= 150) thicknessFactor = 1.0;
+                else if (thicknessValue <= 200) thicknessFactor = 1.2;
+                else thicknessFactor = 1.4;
+                document.getElementById('thicknessFactor').textContent = thicknessFactor.toFixed(2);
+                
+                // Коэффициент высоты
                 let heightFactor = 1.0;
-                if (height > 10) {
-                    heightFactor = 1.4;
-                } else if (height > 8) {
-                    heightFactor = 1.25;
-                } else if (height > 6) {
-                    heightFactor = 1.15;
-                } else if (height > 4) {
-                    heightFactor = 1.05;
-                }
+                if (height <= 6) heightFactor = 1.0;
+                else if (height <= 8) heightFactor = 1.1;
+                else if (height <= 10) heightFactor = 1.15;
+                else if (height <= 12) heightFactor = 1.2;
+                else heightFactor = 1.25;
                 document.getElementById('heightFactor').textContent = heightFactor.toFixed(2);
                 
-                const thicknessFactor = thickness / 100;
-                const complexityFactor = 1 + (perimeter / area) * 0.1;
+                // НОВЫЙ коэффициент удаленности
+                let distanceFactor = 1.0;
+                if (distance <= 30) distanceFactor = 1.0;
+                else if (distance <= 100) distanceFactor = 1.05;
+                else if (distance <= 300) distanceFactor = 1.1;
+                else distanceFactor = 1.15;
+                document.getElementById('distanceFactor').textContent = distanceFactor.toFixed(2);
                 
-                const totalPrice = area * basePricePerM2 * heightFactor * thicknessFactor * foundation * complexityFactor;
+                // ИТОГОВЫЙ РАСЧЕТ
+                const totalPrice = BASE_PRICE * area * foundationFactor * sizeFactor * thicknessFactor * heightFactor * distanceFactor;
                 const roundedPrice = Math.round(totalPrice / 1000) * 1000;
                 
                 document.getElementById('estimatedPrice').textContent = roundedPrice.toLocaleString('ru-RU');
-                document.getElementById('pricePerM2').textContent = `$ ${Math.round(basePricePerM2).toLocaleString('ru-RU')}`;
+                document.getElementById('pricePerM2').textContent = `$ ${BASE_PRICE}`;
+                document.getElementById('totalCombinations').textContent = `4×3×4×4×3 = 576`;
             }
             
+            // Обработчики событий
             document.getElementById('length').addEventListener('input', calculatePrice);
             document.getElementById('width').addEventListener('input', calculatePrice);
             document.getElementById('height').addEventListener('input', calculatePrice);
             document.getElementById('thickness').addEventListener('change', calculatePrice);
             document.getElementById('foundation').addEventListener('change', calculatePrice);
+            document.getElementById('distance').addEventListener('change', calculatePrice); // НОВЫЙ обработчик
             
             calculatePrice();
             
@@ -1804,7 +1815,6 @@
                 });
             }
 
-            // Анимация появления при скролле
             const observerOptions = {
                 threshold: 0.2,
                 rootMargin: '0px 0px -50px 0px'
@@ -1825,32 +1835,26 @@
     </script>
 
     <script>
-    // Функция отправки в Битрикс24
     async function submitToBitrix(event) {
         event.preventDefault();
         
-        // ВАШ РАБОЧИЙ ВЕБ-ХУК
         const webhookUrl = 'https://acrois.bitrix24.by/rest/48/4jm80aydyb3xn1xi/crm.lead.add.json';
         
-        // Получаем значения полей
         const name = document.getElementById('bitrix_name').value;
         const email = document.getElementById('bitrix_email').value;
         const phone = document.getElementById('bitrix_phone').value;
         const comment = document.getElementById('bitrix_comment').value;
         
-        // Проверяем, что все поля заполнены
         if (!name || !email || !phone) {
             alert('Пожалуйста, заполните все обязательные поля');
             return false;
         }
         
-        // Меняем текст кнопки на "Отправка..."
         const submitBtn = document.getElementById('submitBtn');
         const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
         submitBtn.disabled = true;
         
-        // Формируем данные для Битрикс24
         const data = {
             fields: {
                 TITLE: 'Заявка с сайта Акроис (Быстровозводимые здания) от ' + new Date().toLocaleString('ru-RU'),
@@ -1870,7 +1874,6 @@
         };
         
         try {
-            // Отправляем запрос в Битрикс24
             const response = await fetch(webhookUrl, {
                 method: 'POST',
                 headers: {
